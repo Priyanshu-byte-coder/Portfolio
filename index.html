@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Priyanshu Doshi - Portfolio</title>
+    <link rel="stylesheet" href="styles.css"> <!-- Link to your CSS file -->
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-zMgM5cDlQJglzCDEh5mxSTu2bP8kguMO0inFd6oWfAaX1+gS4P/QPt8/2z3N+/z8p4+SHu6B9klCr1I5mVKxig==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    
+</head>
+<body>
+    <!-- Loading screen -->
+    <div class="loading-screen">
+        <div class="loader"></div>
+    </div>
+    <!-- Content -->
+    <div class="container" style="display:none;"> <!-- Hide content initially -->
+        <header>
+            <!-- Navbar -->
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="projects.html">Projects</a></li>
+                    <!-- Add more links as needed -->
+                </ul>
+            </nav>
+
+            <img src="1.jpeg" alt="Priyanshu Doshi" class="profile-pic interactive">
+            <h1 id="home" class="typewriter interactive">Hello, I'm Priyanshu Doshi</h1>
+            <p class="interactive">B.Tech Student <br>
+                Specializing in Artificial Intelligence and Machine Learning</p>
+        </header>
+
+        <section id="about" class="about">
+            <h2>About Me</h2>
+            <p>Hello! I’m Priyanshu Doshi, currently pursuing a B.Tech in Artificial Intelligence and Machine Learning at Nirma University 🎓. My journey in tech has ignited a deep passion for understanding the complexities and potentials of advanced technologies. I am particularly fascinated by quantum computing 🔬 and its transformative impact on AI and neural networks 🤖.
+                <br><br><br>
+                In addition to my academic pursuits, I actively engage in practicing data structures and algorithms (DSA) on platforms like LeetCode 💻. This not only sharpens my problem-solving skills but also enhances my understanding of algorithmic efficiency and performance.
+                <a href="https://leetcode.com/u/Priyanshu_doshi/" target="_blank">Leetcode Profile</a>
+                <br><br><br>
+                As I delve deeper into the world of algorithms and data structures, I strive to combine my technical
+                 skills with innovative thinking to solve real-world problems. Whether it’s through exploring the 
+                 intricacies of machine learning models or experimenting with cutting-edge quantum algorithms,
+                  I am committed to pushing the boundaries of what's possible in technology.🚀
+                  <br><br><br>
+                
+                I believe that the intersection of AI and quantum computing holds the key to unlocking 
+                unprecedented advancements, and I am excited to contribute to this evolving field.
+                 Join me on my journey as I explore these fascinating domains and develop projects that harness
+                  the power of intelligent systems🌟.</p>
+        </section>
+
+        <section id="contact" class="contact">
+            <h2>Contact</h2>
+            <p>Phone: +91 9549926195</p>
+            <p>Email: doshipriyanshu3@gmail.com</p>
+            <p>Location: Ahmedabad, Gujarat</p>
+            <!-- Social media icons -->
+            <div class="social-icons">
+                <a href="https://www.linkedin.com/in/your-linkedin-profile" target="_blank" class="icon">
+                    <i class="fab fa-linkedin"></i>
+                </a>
+                <a href="https://github.com/your-github-profile" target="_blank" class="icon">
+                    <i class="fab fa-github"></i>
+                </a>
+                <a href="https://www.instagram.com/your-instagram-profile" target="_blank" class="icon">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="https://twitter.com/your-twitter-profile" target="_blank" class="icon">
+                    <i class="fab fa-twitter"></i>
+                </a>
+            </div>
+            
+        </section>
+
+        <footer>
+            <p>&copy; 2024 Priyanshu Doshi</p>
+        </footer>
+    </div>
+
+    <!-- Your existing JavaScript -->
+    <script>
+    document.addEventListener("DOMContentLoaded", function() {
+        // Hide loading screen
+        document.querySelector('.loading-screen').style.display = 'none';
+        // Show content
+        document.querySelector('.container').classList.add('loaded');
+    });
+    </script>
+</body>
+</html>
