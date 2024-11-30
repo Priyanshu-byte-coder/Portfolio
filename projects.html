@@ -4,115 +4,78 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Priyanshu Doshi - Projects</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
-    <link rel="icon" type="image/png" href="profile.png">
+    <link rel="stylesheet" href="styles.css"> <!-- Link to the same CSS file -->
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-zMgM5cDlQJglzCDEh5mxSTu2bP8kguMO0inFd6oWfAaX1+gS4P/QPt8/2z3N+/z8p4+SHu6B9klCr1I5mVKxig==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
     <div class="container">
-        <nav class="glassmorphic-nav">
-            <!-- <div class="logo">Priyanshu Doshi</div> -->
-            <ul>
-                <li><a href="index.html" class="navbar-btn">Home</a></li>
-                <li><a href="index.html #about" class="navbar-btn">About</a></li>
-                <li><a href="projects.html" class="navbar-btn">Projects</a></li>
-                <li><a href="#contact" class="navbar-btn">Contact</a></li>
-            </ul>
-        </nav>
+        <header>
+            <!-- Navbar -->
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="projects.html">Projects</a></li>
+                    <!-- Add more links as needed -->
+                </ul>
+            </nav>
 
-        <section class="projects-showcase">
-            <div class="section-header" data-aos="fade-right">
-                <h2>My Projects</h2>
-                <div class="underline"></div>
+            <h1>Projects Page</h1>
+            <!-- Project details -->
+        </header>
+        <section id="portfolio" class="portfolio">
+            <h2>Portfolio</h2>
+            <div class="portfolio-item interactive">
+                <h3>MINI-ROBO</h3>
+                <p>Created a Interactive webpage having a Robot following the coursor.</p>
+                <a href="https://my.spline.design/robo-5b3f8ed4dc48d2011f27f0f2f7ff129a/" target="_blank"><h4>Click here</h4></a>
             </div>
-
-            <div class="project-grid">
-                <div class="project-card" data-aos="zoom-in">
-                    <div class="project-image">
-                        <img src="mini-robot.png" alt="MINI-ROBO Project">
-                    </div>
-                    <div class="project-details">
-                        <h3>MINI-ROBO</h3>
-                        <p>Interactive webpage featuring a Robot following the cursor, demonstrating creative web interaction techniques.</p>
-                        <div class="project-links">
-                            <a href="https://my.spline.design/robo-5b3f8ed4dc48d2011f27f0f2f7ff129a/" class="btn btn-primary" target="_blank">View</a>
-                        
-                            <span class="tech-tags">
-                                <span class="tag">HTML</span>
-                                <span class="tag">CSS</span>
-                                <span class="tag">JavaScript</span>
-                            </span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="project-card" data-aos="zoom-in">
-                    <div class="project-image">
-                        <img src="tic-tac-toe.png" alt="Unbeatable Tic-Tac-Toe Project">
-                    </div>
-                    <div class="project-details">
-                        <h3>Unbeatable Tic-Tac-Toe</h3>
-                        <p>An AI-powered Tic-Tac-Toe game implementing the minimax algorithm for optimal strategic gameplay.</p>
-                        <div class="project-links">
-                            <a href="https://tic-tac-toe-ai-game-udr3.vercel.app/" class="btn btn-primary" target="_blank">View</a>
-                            <span class="tech-tags">
-                                <span class="tag">React</span>
-                                <span class="tag">AI</span>
-                                <span class="tag">Minimax</span>
-                            </span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="project-card" data-aos="zoom-in">
-                    <div class="project-image">
-                        <img src="type-master.png" alt="Type Master Project">
-                    </div>
-                    <div class="project-details">
-                        <h3>Type Master</h3>
-                        <p>A comprehensive typing speed and accuracy checker providing real-time performance metrics.</p>
-                        <div class="project-links">
-                            <a href="https://type-master-tau.vercel.app/" class="btn btn-primary" target="_blank">View</a>
-                            <span class="tech-tags">
-                                <span class="tag">HTML</span>
-                                <span class="tag">CSS</span>
-                                <span class="tag">jQuery</span>
-                            </span>
-                        </div>
-                    </div>
-                </div>
+            <div class="portfolio-item interactive">
+                <h3>Unbeatable Tic-Tac-Toe: Mastering the Game with AI</h3>
+                <p>This project showcases a Tic-Tac-Toe game featuring an incincible AI, developed using the
+                     minimax algorithm. The AI intelligently analyzes game scenarios to make optimal moves, 
+                     ensuring a challenging experience for players. The game supports both Player vs. Player (PvP)
+                     and Player vs. AI modes, allowing users to choose their preferred gameplay style.  
+                      <a href="https://tic-tac-toe-ai-game-udr3.vercel.app/" target="_blank"><h4>Click here</h4></a></p>
             </div>
-        </section>
-        <br>
-        <br>
-        <br>
-        <section id="contact" class="contact-section">
-            <div class="section-header" data-aos="fade-right">
-                <h2>Let's Connect</h2>
-                <div class="underline"></div>
+            <div class="portfolio-item interactive">
+                <h3>Type Master</h3>
+                <p>This project is a typing speed and accuracy checker that provides real-time feedback on 
+                    typing performance. Built with HTML, CSS, and JavaScript (using jQuery), it features a 
+                    user-friendly interface, dynamic sentence updates, and detailed results, including time
+                     taken, accuracy, and words per minute.
+                     <a href="https://type-master-tau.vercel.app/" target="_blank"><h4>Click here</h4></a></p>
             </div>
-            <div class="contact-content" data-aos="fade-up">
-                <div class="social-links">
-                    <a href="https://www.linkedin.com/in/priyanshu-doshi-21a54230a/" target="_blank"><i class="fab fa-linkedin"></i></a>
-                    <a href="https://github.com/PriyanshuDoshi" target="_blank"><i class="fab fa-github"></i></a>
-                    <a href="https://x.com/Priyanshu_26_11" target="_blank"><i class="fab fa-twitter"></i></a>
-                    <a href="https://www.instagram.com/priyyannshoo/" target="_blank"><i class="fab fa-instagram"></i></a>
-                </div>
-            </div>
+            <!-- Add more portfolio items as needed -->
         </section>
 
+        <!-- Additional sections for projects page -->
+        
         <footer>
-            <p>&copy; 2024 Priyanshu Doshi | Designed with ❤️</p>
+            <section id="contact" class="contact interactive">
+                <h2>Contact</h2>
+                <p>Phone: +91 9549926195</p>
+                <p>Email: doshipriyanshu3@gmail.com</p>
+                <p>Location: Ahmedabad, Gujarat</p>
+                <!-- Social media icons -->
+                <div class="social-icons">
+                    <a href="https://www.linkedin.com/in/your-linkedin-profile" target="_blank" class="icon">
+                        <i class="fab fa-linkedin"></i>
+                    </a>
+                    <a href="https://github.com/your-github-profile" target="_blank" class="icon">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="https://www.instagram.com/your-instagram-profile" target="_blank" class="icon">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="https://twitter.com/your-twitter-profile" target="_blank" class="icon">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                    <!-- Add more icons as needed -->
+                </div>
+            </section>
+            <p>&copy; 2024 Priyanshu Doshi</p>
         </footer>
     </div>
-
-    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
-    <script>
-        AOS.init({
-            duration: 1000,
-            once: true
-        });
-    </script>
 </body>
 </html>
