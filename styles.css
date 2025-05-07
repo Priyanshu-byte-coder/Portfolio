@@ -12,6 +12,17 @@
     --transition: all 0.3s ease;
 }
 
+/* Add these styles at the beginning of the file, after the :root section */
+.skill-category, .project-card, .stat-item, .contact-item {
+    opacity: 1;
+    transform: translateY(0);
+    transition: transform 0.5s ease, opacity 0.5s ease;
+}
+
+.skill-category:hover, .project-card:hover {
+    transform: translateY(-10px);
+}
+
 * {
     margin: 0;
     padding: 0;
