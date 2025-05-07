@@ -1,64 +1,26 @@
 // Wait for DOM to be fully loaded
 document.addEventListener('DOMContentLoaded', function() {
-    // Function to start page animations
-    function startPageAnimations() {
-        // Set initial styles for animation
-        document.querySelectorAll('.skill-category, .project-card, .stat-item, .contact-item').forEach(element => {
-            element.style.opacity = '1'; // Set initial opacity to 1
-            element.style.transform = 'translateY(20px)';
-            element.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
-        });
-
-        // Start typing effect
-        const typingText = document.querySelector('.hero-text h1');
-        if (typingText) {
-            const originalHTML = typingText.innerHTML;
-            const textToType = "Hey, I'm Priyanshu";
-            typingText.innerHTML = '';
-            
-            let i = 0;
-            function typeWriter() {
-                if (i < textToType.length) {
-                    if (i === 0) {
-                        typingText.innerHTML = '<span class="highlight">';
-                    }
-                    typingText.innerHTML += textToType.charAt(i);
-                    if (i === textToType.length - 1) {
-                        typingText.innerHTML += '</span>';
-                    }
-                    i++;
-                    setTimeout(typeWriter, 100);
-                }
-            }
-            
-            // Start typing effect
-            typeWriter();
-        }
-
-        // Run animation check
-        animateOnScroll();
-    }
-
-    // Start animations immediately
-    startPageAnimations();
-
-    // Animate elements when they come into view
-    const animateOnScroll = () => {
-        const elements = document.querySelectorAll('.skill-category, .project-card, .stat-item, .contact-item');
-        
-        elements.forEach(element => {
-            const elementTop = element.getBoundingClientRect().top;
-            const elementBottom = element.getBoundingClientRect().bottom;
-            
-            if (elementTop < window.innerHeight && elementBottom > 0) {
-                element.style.opacity = '1';
-                element.style.transform = 'translateY(0)';
-            }
-        });
+    // Animation handling
+    const observerOptions = {
+        root: null,
+        rootMargin: '0px',
+        threshold: 0.1
     };
 
-    // Run animation check on scroll
-    window.addEventListener('scroll', animateOnScroll);
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+                observer.unobserve(entry.target);
+            }
+        });
+    }, observerOptions);
+
+    // Add fade-in class to elements that should animate
+    document.querySelectorAll('.skills-grid, .projects-grid, .skill-category, .project-card, .stat-item, .contact-item, .hero-content, .about-content, .timeline-item').forEach(element => {
+        element.classList.add('fade-in');
+        observer.observe(element);
+    });
 
     // Smooth scrolling for navigation links
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -82,8 +44,7 @@ document.addEventListener('DOMContentLoaded', function() {
         let current = '';
         sections.forEach(section => {
             const sectionTop = section.offsetTop;
-            const sectionHeight = section.clientHeight;
-            if (pageYOffset >= sectionTop - 200) {
+            if (window.pageYOffset >= sectionTop - 200) {
                 current = section.getAttribute('id');
             }
         });
