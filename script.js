@@ -5,9 +5,10 @@ document.addEventListener('DOMContentLoaded', function() {
   const circles = document.querySelectorAll('.circle');
   const body = document.body;
 
-  // Ensure loading screen is visible
+  // Ensure loading screen is visible and content is hidden
   loadingScreen.style.display = 'flex';
   loadingScreen.style.opacity = '1';
+  body.style.overflow = 'hidden';
 
   // Set circle sizes and positions
   const COUNT = 16;
@@ -31,6 +32,7 @@ document.addEventListener('DOMContentLoaded', function() {
       setTimeout(() => {
           loadingScreen.classList.add('fade-out');
           body.classList.add('loaded');
+          body.style.overflow = 'auto';
           // Start page animations after loading screen is gone
           startPageAnimations();
       }, 2000); // Show loading screen for 2 seconds
