@@ -3,6 +3,11 @@ document.addEventListener('DOMContentLoaded', function() {
   // Loading screen functionality
   const loadingScreen = document.querySelector('.loading-screen');
   const circles = document.querySelectorAll('.circle');
+  const body = document.body;
+
+  // Ensure loading screen is visible
+  loadingScreen.style.display = 'flex';
+  loadingScreen.style.opacity = '1';
 
   // Set circle sizes and positions
   const COUNT = 16;
@@ -22,8 +27,10 @@ document.addEventListener('DOMContentLoaded', function() {
 
   // Hide loading screen after content is loaded
   window.addEventListener('load', () => {
+      // Ensure all resources are loaded
       setTimeout(() => {
           loadingScreen.classList.add('fade-out');
+          body.classList.add('loaded');
           // Start page animations after loading screen is gone
           startPageAnimations();
       }, 2000); // Show loading screen for 2 seconds
