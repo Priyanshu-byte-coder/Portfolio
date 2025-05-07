@@ -4,134 +4,386 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Priyanshu Doshi - Portfolio</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
-    <link rel="icon" type="image/png" href="profile.png">
+    <link rel="stylesheet" href="loading.css">
 </head>
 <body>
     <!-- Loading Screen -->
     <div class="loading-screen">
-        <div class="loader"></div>
+        <div class="container">
+            <div class="circle" data-index="0"></div>
+            <div class="circle" data-index="1"></div>
+            <div class="circle" data-index="2"></div>
+            <div class="circle" data-index="3"></div>
+            <div class="circle" data-index="4"></div>
+            <div class="circle" data-index="5"></div>
+            <div class="circle" data-index="6"></div>
+            <div class="circle" data-index="7"></div>
+            <div class="circle" data-index="8"></div>
+            <div class="circle" data-index="9"></div>
+            <div class="circle" data-index="10"></div>
+            <div class="circle" data-index="11"></div>
+            <div class="circle" data-index="12"></div>
+            <div class="circle" data-index="13"></div>
+            <div class="circle" data-index="14"></div>
+            <div class="circle" data-index="15"></div>
+        </div>
     </div>
 
-    <div class="container">
-        <!-- Navbar with Glassmorphism Effect -->
-        <nav class="glassmorphic-nav">
-            <!-- <div class="logo">Priyanshu Doshi</div> -->
-            <ul>
-                <li><a href="#home" class="navbar-btn">Home</a></li>
-                <li><a href="#about" class="navbar-btn">About</a></li>
-                <li><a href="projects.html" class="navbar-btn">Projects</a></li>
-                <li><a href="#contact" class="navbar-btn">Contact</a></li>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-content">
+            <div class="logo">PD</div>
+            <ul class="nav-links">
+                <li><a href="#home" class="active">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
             </ul>
-        </nav>
+        </div>
+    </nav>
 
-        <!-- Hero Section -->
-        <header id="home" class="hero-section">
-            <div class="hero-content" data-aos="fade-up">
-                <img src="1.jpeg" alt="Priyanshu Doshi" class="profile-pic">
-                <h1 class="typing-text">Hello, I'm Priyanshu Doshi</h1>
-                <p class="subtitle">B.Tech Student in AI & Machine Learning</p>
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <div class="hero-text">
+                <h1><span class="highlight">Priyanshu Doshi</span></h1>
+                <h2>AI & ML Enthusiast</h2>
+                <p>Passionate about building intelligent solutions and exploring the frontiers of technology.</p>
                 <div class="cta-buttons">
-                    <a href="#about" class="btn btn-primary">Want to know about me?</a>
-                    <!-- <a href="#contact" class="btn btn-primary">Contact Me</a> -->
-                    <!-- <a href="resume.pdf" target="_blank" class="btn btn-secondary">Download CV</a> -->
+                    <a href="#projects" class="btn primary">View Projects</a>
+                    <a href="#contact" class="btn secondary">Contact Me</a>
                 </div>
             </div>
-        </header>
-        <br>
-        <br>
-        <br>
+            <div class="hero-image">
+                <img src="1.jpeg" alt="Priyanshu Doshi">
+            </div>
+        </div>
+        <div class="scroll-indicator">
+            <div class="mouse"></div>
+            <span>Scroll Down</span>
+        </div>
+    </section>
 
-        <!-- About Section with Modern Design -->
-        <section id="about" class="about-section">
-            <div class="section-header" data-aos="fade-right">
-                <h2>About Me</h2>
-                <div class="underline"></div>
-            </div>
-            <div class="about-content" data-aos="fade-left">
-                <p>Hello! I’m Priyanshu Doshi, currently pursuing a B.Tech in Artificial Intelligence and Machine Learning at Nirma University 🎓. My journey in tech has ignited a deep passion for understanding the complexities and potentials of advanced technologies. I am particularly fascinated by quantum computing 🔬 and its transformative impact on AI and neural networks 🤖.
-                    <br><br><br>
-                    In addition to my academic pursuits, I actively engage in practicing data structures and algorithms (DSA) on platforms like LeetCode 💻. This not only sharpens my problem-solving skills but also enhances my understanding of algorithmic efficiency and performance.
-                    <a href="https://leetcode.com/u/Priyanshu_doshi/" target="_blank">Leetcode Profile</a>
-                    <br><br><br>
-                    As I delve deeper into the world of algorithms and data structures, I strive to combine my technical
-                     skills with innovative thinking to solve real-world problems. Whether it’s through exploring the 
-                     intricacies of machine learning models or experimenting with cutting-edge quantum algorithms,
-                      I am committed to pushing the boundaries of what's possible in technology.🚀
-                      <br><br><br>
-                    
-                    I believe that the intersection of AI and quantum computing holds the key to unlocking 
-                    unprecedented advancements, and I am excited to contribute to this evolving field.
-                     Join me on my journey as I explore these fascinating domains and develop projects that harness
-                      the power of intelligent systems🌟.</p>
-                      <br>
-                      <br>
-                      <br>
-                      <br>
-                <div class="skills-container">
-                    <h3 align="center">My Skills</h3>
-                    <br>
-                    <div class="skills-grid">
-                        
-                        <div class="skill-badge">C/C++</div>
-                        <div class="skill-badge">Machine Learning</div>
-                        <div class="skill-badge">Data Structures</div>
-                        <div class="skill-badge">Algorithms</div>    
-                        <div class="skill-badge">Python</div>
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="section-header">
+            <h2>About Me</h2>
+            <div class="underline"></div>
+        </div>
+        <div class="about-content">
+            <div class="about-text">
+                <p>Hey there! I'm Priyanshu Doshi, a B.Tech student specializing in Artificial Intelligence and Machine Learning at Nirma University — basically, I teach machines how to think while I'm still figuring out how to get 8 hours of sleep. My curiosity for technology knows no bounds, whether it's exploring how quantum computing could turbocharge AI or breaking down complex neural networks just for fun (yes, that is my idea of fun). When I'm not busy wrestling with code, you'll usually find me on LeetCode battling DSA problems like they owe me money, or experimenting with the latest tech just to see what chaos I can create — from building a 3D robot that follows your cursor, to crafting an unbeatable Tic-Tac-Toe AI (spoiler: you can't win), and even coding a movie recommender system so I never have to ask, "What should I watch tonight?"</p>
+                <p>Beyond the code, I like to keep things balanced — with a chessboard on one side and a table tennis paddle on the other. I'm also that friend who's always pitching a new startup idea during lunch breaks. Whether it's developing digital platforms to fix real-world problems, creating AI models just for the thrill of it, or typing away on fresh concepts late at night, I love turning ambitious ideas into reality. If you're into AI, tech, or just want to challenge me to a quick chess match (fair warning: I might use AI tricks), feel free to scroll on — there's always more brewing on my side of the screen.</p>
+                <div class="stats">
+                    <div class="stat-item">
+                        <div class="stat-item-inner">
+                            <div class="stat-item-front">
+                                <span class="number">160+</span>
+                                <span class="label">LeetCode Problems</span>
+                            </div>
+                            <div class="stat-item-back">
+                                <a href="https://leetcode.com/u/Priyanshu_doshi/" target="_blank">View Profile</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-item-inner">
+                            <div class="stat-item-front">
+                                <span class="number">5+</span>
+                                <span class="label">Projects</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-item-inner">
+                            <div class="stat-item-front">
+                                <span class="number">1+</span>
+                                <span class="label">Years Experience</span>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <!-- Contact Section -->
-        <section id="contact" class="contact-section">
-            <div class="section-header" data-aos="fade-right">
-                <h2>Get In Touch</h2>
-                <div class="underline"></div>
-            </div>
-            <div class="contact-content" data-aos="fade-up">
-                <div class="contact-info">
-                    <div class="contact-item">
-                        <i class="fas fa-envelope"></i>
-                        <span>doshipriyanshu3@gmail.com</span>
-                    </div>
-                    <div class="contact-item">
-                        <i class="fas fa-phone"></i>
-                        <span>+91 9549926195</span>
-                    </div>
-                    <div class="contact-item">
-                        <i class="fas fa-map-marker-alt"></i>
-                        <span>Ahmedabad, Gujarat</span>
-                    </div>
-                </div>
-                <div class="social-links">
-                    <a href="https://www.linkedin.com/in/priyanshu-doshi-21a54230a/" target="_blank"><i class="fab fa-linkedin"></i></a>
-                    <a href="https://github.com/Priyanshu-byte-coder" target="_blank"><i class="fab fa-github"></i></a>
-                    <a href="https://x.com/Priyanshu_26_11" target="_blank"><i class="fab fa-twitter"></i></a>
-                    <a href="https://www.instagram.com/priyyannshoo/" target="_blank"><i class="fab fa-instagram"></i></a>
-                </div>
-            </div>
-        </section>
-
-        <footer>
-            <p>&copy; 2024 Priyanshu Doshi | Designed with ❤️</p>
-        </footer>
+<!-- Timeline Section -->
+<section id="timeline" class="timeline">
+    <div class="section-header" id="journey">
+        <h2>My Journey</h2>
+        <div class="underline"></div>
     </div>
+    <div class="timeline-container">
 
-    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
-    <script>
-        AOS.init({
-            duration: 1000,
-            once: true
-        });
+        <div class="timeline-item">
+            <div class="timeline-content">
+                <div class="timeline-date">2023</div>
+                <h3>Completed 12th Grade</h3>
+                <p>Secured an All Gujarat Rank of 160 and discovered my passion for Artificial Intelligence and Machine Learning.</p>
+            </div>
+        </div>
 
-        document.addEventListener("DOMContentLoaded", () => {
-            const loadingScreen = document.querySelector('.loading-screen');
-            loadingScreen.style.opacity = '0';
-            setTimeout(() => loadingScreen.style.display = 'none', 1000);
-        });
-    </script>
+        <div class="timeline-item">
+            <div class="timeline-content">
+                <div class="timeline-date">2024</div>
+                <h3>Started B.Tech in AI & ML at Nirma University</h3>
+                <p>Laid a strong foundation in Python, Machine Learning, and began exploring Neural Networks and Quantum Computing concepts.</p>
+            </div>
+        </div>
+
+        <div class="timeline-item">
+            <div class="timeline-content">
+                <div class="timeline-date">2024</div>
+                <h3>Dived into DSA & Competitive Programming</h3>
+                <p>Started solving problems on LeetCode, participated in coding contests, and strengthened my data structures and algorithms skills.</p>
+            </div>
+        </div>
+
+        <div class="timeline-item">
+            <div class="timeline-content">
+                <div class="timeline-date">2024-2025</div>
+                <h3>Explored New Tech Domains & Built Projects</h3>
+                <p>Learned Web Development, built a Movie Recommender System, created an unbeatable Tic-Tac-Toe AI, and developed interactive 3D projects using Three.js.</p>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+
+    <!-- Skills Section -->
+    <section id="skills" class="skills">
+        <div class="section-header">
+            <h2>My Skills</h2>
+            <div class="underline"></div>
+        </div>
+        <div class="skills-grid">
+            <div class="skill-category">
+                <h3>Programming Languages</h3>
+                <div class="skill-items">
+                    <div class="skill-item">
+                        <i class="fab fa-python"></i>
+                        <span>Python</span>
+                    </div>
+                    <div class="skill-item">
+                        <i class="fas fa-code"></i>
+                        <span>C/C++</span>
+                    </div>
+                    <div class="skill-item">
+                        <i class="fab fa-js-square"></i>
+                        <span>JavaScript</span>
+                    </div>
+                    <div class="skill-item">
+                        <i class="fab fa-html5"></i>
+                        <span>HTML & CSS</span>
+                    </div>
+                    <!-- <div class="skill-item">
+                        <i class="fab fa-java"></i>
+                        <span>Java</span>
+                    </div> -->
+                </div>
+            </div>
+            <div class="skill-category">
+                <h3>AI & ML</h3>
+                <div class="skill-items">
+                    <div class="skill-item">
+                        <i class="fas fa-brain"></i>
+                        <span>Machine Learning</span>
+                    </div>
+                    <div class="skill-item">
+                        <i class="fas fa-network-wired"></i>
+                        <span>Neural Networks</span>
+                    </div>
+                    <div class="skill-item">
+                        <i class="fas fa-film"></i>
+                        <span>Recommendation Systems</span>
+                    </div>
+                    <div class="skill-item">
+                        <i class="fas fa-chart-line"></i>
+                        <span>Data Analysis</span>
+                    </div>
+                    <div class="skill-item">
+                        <i class="fas fa-bolt"></i>
+                        <span>DSA (LeetCode)</span>
+                    </div>
+                </div>
+            </div>
+            <div class="skill-category">
+                <h3>Tools & Technologies</h3>
+                <div class="skill-items">
+                    <div class="skill-item">
+                        <i class="fab fa-git-alt"></i>
+                        <span>Git & GitHub</span>
+                    </div>
+                    <div class="skill-item">
+                        <i class="fab fa-python"></i>
+                        <span>Pandas & NumPy</span>
+                    </div>
+                    <div class="skill-item">
+                        <i class="fas fa-fire"></i>
+                        <span>PyTorch</span>
+                    </div>
+                    <div class="skill-item">
+                        <i class="fas fa-robot"></i>
+                        <span>Scikit-learn</span>
+                    </div>
+                    <div class="skill-item">
+                        <i class="fas fa-laptop-code"></i>
+                        <span>Google Colab & Jupyter Notebook</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+
+    <!-- Projects Section -->
+    <section id="projects" class="projects">
+        <div class="section-header">
+            <h2>Featured Projects</h2>
+            <div class="underline"></div>
+        </div>
+        <div class="projects-grid">
+            <div class="project-card">
+                <div class="project-image">
+                    <img src="mv_rec.png" alt="Movie Recommendation System">
+                </div>
+                <div class="project-content">
+                    <h3>Movie Recommendation System</h3>
+                    <p>Streamlit-powered recommendation engine suggesting similar movies with poster previews using TMDb API.</p>
+                    <div class="project-tech">
+                        <span>Python</span>
+                        <span>Machine Learning</span>
+                        <span>Streamlit</span>
+                        <span>TMDb API</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="https://movierecommender-l27gqgyeweduhskslis84n.streamlit.app/" class="btn small" target="_blank"><i class="fas fa-external-link-alt"></i> Live Demo</a>
+                        <a href="https://github.com/Priyanshu-byte-coder/movie-recommendor-showcase" target="_blank" class="btn small"><i class="fab fa-github"></i> Source Code</a>
+                    </div>
+                </div>
+            </div>
+            <!-- Add more project cards here -->
+            <div class="project-card">
+                <div class="project-image">
+                    <img src="tic-tac-toe.png" alt="Unbeatable Tic-Tac-Toe Project">
+                </div>
+                <div class="project-content">
+                    <h3>Unbeatable Tic-Tac-Toe</h3>
+                    <p>An AI-powered Tic-Tac-Toe game implementing the minimax algorithm for optimal strategic gameplay.</p>
+                    <div class="project-tech">
+                        <span>Python</span>
+                        <span>React</span>
+                        <span>Minimax</span>
+                        <span>Algorithms</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="https://tic-tac-toe-ai-game-udr3.vercel.app/"target="_blank" class="btn small"><i class="fas fa-external-link-alt"></i> Live Demo</a>
+                        <a href="https://github.com/Priyanshu-byte-coder/Tic_tac_toe_ai_game" class="btn small"target="_blank"><i class="fab fa-github"></i> Source Code</a>
+                    </div>
+                </div>
+            </div>
+            <div class="project-card">
+                <div class="project-image">
+                    <img src="type-master.png" alt="Type Master Project">
+                </div>
+                <div class="project-content">
+                    <h3>Type Master</h3>
+                    <p>A comprehensive typing speed and accuracy checker providing real-time performance metrics.</p>
+                    <div class="project-tech">
+                        <span>jQuerry</span>
+                        <span>HTML</span>
+                        <span>CSS</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="https://type-master-tau.vercel.app/" class="btn small" target="_blank"><i class="fas fa-external-link-alt"></i> Live Demo</a>
+                        <a href="https://github.com/Priyanshu-byte-coder/Type-Master" class="btn small" target="_blank"><i class="fab fa-github"></i> Source Code</a>
+                    </div>
+                </div>
+            </div>
+            <div class="project-card">
+                <div class="project-image">
+                    <img src="mini-robot.png" alt="MINI-ROBO Project">
+                </div>
+                <div class="project-content">
+                    <h3>MINI-ROBO</h3>
+                    <p>Interactive webpage featuring a Robot following the cursor, demonstrating creative web interaction techniques.</p>
+                    <div class="project-tech">
+                        <span>sipline</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="https://my.spline.design/robo-5b3f8ed4dc48d2011f27f0f2f7ff129a/" class="btn small" target="_blank"><i class="fas fa-external-link-alt"></i> Live Demo</a>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="section-header">
+            <h2>Get In Touch</h2>
+            <div class="underline"></div>
+        </div>
+        <div class="contact-content">
+            <div class="contact-info">
+                <div class="contact-item">
+                    <i class="fas fa-envelope"></i>
+                    <div>
+                        <h3>Email</h3>
+                        <p>doshipriyanshu3@gmail.com</p>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-phone"></i>
+                    <div>
+                        <h3>Phone</h3>
+                        <p>+91 9549926195</p>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <div>
+                        <h3>Location</h3>
+                        <p>Ahmedabad, Gujarat</p>
+                    </div>
+                </div>
+            </div>
+            <div class="social-links">
+                <a href="https://www.linkedin.com/in/priyanshu-doshi-21a54230a/" target="_blank" class="social-link">
+                    <i class="fab fa-linkedin"></i>
+                </a>
+                <a href="https://github.com/Priyanshu-byte-coder" target="_blank" class="social-link">
+                    <i class="fab fa-github"></i>
+                </a>
+                <a href="https://x.com/Priyanshu_26_11" target="_blank" class="social-link">
+                    <i class="fab fa-twitter"></i>
+                </a>
+                <a href="https://www.instagram.com/priyyannshoo/" target="_blank" class="social-link">
+                    <i class="fab fa-instagram"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2024 Priyanshu Doshi. All rights reserved.</p>
+            <div class="footer-links">
+                <a href="#home">Home</a>
+                <a href="#about">About</a>
+                <a href="#projects">Projects</a>
+                <a href="#contact">Contact</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
 </body>
-</html>
+</html> 

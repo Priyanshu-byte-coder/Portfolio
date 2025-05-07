@@ -1,53 +1,181 @@
-import * as THREE from 'three';
-import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
-import SplineLoader from '@splinetool/loader';
+// Smooth scrolling for navigation links
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+  anchor.addEventListener('click', function (e) {
+      e.preventDefault();
+      const target = document.querySelector(this.getAttribute('href'));
+      if (target) {
+          target.scrollIntoView({
+              behavior: 'smooth',
+              block: 'start'
+          });
+      }
+  });
+});
 
-// camera
-const camera = new THREE.OrthographicCamera(window.innerWidth / - 2, window.innerWidth / 2, window.innerHeight / 2, window.innerHeight / - 2,  -100000, 100000);
-camera.position.set(-81.13, 302.83, 1010.88);
-camera.quaternion.setFromEuler(new THREE.Euler(-0.41, -0.71, -0.28));
+// Active navigation link based on scroll position
+const sections = document.querySelectorAll('section');
+const navLinks = document.querySelectorAll('.nav-links a');
 
-// scene
-const scene = new THREE.Scene();
+window.addEventListener('scroll', () => {
+  let current = '';
+  sections.forEach(section => {
+      const sectionTop = section.offsetTop;
+      const sectionHeight = section.clientHeight;
+      if (pageYOffset >= sectionTop - 200) {
+          current = section.getAttribute('id');
+      }
+  });
 
-// spline scene
-const loader = new SplineLoader();
-loader.load(
-  'https://prod.spline.design/CM3J3qFUbgqtn9eI/scene.splinecode',
-  (splineScene) => {
-    scene.add(splineScene);
+  navLinks.forEach(link => {
+      link.classList.remove('active');
+      if (link.getAttribute('href').slice(1) === current) {
+          link.classList.add('active');
+      }
+  });
+});
+
+// Animate elements when they come into view
+const animateOnScroll = () => {
+  const elements = document.querySelectorAll('.skill-category, .project-card, .stat-item, .contact-item');
+  
+  elements.forEach(element => {
+      const elementTop = element.getBoundingClientRect().top;
+      const elementBottom = element.getBoundingClientRect().bottom;
+      
+      if (elementTop < window.innerHeight && elementBottom > 0) {
+          element.style.opacity = '1';
+          element.style.transform = 'translateY(0)';
+      }
+  });
+};
+
+// Set initial styles for animation
+document.querySelectorAll('.skill-category, .project-card, .stat-item, .contact-item').forEach(element => {
+  element.style.opacity = '0';
+  element.style.transform = 'translateY(20px)';
+  element.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+});
+
+// Run animation check on scroll
+window.addEventListener('scroll', animateOnScroll);
+// Run once on page load
+animateOnScroll();
+
+// Typing effect for hero section
+const typingText = document.querySelector('.hero-text h1');
+if (typingText) {
+  const text = typingText.textContent;
+  typingText.textContent = '';
+  let i = 0;
+  
+  function typeWriter() {
+      if (i < text.length) {
+          typingText.textContent += text.charAt(i);
+          i++;
+          setTimeout(typeWriter, 100);
+      }
   }
-);
-
-// renderer
-const renderer = new THREE.WebGLRenderer({ antialias: true });
-renderer.setSize(window.innerWidth, window.innerHeight);
-renderer.setAnimationLoop(animate);
-document.body.appendChild(renderer.domElement);
-
-// scene settings
-renderer.shadowMap.enabled = true;
-renderer.shadowMap.type = THREE.PCFShadowMap;
-
-scene.background = new THREE.Color('#000000');
-renderer.setClearAlpha(1);
-
-// orbit controls
-const controls = new OrbitControls(camera, renderer.domElement);
-controls.enableDamping = true;
-controls.dampingFactor = 0.125;
-
-window.addEventListener('resize', onWindowResize);
-function onWindowResize() {
-  camera.left = window.innerWidth / - 2;
-  camera.right = window.innerWidth / 2;
-  camera.top = window.innerHeight / 2;
-  camera.bottom = window.innerHeight / - 2;
-  camera.updateProjectionMatrix();
-  renderer.setSize(window.innerWidth, window.innerHeight);
+  
+  // Start typing effect after a short delay
+  setTimeout(typeWriter, 500);
 }
 
-function animate(time) {
-  controls.update();
-  renderer.render(scene, camera);
-}
+// Project card hover effect
+document.querySelectorAll('.project-card').forEach(card => {
+  card.addEventListener('mouseenter', () => {
+      card.style.transform = 'translateY(-10px)';
+  });
+  
+  card.addEventListener('mouseleave', () => {
+      card.style.transform = 'translateY(0)';
+  });
+});
+
+// Skill item hover effect
+document.querySelectorAll('.skill-item').forEach(item => {
+  item.addEventListener('mouseenter', () => {
+      item.style.backgroundColor = 'var(--primary-color)';
+      item.style.color = 'white';
+      const icon = item.querySelector('i');
+      if (icon) {
+          icon.style.color = 'white';
+      }
+  });
+  
+  item.addEventListener('mouseleave', () => {
+      item.style.backgroundColor = 'var(--background-off)';
+      item.style.color = 'var(--text-primary)';
+      const icon = item.querySelector('i');
+      if (icon) {
+          icon.style.color = 'var(--primary-color)';
+      }
+  });
+});
+
+// Loading screen functionality
+const loadingScreen = document.querySelector('.loading-screen');
+const circles = document.querySelectorAll('.circle');
+
+// Set circle sizes and positions
+const COUNT = 16;
+const SIZE = 70;
+const STEP = SIZE / COUNT;
+
+circles.forEach((circle, index) => {
+  const localSize = SIZE - (STEP * index);
+  const offset = (STEP * index) / 2;
+  
+  circle.style.width = `${localSize}vh`;
+  circle.style.height = `${localSize}vh`;
+  circle.style.left = `${offset}vh`;
+  circle.style.top = `${offset}vh`;
+  circle.style.animationDuration = `${12/index + 1}s`;
+});
+
+// Hide loading screen after content is loaded
+window.addEventListener('load', () => {
+  setTimeout(() => {
+      loadingScreen.classList.add('fade-out');
+      // Start page animations after loading screen is gone
+      startPageAnimations();
+  }, 2000); // Show loading screen for 2 seconds
+});
+
+// Function to start page animations
+function startPageAnimations() {
+  // Set initial styles for animation
+  document.querySelectorAll('.skill-category, .project-card, .stat-item, .contact-item').forEach(element => {
+      element.style.opacity = '0';
+      element.style.transform = 'translateY(20px)';
+      element.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+  });
+
+  // Start typing effect
+  const typingText = document.querySelector('.hero-text h1');
+  if (typingText) {
+      const originalHTML = typingText.innerHTML;
+      const textToType = "Hey, I'm Priyanshu";
+      typingText.innerHTML = '';
+      
+      let i = 0;
+      function typeWriter() {
+          if (i < textToType.length) {
+              if (i === 0) {
+                  typingText.innerHTML = '<span class="highlight">';
+              }
+              typingText.innerHTML += textToType.charAt(i);
+              if (i === textToType.length - 1) {
+                  typingText.innerHTML += '</span>';
+              }
+              i++;
+              setTimeout(typeWriter, 100);
+          }
+      }
+      
+      // Start typing effect
+      typeWriter();
+  }
+
+  // Run animation check
+  animateOnScroll();
+} 
