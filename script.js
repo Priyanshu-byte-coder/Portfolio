@@ -1,3 +1,30 @@
+// Add this to the beginning of your script.js file
+
+// Loading Screen Function
+window.addEventListener('load', function() {
+    // Hide the loading overlay after a minimum time (for better UX when page loads quickly)
+    const loadingOverlay = document.getElementById('loading-overlay');
+    
+    // Minimum loading time (in milliseconds) - adjust as needed
+    const minLoadingTime = 1500;
+    
+    // Calculate how long the page has been loading
+    const loadingStartTime = performance.now();
+    const elapsedLoadTime = performance.now() - loadingStartTime;
+    
+    // Wait at least minLoadingTime before hiding the loader
+    const timeToWait = Math.max(0, minLoadingTime - elapsedLoadTime);
+    
+    setTimeout(function() {
+        // Fade out loading overlay
+        loadingOverlay.style.opacity = '0';
+        
+        // Remove it from DOM after transition completes
+        setTimeout(function() {
+            loadingOverlay.style.display = 'none';
+        }, 500); // Match this with the CSS transition time
+    }, timeToWait);
+});
 // Wait for DOM to be fully loaded
 document.addEventListener('DOMContentLoaded', function() {
     // Animation handling
