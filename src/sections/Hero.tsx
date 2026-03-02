@@ -35,8 +35,8 @@ export const Hero: React.FC<HeroProps> = ({ revealed = false }) => {
 
                     <div className={`hero-stats hero-anim hero-anim--6`}>
                         <div className="stat">
-                            <span className="stat-number text-gradient">200+</span>
-                            <span className="stat-label">LeetCode<br />Problems</span>
+                            <span className="stat-number text-gradient">20+</span>
+                            <span className="stat-label">GitHub<br />Projects</span>
                         </div>
                         <div className="stat-divider"></div>
                         <div className="stat">
