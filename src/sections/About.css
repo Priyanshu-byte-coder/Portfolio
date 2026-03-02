@@ -1,0 +1,132 @@
+.about {
+    position: relative;
+}
+
+.about-content {
+    display: grid;
+    grid-template-columns: 3fr 2fr;
+    gap: 2rem;
+}
+
+.about-text-card {
+    height: 100%;
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: #c0c0d0;
+}
+
+.about-details {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.detail-card {
+    padding: 1.5rem 2rem;
+}
+
+.detail-card .icon {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+.detail-card h3 {
+    font-size: 1.3rem;
+    margin-bottom: 0.5rem;
+}
+
+.detail-title {
+    font-weight: 600;
+    color: var(--text-main);
+    font-size: 1.1rem;
+}
+
+.detail-subtitle {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    margin-bottom: 0.5rem;
+}
+
+.detail-highlight {
+    display: inline-block;
+    background: rgba(0, 255, 204, 0.1);
+    color: var(--primary-accent);
+    padding: 0.3rem 0.8rem;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    margin-top: 0.5rem;
+}
+
+.achievement-list {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+}
+
+.achievement-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.8rem;
+    font-size: 0.95rem;
+    color: #c0c0d0;
+}
+
+.achievement-list i {
+    color: var(--tertiary-accent);
+    margin-top: 0.25rem;
+}
+
+.leetcode-link-card {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+}
+
+.leetcode-card {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    position: relative;
+}
+
+.leetcode-card .icon {
+    margin-bottom: 0;
+}
+
+.leetcode-content p {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+}
+
+.leetcode-card .arrow-icon {
+    margin-left: auto;
+    color: var(--primary-accent);
+    opacity: 0;
+    transform: translateX(-10px);
+    transition: all var(--transition-fast);
+}
+
+.leetcode-card:hover .arrow-icon {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+@media (max-width: 968px) {
+    .about-content {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 600px) {
+    .about-text-extended {
+        display: none;
+    }
+    
+    .about-text-card {
+        font-size: 1rem;
+        line-height: 1.7;
+    }
+}

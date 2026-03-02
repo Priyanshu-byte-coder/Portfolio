@@ -1,0 +1,562 @@
+/* ── Dashboard ── */
+.dashboard {
+  position: relative;
+  padding: var(--section-padding);
+}
+
+/* ── GitHub Stats Row ── */
+.gh-stats-row {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.25rem;
+  margin-bottom: 2rem;
+}
+
+.gh-stat-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 1.75rem 1rem;
+  text-align: center;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 16px;
+  background: var(--bg-surface);
+  transition: border-color 0.2s, box-shadow 0.2s, transform 0.2s;
+}
+
+.gh-stat-card:hover {
+  border-color: rgba(0, 255, 204, 0.2);
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.3);
+  transform: translateY(-3px);
+}
+
+.gh-stat-icon {
+  font-size: 1.4rem;
+  opacity: 0.9;
+}
+
+.gh-stat-value {
+  font-family: var(--font-secondary);
+  font-size: 2rem;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.gh-stat-label {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+  font-weight: 500;
+}
+
+/* ── Contribution Heatmap ── */
+.gh-grid-wrap {
+  background: var(--bg-surface);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 16px;
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.gh-grid-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1.25rem;
+}
+
+.gh-grid-title {
+  font-family: var(--font-secondary);
+  font-size: 1rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--text-main);
+}
+
+.gh-grid-title i { color: var(--primary-accent); }
+
+.gh-grid-total {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  font-family: var(--font-secondary);
+}
+
+.gh-grid-scroll {
+  overflow-x: auto;
+  overflow-y: hidden;
+  -webkit-overflow-scrolling: touch;
+  padding-bottom: 0.5rem;
+  width: 100%;
+}
+
+.gh-grid-inner {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  min-width: 0;
+}
+
+/* Month labels row */
+.gh-months {
+  display: flex;
+  padding-bottom: 4px;
+  flex: 1;
+  min-width: 0;
+}
+
+.gh-day-spacer {
+  width: 32px;
+  flex-shrink: 0;
+}
+
+.gh-month-label {
+  font-size: 0.68rem;
+  color: var(--text-muted);
+  font-family: var(--font-secondary);
+  overflow: hidden;
+  white-space: nowrap;
+  min-width: 0;
+}
+
+/* Body: day labels + grid */
+.gh-body {
+  display: flex;
+  gap: 4px;
+  flex: 1;
+  min-width: 0;
+}
+
+.gh-day-labels {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  width: 32px;
+  flex-shrink: 0;
+}
+
+.gh-day-label {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  font-size: 0.6rem;
+  color: var(--text-muted);
+  font-family: var(--font-secondary);
+  min-height: 0;
+}
+
+/* Grid: each week is a column - fills available width */
+.gh-grid {
+  display: flex;
+  gap: 2px;
+  flex: 1;
+  min-width: 0;
+}
+
+.gh-col {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  flex: 1;
+  min-width: 10px; /* keep grid readable; allows grid to fill space */
+}
+
+.gh-cell {
+  width: 100%;
+  aspect-ratio: 1;
+  border-radius: 3px;
+  transition: background 0.4s ease;
+  min-height: 0;
+}
+
+.gh-cell:hover {
+  outline: 1px solid rgba(255,255,255,0.3);
+  outline-offset: 1px;
+}
+
+/* Legend */
+.gh-legend {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  margin-top: 1rem;
+  justify-content: flex-end;
+}
+
+.gh-legend .gh-cell {
+  width: 12px;
+  height: 12px;
+  aspect-ratio: unset;
+  flex: none;
+}
+
+.gh-legend-text {
+  font-size: 0.7rem;
+  color: var(--text-muted);
+  font-family: var(--font-secondary);
+}
+
+/* Skeleton / loading */
+.gh-grid-skeleton {
+  background: var(--bg-surface);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 16px;
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.gh-skeleton-cells {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2px;
+  margin-top: 1rem;
+}
+
+.gh-cell--loading {
+  background: rgba(255,255,255,0.04);
+  animation: skeleton-pulse 1.5s ease-in-out infinite;
+}
+
+@keyframes skeleton-pulse {
+  0%, 100% { opacity: 0.4; }
+  50% { opacity: 0.8; }
+}
+
+/* ── Language Distribution ── */
+.dash-lang-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.lang-row {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.lang-meta {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.85rem;
+}
+
+.lang-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.lang-name {
+  color: var(--text-main);
+  font-weight: 500;
+  flex: 1;
+}
+
+.lang-pct {
+  color: var(--text-muted);
+  font-family: var(--font-secondary);
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.lang-track {
+  height: 6px;
+  background: rgba(255, 255, 255, 0.06);
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.lang-fill {
+  height: 100%;
+  border-radius: 3px;
+  transition: width 1s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* ── Wide card modifier ── */
+.dash-card--wide {
+  width: 100%;
+  margin-bottom: 2rem;
+}
+
+/* ── Progress Rings Row (kept for backward compat) ── */
+.dash-rings-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.dash-ring-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  padding: 2rem 1.5rem;
+  text-align: center;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  transition: border-color var(--transition-fast),
+    box-shadow var(--transition-fast),
+    transform var(--transition-fast);
+}
+
+.dash-ring-card:hover {
+  border-color: rgba(0, 255, 204, 0.2);
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.3);
+  transform: translateY(-3px);
+}
+
+.dash-ring {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.dash-ring svg {
+  width: 100%;
+  height: 100%;
+}
+
+.dash-ring__val {
+  position: absolute;
+  font-family: var(--font-secondary);
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--text-main);
+}
+
+.dash-ring-meta {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  font-weight: 500;
+}
+
+.dash-ring-meta i {
+  font-size: 0.9rem;
+}
+
+/* ── Main Grid (Tech + Log) ── */
+.dash-main-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.dash-card {
+  padding: 1.75rem;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.dash-card__title {
+  font-family: var(--font-secondary);
+  font-size: 1.05rem;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.dash-card__title i {
+  font-size: 0.95rem;
+}
+
+/* ── Tech Bars ── */
+.dash-tech-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.dash-tech-row {
+  display: grid;
+  grid-template-columns: 5.5rem 1fr 2.5rem;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.dash-tech-name {
+  font-size: 0.85rem;
+  color: var(--text-main);
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+.dash-tech-track {
+  height: 6px;
+  background: rgba(255, 255, 255, 0.06);
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.dash-tech-fill {
+  height: 100%;
+  border-radius: 3px;
+  width: 0;
+  transition: width 1s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.dash-tech-pct {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  text-align: right;
+  font-family: var(--font-secondary);
+}
+
+/* ── Activity Log ── */
+.dash-log {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  position: relative;
+}
+
+.dash-log::before {
+  content: '';
+  position: absolute;
+  top: 4px;
+  bottom: 4px;
+  left: 13px;
+  width: 1px;
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.dash-log__item {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  padding: 0.5rem 0;
+  position: relative;
+}
+
+.dash-log__dot {
+  flex-shrink: 0;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.6rem;
+  z-index: 1;
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  background: var(--bg-main);
+}
+
+.dash-log__dot--research { border-color: rgba(0, 255, 204, 0.4); color: #00ffcc; }
+.dash-log__dot--work { border-color: rgba(0, 184, 255, 0.4); color: #00b8ff; }
+.dash-log__dot--leadership { border-color: rgba(176, 92, 255, 0.4); color: #b05cff; }
+.dash-log__dot--achievement { border-color: rgba(255, 200, 0, 0.4); color: #ffc800; }
+.dash-log__dot--education { border-color: rgba(0, 255, 204, 0.4); color: #00ffcc; }
+
+.dash-log__body {
+  display: flex;
+  flex-direction: column;
+  gap: 0.1rem;
+  padding-top: 3px;
+}
+
+.dash-log__event {
+  font-size: 0.82rem;
+  color: var(--text-main);
+  line-height: 1.4;
+}
+
+.dash-log__date {
+  font-size: 0.7rem;
+  color: var(--text-muted);
+  font-family: var(--font-secondary);
+  letter-spacing: 0.5px;
+}
+
+/* ── Coursework Chips ── */
+.dash-card--coursework {
+  padding: 1.75rem;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.dash-coursework {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+}
+
+.dash-coursework__chip {
+  padding: 0.4rem 0.9rem;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 8px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: #c0c0d0;
+  font-family: var(--font-secondary);
+  transition: all var(--transition-fast);
+  cursor: default;
+}
+
+.dash-coursework__chip:hover {
+  background: rgba(0, 255, 204, 0.08);
+  border-color: rgba(0, 255, 204, 0.3);
+  color: var(--primary-accent);
+  transform: translateY(-2px);
+}
+
+/* ── Responsive ── */
+@media (max-width: 900px) {
+  .dash-main-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .gh-stats-row {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .gh-stats-row {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.75rem;
+  }
+
+  .gh-stat-card {
+    padding: 1.25rem 0.75rem;
+  }
+
+  .gh-stat-value {
+    font-size: 1.6rem;
+  }
+
+  .gh-cell {
+    width: 9px;
+    height: 9px;
+  }
+
+  .dash-rings-row {
+    grid-template-columns: 1fr;
+  }
+
+  .dash-tech-row {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .dash-tech-pct {
+    text-align: right;
+  }
+
+  .gh-grid-wrap {
+    padding: 1rem 0.75rem;
+  }
+}

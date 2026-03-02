@@ -1,0 +1,86 @@
+.skills {
+    position: relative;
+}
+
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+}
+
+.skill-category-card {
+    padding: 2rem;
+    background: rgba(20, 20, 25, 0.5);
+    display: flex;
+    flex-direction: column;
+}
+
+.category-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.category-header .icon {
+    font-size: 1.8rem;
+}
+
+.category-header h3 {
+    font-size: 1.2rem;
+    margin: 0;
+    color: var(--text-main);
+}
+
+.skills-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.8rem;
+}
+
+.skill-chip {
+    padding: 0.5rem 1rem;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    font-family: var(--font-secondary);
+    color: #c0c0d0;
+    transition: all var(--transition-fast);
+    cursor: default;
+}
+
+.skill-chip:hover {
+    background: rgba(0, 255, 204, 0.1);
+    border-color: var(--primary-accent);
+    color: var(--primary-accent);
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 4px 12px rgba(0, 255, 204, 0.15);
+}
+
+/* Staggered entrance for chips */
+.skill-category-card .skills-list .skill-chip {
+    opacity: 0;
+    transform: translateY(10px);
+    animation: chip-in 0.4s ease-out forwards;
+}
+
+.stagger-children.active .skill-category-card:nth-child(1) .skill-chip { animation-delay: 0.3s; }
+.stagger-children.active .skill-category-card:nth-child(2) .skill-chip { animation-delay: 0.4s; }
+.stagger-children.active .skill-category-card:nth-child(3) .skill-chip { animation-delay: 0.5s; }
+.stagger-children.active .skill-category-card:nth-child(4) .skill-chip { animation-delay: 0.6s; }
+
+.stagger-children.active .skill-chip:nth-child(2) { animation-delay: calc(var(--base-delay, 0.3s) + 0.05s) !important; }
+.stagger-children.active .skill-chip:nth-child(3) { animation-delay: calc(var(--base-delay, 0.3s) + 0.1s) !important; }
+.stagger-children.active .skill-chip:nth-child(4) { animation-delay: calc(var(--base-delay, 0.3s) + 0.15s) !important; }
+.stagger-children.active .skill-chip:nth-child(5) { animation-delay: calc(var(--base-delay, 0.3s) + 0.2s) !important; }
+.stagger-children.active .skill-chip:nth-child(6) { animation-delay: calc(var(--base-delay, 0.3s) + 0.25s) !important; }
+.stagger-children.active .skill-chip:nth-child(7) { animation-delay: calc(var(--base-delay, 0.3s) + 0.3s) !important; }
+
+@keyframes chip-in {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

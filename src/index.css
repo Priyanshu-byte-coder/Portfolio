@@ -1,0 +1,455 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+
+:root {
+  /* Core Colors */
+  --bg-main: #0a0a0c;
+  --bg-surface: rgba(20, 20, 25, 0.7);
+  --bg-surface-hover: rgba(30, 30, 40, 0.9);
+
+  --primary-accent: #00ffcc;
+  --secondary-accent: #b05cff;
+  --tertiary-accent: #00b8ff;
+
+  --text-main: #ffffff;
+  --text-muted: #a0a0b0;
+
+  /* Gradients */
+  --gradient-glow: linear-gradient(135deg, var(--primary-accent), var(--secondary-accent));
+  --gradient-text: linear-gradient(to right, var(--primary-accent), var(--tertiary-accent));
+
+  /* Spacing */
+  --spacing-sm: 0.5rem;
+  --spacing-md: 1rem;
+  --spacing-lg: 2rem;
+  --spacing-xl: 4rem;
+  --section-padding: 6rem 2rem;
+
+  /* Typography */
+  --font-primary: 'Outfit', sans-serif;
+  --font-secondary: 'Space Grotesk', sans-serif;
+
+  /* Transitions */
+  --transition-fast: 0.2s cubic-bezier(0.17, 0.67, 0.83, 0.67);
+  --transition-smooth: 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 80px;
+  /* For fixed navbar */
+}
+
+body {
+  font-family: var(--font-primary);
+  background-color: var(--bg-main);
+  color: var(--text-main);
+  line-height: 1.6;
+  overflow-x: hidden;
+  /* Add subtle background grid or texture */
+  background-image:
+    radial-gradient(circle at 15% 50%, rgba(0, 255, 204, 0.05), transparent 25%),
+    radial-gradient(circle at 85% 30%, rgba(176, 92, 255, 0.05), transparent 25%);
+  background-attachment: fixed;
+}
+
+::selection {
+  background-color: var(--primary-accent);
+  color: var(--bg-main);
+}
+
+/* Typography Classes */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-secondary);
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.text-gradient {
+  background: var(--gradient-text);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* General Layout */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 var(--spacing-md);
+}
+
+section {
+  padding: var(--section-padding);
+}
+
+/* Glassmorphism utility */
+.glass-panel {
+  background: var(--bg-surface);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 16px;
+}
+
+/* Scrollbar formatting */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-main);
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--primary-accent);
+}
+
+/* ── Global Reveal Animations ── */
+.reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.reveal.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.reveal-left {
+  opacity: 0;
+  transform: translateX(-60px);
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.reveal-left.active {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.reveal-right {
+  opacity: 0;
+  transform: translateX(60px);
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.reveal-right.active {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.reveal-scale {
+  opacity: 0;
+  transform: scale(0.85);
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.reveal-scale.active {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* Stagger children utility */
+.stagger-children > * {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.stagger-children.active > *:nth-child(1) { transition-delay: 0.05s; }
+.stagger-children.active > *:nth-child(2) { transition-delay: 0.1s; }
+.stagger-children.active > *:nth-child(3) { transition-delay: 0.15s; }
+.stagger-children.active > *:nth-child(4) { transition-delay: 0.2s; }
+.stagger-children.active > *:nth-child(5) { transition-delay: 0.25s; }
+.stagger-children.active > *:nth-child(6) { transition-delay: 0.3s; }
+.stagger-children.active > *:nth-child(7) { transition-delay: 0.35s; }
+.stagger-children.active > *:nth-child(8) { transition-delay: 0.4s; }
+
+.stagger-children.active > * {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ── Glow hover for interactive cards ── */
+.glow-hover {
+  position: relative;
+}
+
+.glow-hover::after {
+  content: '';
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  background: var(--gradient-glow);
+  opacity: 0;
+  z-index: -1;
+  filter: blur(12px);
+  transition: opacity 0.4s ease;
+}
+
+.glow-hover:hover::after {
+  opacity: 0.15;
+}
+
+/* ── Section divider accent ── */
+section + section::before {
+  content: '';
+  display: block;
+  width: 40px;
+  height: 2px;
+  background: var(--gradient-text);
+  margin: 0 auto 0;
+  opacity: 0.4;
+  border-radius: 2px;
+}
+
+/* ── Smooth page-wide transitions ── */
+.app--revealed main {
+  animation: main-fade-in 0.6s ease-out 0.3s both;
+}
+
+@keyframes main-fade-in {
+  from { opacity: 0.6; }
+  to { opacity: 1; }
+}
+
+/* ══════════════════════════════════════════════
+   GLOBAL MOBILE RESPONSIVENESS
+══════════════════════════════════════════════ */
+
+/* Tablet (≤ 900px) */
+@media (max-width: 900px) {
+  :root {
+    --section-padding: 5rem 1.5rem;
+  }
+
+  .container {
+    padding: 0 1.25rem;
+  }
+}
+
+/* Mobile (≤ 600px) */
+@media (max-width: 600px) {
+  :root {
+    --section-padding: 4rem 1rem;
+  }
+
+  .container {
+    padding: 0 1rem;
+  }
+
+  /* Reduce section divider */
+  section + section::before {
+    display: none;
+  }
+
+  /* Typography scale-down */
+  h1 { font-size: clamp(2rem, 8vw, 3rem); }
+  h2 { font-size: clamp(1.4rem, 5vw, 2rem); }
+  h3 { font-size: clamp(1.1rem, 4vw, 1.5rem); }
+}
+
+/* ── Hero mobile ── */
+@media (max-width: 600px) {
+  .hero {
+    padding-top: 80px;
+  }
+
+  .hero-content {
+    gap: 2rem;
+  }
+
+  .hero-description {
+    font-size: 0.95rem;
+  }
+
+  .hero-actions {
+    flex-direction: column;
+    gap: 0.75rem;
+    align-items: center;
+    margin-bottom: 2.5rem;
+  }
+
+  .hero-actions .btn {
+    width: 100%;
+    max-width: 280px;
+    justify-content: center;
+  }
+
+  .floating-badge {
+    font-size: 0.75rem;
+    padding: 0.5rem 0.85rem;
+  }
+
+  .badge-1 { right: 2%; top: 5%; }
+  .badge-2 { left: 2%; bottom: 10%; }
+
+  .scroll-indicator {
+    display: none;
+  }
+}
+
+/* ── About mobile ── */
+@media (max-width: 600px) {
+  .about-text-card {
+    font-size: 0.95rem;
+  }
+
+  .detail-card {
+    padding: 1.25rem 1.25rem;
+  }
+
+  .leetcode-card {
+    gap: 1rem;
+  }
+}
+
+/* ── Experience mobile ── */
+@media (max-width: 600px) {
+  .timeline::before {
+    left: 16px;
+  }
+
+  .timeline-marker {
+    width: 36px;
+    height: 36px;
+    font-size: 0.85rem;
+  }
+
+  .timeline-item {
+    padding-left: 52px;
+  }
+
+  .experience-header {
+    flex-direction: column;
+    gap: 0.5rem;
+    align-items: flex-start;
+  }
+
+  .experience-card {
+    padding: 1.25rem;
+  }
+
+  .experience-header h3 {
+    font-size: 1.2rem;
+  }
+}
+
+/* ── Projects mobile ── */
+@media (max-width: 600px) {
+  .project-content {
+    padding: 1.25rem;
+  }
+
+  .project-title {
+    font-size: 1.2rem;
+  }
+}
+
+/* ── Skills mobile ── */
+@media (max-width: 600px) {
+  .skills-grid {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+
+  .skill-category-card {
+    padding: 1.25rem;
+  }
+
+  .skill-chip {
+    font-size: 0.82rem;
+    padding: 0.4rem 0.75rem;
+  }
+}
+
+/* ── Certifications mobile ── */
+@media (max-width: 600px) {
+  .certs-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .cert-card {
+    padding: 1.25rem;
+    gap: 1rem;
+  }
+
+  .cert-title {
+    font-size: 0.95rem;
+  }
+}
+
+/* ── Contact mobile ── */
+@media (max-width: 600px) {
+  .contact-card {
+    padding: 1.5rem;
+  }
+
+  .social-card {
+    padding: 2rem 1.5rem;
+  }
+
+  .social-links {
+    gap: 1rem;
+  }
+
+  .social-icon {
+    width: 48px;
+    height: 48px;
+    font-size: 1.2rem;
+  }
+}
+
+/* ── Research mobile ── */
+@media (max-width: 600px) {
+  .research-metrics {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+}
+
+/* ── Navbar mobile ── */
+@media (max-width: 600px) {
+  .logo {
+    font-size: 1.5rem;
+  }
+}
+
+/* ── Loading screen mobile ── */
+@media (max-width: 480px) {
+  .loading-screen__hex {
+    transform: scale(0.75);
+  }
+
+  .loading-screen__content {
+    gap: 1rem;
+  }
+}
+
+/* ── Card component mobile ── */
+@media (max-width: 600px) {
+  .card {
+    border-radius: 12px;
+  }
+}

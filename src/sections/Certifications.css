@@ -1,0 +1,108 @@
+.certifications {
+    position: relative;
+}
+
+.certs-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: 1.5rem;
+}
+
+.cert-link {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+}
+
+.cert-card {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    padding: 1.75rem 2rem;
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    transition: border-color var(--transition-fast),
+        box-shadow var(--transition-fast),
+        transform var(--transition-fast);
+}
+
+.cert-card:hover {
+    border-color: rgba(0, 255, 204, 0.25);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+    transform: translateY(-3px);
+}
+
+.cert-icon-wrap {
+    flex-shrink: 0;
+    width: 56px;
+    height: 56px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 14px;
+    background: rgba(0, 255, 204, 0.06);
+    border: 1px solid rgba(0, 255, 204, 0.12);
+    font-size: 1.5rem;
+}
+
+.cert-info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+.cert-title {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--text-main);
+    margin: 0;
+}
+
+.cert-issuer {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    margin: 0;
+}
+
+.cert-score {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    margin-top: 0.25rem;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--primary-accent);
+    background: rgba(0, 255, 204, 0.08);
+    padding: 0.2rem 0.6rem;
+    border-radius: 12px;
+    width: fit-content;
+}
+
+.cert-score i {
+    font-size: 0.65rem;
+}
+
+.cert-arrow {
+    flex-shrink: 0;
+    color: var(--text-muted);
+    font-size: 0.85rem;
+    opacity: 0;
+    transform: translateX(-8px);
+    transition: all var(--transition-fast);
+}
+
+.cert-card:hover .cert-arrow {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+@media (max-width: 480px) {
+    .certs-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .cert-card {
+        padding: 1.25rem;
+        gap: 1rem;
+    }
+}
