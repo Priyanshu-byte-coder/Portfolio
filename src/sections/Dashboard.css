@@ -79,7 +79,9 @@
   color: var(--text-main);
 }
 
-.gh-grid-title i { color: var(--primary-accent); }
+.gh-grid-title i {
+  color: var(--primary-accent);
+}
 
 .gh-grid-total {
   font-size: 0.78rem;
@@ -99,7 +101,7 @@
   display: flex;
   flex-direction: column;
   width: 100%;
-  min-width: 0;
+  min-width: max-content;
 }
 
 /* Month labels row */
@@ -163,7 +165,8 @@
   flex-direction: column;
   gap: 2px;
   flex: 1;
-  min-width: 10px; /* keep grid readable; allows grid to fill space */
+  min-width: 10px;
+  /* keep grid readable; allows grid to fill space */
 }
 
 .gh-cell {
@@ -175,7 +178,7 @@
 }
 
 .gh-cell:hover {
-  outline: 1px solid rgba(255,255,255,0.3);
+  outline: 1px solid rgba(255, 255, 255, 0.3);
   outline-offset: 1px;
 }
 
@@ -218,13 +221,20 @@
 }
 
 .gh-cell--loading {
-  background: rgba(255,255,255,0.04);
+  background: rgba(255, 255, 255, 0.04);
   animation: skeleton-pulse 1.5s ease-in-out infinite;
 }
 
 @keyframes skeleton-pulse {
-  0%, 100% { opacity: 0.4; }
-  50% { opacity: 0.8; }
+
+  0%,
+  100% {
+    opacity: 0.4;
+  }
+
+  50% {
+    opacity: 0.8;
+  }
 }
 
 /* ── Language Distribution ── */
@@ -456,11 +466,30 @@
   background: var(--bg-main);
 }
 
-.dash-log__dot--research { border-color: rgba(0, 255, 204, 0.4); color: #00ffcc; }
-.dash-log__dot--work { border-color: rgba(0, 184, 255, 0.4); color: #00b8ff; }
-.dash-log__dot--leadership { border-color: rgba(176, 92, 255, 0.4); color: #b05cff; }
-.dash-log__dot--achievement { border-color: rgba(255, 200, 0, 0.4); color: #ffc800; }
-.dash-log__dot--education { border-color: rgba(0, 255, 204, 0.4); color: #00ffcc; }
+.dash-log__dot--research {
+  border-color: rgba(0, 255, 204, 0.4);
+  color: #00ffcc;
+}
+
+.dash-log__dot--work {
+  border-color: rgba(0, 184, 255, 0.4);
+  color: #00b8ff;
+}
+
+.dash-log__dot--leadership {
+  border-color: rgba(176, 92, 255, 0.4);
+  color: #b05cff;
+}
+
+.dash-log__dot--achievement {
+  border-color: rgba(255, 200, 0, 0.4);
+  color: #ffc800;
+}
+
+.dash-log__dot--education {
+  border-color: rgba(0, 255, 204, 0.4);
+  color: #00ffcc;
+}
 
 .dash-log__body {
   display: flex;
