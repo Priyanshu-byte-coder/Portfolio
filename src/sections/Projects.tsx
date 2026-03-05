@@ -23,7 +23,7 @@ const projects = [
         description: "Built and deployed a full-stack web platform for MZHub as a Full Stack Developer Intern. Developed responsive UI components, integrated backend APIs, and optimized performance. Deployed at mzhub.in serving real users.",
         tech: ["Azure Deployment","TypeScript", "Next.js", "React", "Tailwind CSS"],
         demoLink: "https://www.mzhub.in/",
-        githubLink: "https://github.com/Priyanshu-byte-coder/mzhub",
+        // githubLink: "https://github.com/Priyanshu-byte-coder/mzhub",
         demoText: "Live Site",
         image: "/mzhub.png",
         icon: "fas fa-globe"

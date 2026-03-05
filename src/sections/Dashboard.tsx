@@ -200,7 +200,7 @@ const techStack = [
 
 const activityLog = [
   { type: 'work',        event: 'Full Stack Developer Intern @ MZHub',               date: 'Dec 2025' },
-  { type: 'research',    event: 'IEEE Paper — Skin Disease Detection (97.2% acc)',    date: 'Nov 2025' },
+  { type: 'research',    event: 'IEEE Paper — Robotic arm anomaly Detection (97.2% acc)',    date: 'Nov 2025' },
   { type: 'achievement', event: 'Coursera ML Specialization — 99.83%',               date: 'Oct 2025' },
   { type: 'leadership',  event: 'Technical Head @ Entrepreneurship Cell',            date: 'Sep 2025' },
   { type: 'achievement', event: 'PyTorch Deep Learning Bootcamp — Udemy',            date: 'Aug 2025' },
