@@ -199,11 +199,12 @@ const techStack = [
 ];
 
 const activityLog = [
+  { type: 'achievement', event: 'Winner — Aubergine Track, HackAMined National Hackathon (2026)',date: 'Mar 2026' },
+  { type: 'achievement', event: 'Team CON-SOL-E AI Engineer — National Rank 4th in MECUP(2026) ',date: 'Feb 2026' },
+  { type: 'research',    event: 'IEEE Paper — (Published & Presented)Robotic arm anomaly Detection (97.2% acc)',    date: 'Feb 2026' },
   { type: 'work',        event: 'Full Stack Developer Intern @ MZHub',               date: 'Dec 2025' },
-  { type: 'research',    event: 'IEEE Paper — Robotic arm anomaly Detection (97.2% acc)',    date: 'Nov 2025' },
-  { type: 'achievement', event: 'Coursera ML Specialization — 99.83%',               date: 'Oct 2025' },
-  { type: 'leadership',  event: 'Technical Head @ Entrepreneurship Cell',            date: 'Sep 2025' },
-  { type: 'achievement', event: 'PyTorch Deep Learning Bootcamp — Udemy',            date: 'Aug 2025' },
+  { type: 'leadership',  event: 'Vice Chair @ ACM Student Chapter, Nirma University',            date: 'Sep 2025' },
+  { type: 'achievement', event: 'Winner — CodeAdda Premier League (Codeforces) ',            date: 'Apr 2025' },
   { type: 'education',   event: 'BTech AI & ML @ Nirma University (8.85 GPA)',       date: 'Jul 2024' },
 ];
 
