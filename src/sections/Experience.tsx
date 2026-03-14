@@ -6,6 +6,18 @@ import { useInView } from '../hooks/useInView';
 
 const experiences = [
     {
+        role: "Artificial Intelligence Engineer",
+        company: "Team CON-SOL-E",
+        duration: "Jan 2026 – Mar 2026",
+        type: "Full-time · On-site",
+        description: [
+            "Worked as an AI engineer on RAG-based intelligent agents tailored to real-world problem statements.",
+            "Contributed to Web development, WebAR, and app experiences as part of a high-performing hackathon team.",
+            "Collaborated on AI-driven solutions from ideation to prototype deployment in Ahmedabad, Gujarat, India."
+        ],
+        icon: "fas fa-brain"
+    },
+    {
         role: "Full Stack Developer Intern",
         company: "MZHUB Faithtech (Remote)",
         duration: "Dec 2025 – Dec 2025",

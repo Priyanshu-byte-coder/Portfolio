@@ -50,6 +50,9 @@ export const About: React.FC = () => {
                             <h3>Achievements</h3>
                             <ul className="achievement-list">
                                 <li>
+                                    <i className="fa-solid fa-trophy"></i> Winner – Aubergine Track, HackAMined National Hackathon (2026) – Secured 1st place in the Aubergine track and ranked Top 5 Overall (Finalist) among 400+ teams and 2300+ participants in a national-level hackathon.
+                                </li>
+                                <li>
                                     <i className="fa-solid fa-code"></i> Winner – CodeAdda Premier League (1st / 200+ participants, Apr 2025)
                                 </li>
                                 <li>

@@ -189,15 +189,6 @@ const languages = [
   { name: 'C++',         pct:  6, color: '#f34b7d' },
 ];
 
-const techStack = [
-  { name: 'Python',       pct: 92, color: 'linear-gradient(90deg,#3776ab,#00ffcc)' },
-  { name: 'PyTorch / DL', pct: 85, color: 'linear-gradient(90deg,#ee4c2c,#b05cff)' },
-  { name: 'HTML / CSS',   pct: 80, color: 'linear-gradient(90deg,#e34c26,#f7df1e)' },
-  { name: 'TypeScript',   pct: 73, color: 'linear-gradient(90deg,#3178c6,#00b8ff)' },
-  { name: 'JavaScript',   pct: 68, color: 'linear-gradient(90deg,#f7df1e,#00ffcc)' },
-  { name: 'C++',          pct: 83, color: 'linear-gradient(90deg,#f34b7d,#b05cff)' },
-];
-
 const activityLog = [
   { type: 'achievement', event: 'Winner — Aubergine Track, HackAMined National Hackathon (2026)',date: 'Mar 2026' },
   { type: 'achievement', event: 'Team CON-SOL-E AI Engineer — National Rank 4th in MECUP(2026) ',date: 'Feb 2026' },
@@ -324,34 +315,7 @@ export const Dashboard: React.FC = () => {
           </Card>
         </div>
 
-        {/* Row 4: Tech Proficiency */}
-        <div className={`reveal ${isInView ? 'active' : ''}`} style={{ transitionDelay: '0.2s' }}>
-          <Card className="dash-card dash-card--wide">
-            <h3 className="dash-card__title">
-              <i className="fas fa-gauge-high" style={{ color: '#00b8ff' }} /> Tech Proficiency
-            </h3>
-            <div className="dash-tech-list">
-              {techStack.map((t, i) => (
-                <div key={t.name} className="dash-tech-row">
-                  <span className="dash-tech-name">{t.name}</span>
-                  <div className="dash-tech-track">
-                    <div
-                      className="dash-tech-fill"
-                      style={{
-                        width: isInView ? `${t.pct}%` : '0%',
-                        background: t.color,
-                        transitionDelay: `${i * 80}ms`,
-                      }}
-                    />
-                  </div>
-                  <span className="dash-tech-pct">{t.pct}%</span>
-                </div>
-              ))}
-            </div>
-          </Card>
-        </div>
-
-        {/* Row 5: Coursework */}
+        {/* Coursework */}
         <div className={`reveal ${isInView ? 'active' : ''}`} style={{ transitionDelay: '0.35s' }}>
           <Card className="dash-card dash-card--wide dash-card--coursework">
             <h3 className="dash-card__title">
