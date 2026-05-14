@@ -1,79 +1,60 @@
 import React from 'react';
 import './About.css';
-import { SectionHeader } from '../components/SectionHeader';
-import { Card } from '../components/Card';
-import { useInView } from '../hooks/useInView';
+import { useScrollReveal } from '../hooks/useScrollReveal';
+import { EXPERIENCES } from '../data';
 
 export const About: React.FC = () => {
-    const { ref, isInView } = useInView({ threshold: 0.1 });
+  const [ref, visible] = useScrollReveal(0.06);
 
-    return (
-        <section id="about" className="about" ref={ref}>
-            <div className="container">
-                <div className={`reveal ${isInView ? 'active' : ''}`}>
-                    <SectionHeader title="About Me" subtitle="A brief look into who I am and what I do." />
-                </div>
+  return (
+    <section className="section" id="about" style={{ background: 'var(--bg-warm)' }}>
+      <div className="section-inner" ref={ref as React.RefObject<HTMLDivElement>}>
+        <span className={`section-number reveal ${visible ? 'visible' : ''}`}>01 — About</span>
+        <h2 className={`section-heading reveal ${visible ? 'visible' : ''}`} style={{ transitionDelay: '0.1s' }}>
+          Who I <span className="thin">Am</span>
+        </h2>
 
-                <div className={`about-content stagger-children ${isInView ? 'active' : ''}`}>
-                    <div className="about-text-wrapper">
-                        <Card className="about-text-card">
-                            <p>
-                                Hi, I'm <span className="text-gradient">Priyanshu Doshi</span>, a B.Tech student specializing in Artificial Intelligence and Machine Learning at the Institute of Technology, Nirma University, driven by curiosity and a strong passion for building technology that solves real-world problems.
-                            </p>
-                            <br />
-                            <p>
-                                I enjoy working at the intersection of AI, software engineering, and product development — transforming ideas into functional systems. From developing and deploying production-ready web platforms to working on machine learning research involving anomaly detection and industrial robotics, I constantly explore how intelligent systems can improve efficiency, reliability, and decision-making.
-                            </p>
-                            <br />
-                            <p className="about-text-extended">
-                                My interests extend beyond academics into startup innovation and scalable digital solutions. I've worked on projects ranging from AI-driven analytics and web-based interactive experiences to real-world problem statements in healthcare regulation and supply-chain accountability. I enjoy owning the complete development cycle — designing, building, deploying, and continuously improving products.
-                            </p>
-                            <br />
-                            <p className="about-text-extended">
-                                At my core, I'm someone who loves learning fast, building boldly, and turning ambitious ideas into reality.
-                            </p>
-                        </Card>
-                    </div>
-
-                    <div className="about-details">
-                        <Card className="detail-card education-card">
-                            <i className="fas fa-graduation-cap icon text-gradient"></i>
-                            <h3>Education</h3>
-                            <p className="detail-title">B.Tech in AI &amp; ML</p>
-                            <p className="detail-subtitle">Institute of Technology, Nirma University</p>
-                            <p className="detail-subtitle">July 2024 – July 2028</p>
-                            <p className="detail-highlight">GPA: 8.85 / 10.0</p>
-                        </Card>
-
-                        <Card className="detail-card achievement-card">
-                            <i className="fas fa-trophy icon text-gradient"></i>
-                            <h3>Achievements</h3>
-                            <ul className="achievement-list">
-                                <li>
-                                    <i className="fa-solid fa-trophy"></i> Winner – Aubergine Track, HackAMined National Hackathon (2026) – Secured 1st place in the Aubergine track and ranked Top 5 Overall (Finalist) among 400+ teams and 2300+ participants in a national-level hackathon.
-                                </li>
-                                <li>
-                                    <i className="fa-solid fa-code"></i> Winner – CodeAdda Premier League (1st / 200+ participants, Apr 2025)
-                                </li>
-                                <li>
-                                    <i className="fa-solid fa-star"></i> Reliance Foundation Undergraduate Scholar (2025)
-                                </li>
-                            </ul>
-                        </Card>
-
-                        <a href="https://leetcode.com/u/Priyanshu_doshi/" target="_blank" rel="noopener noreferrer" className="leetcode-link-card">
-                            <Card className="detail-card leetcode-card">
-                                <i className="fa-solid fa-code-branch icon text-gradient"></i>
-                                <div className="leetcode-content">
-                                    <h3>LeetCode Profile</h3>
-                                    <p>200+ Problems Solved</p>
-                                </div>
-                                <i className="fa-solid fa-arrow-right arrow-icon"></i>
-                            </Card>
-                        </a>
-                    </div>
-                </div>
+        <div className="about-split">
+          <div>
+            <p className={`about-text reveal ${visible ? 'visible' : ''}`} style={{ transitionDelay: '0.2s' }}>
+              <span className="about-highlight">B.Tech student at Nirma University</span> specializing in AI/ML.
+              I build intelligent systems end-to-end — from industrial computer vision and edge AI to
+              full-stack platforms with GenAI.
+            </p>
+            <p className={`about-text reveal ${visible ? 'visible' : ''}`} style={{ marginTop: 20, transitionDelay: '0.3s' }}>
+              From winning national hackathons and publishing in <span className="about-highlight">IEEE</span> to
+              building privacy-preserving edge AI on Raspberry Pi — I ship systems that work in the real world,
+              not just on paper.
+            </p>
+            <div className={`about-edu reveal ${visible ? 'visible' : ''}`} style={{ transitionDelay: '0.4s' }}>
+              <div className="about-edu-title">Nirma University — Institute of Technology</div>
+              <div className="about-edu-detail">B.Tech Artificial Intelligence &amp; Machine Learning · 2024 — 2028</div>
+              <div className="about-edu-detail" style={{ marginTop: 8 }}>
+                CGPA: <span className="about-edu-stat">8.85</span>&nbsp;·&nbsp;
+                Class XII: <span className="about-edu-stat">96.7%</span>&nbsp;·&nbsp;
+                Percentile: <span className="about-edu-stat">99.1</span>
+              </div>
             </div>
-        </section>
-    );
+          </div>
+
+          <div className="exp-list">
+            {EXPERIENCES.map((exp, i) => (
+              <div
+                key={i}
+                className={`exp-item reveal ${visible ? 'visible' : ''}`}
+                style={{ transitionDelay: `${0.2 + i * 0.1}s` }}
+              >
+                <div className="exp-when">{exp.duration}</div>
+                <div>
+                  <div className="exp-role">{exp.role}</div>
+                  <div className="exp-company">{exp.company}</div>
+                  <p className="exp-desc">{exp.desc}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+  );
 };

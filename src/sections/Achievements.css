@@ -1,0 +1,25 @@
+.ach-row {
+  display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1px; background: var(--border);
+}
+.ach-cell { background: var(--bg); padding: 32px; transition: all 0.3s var(--ease); }
+.ach-cell:hover { background: var(--bg-elevated); }
+.ach-color-bar { width: 24px; height: 3px; margin-bottom: 16px; }
+.ach-label { font-family: var(--font-display); font-weight: 600; font-size: 17px; text-transform: uppercase; margin-bottom: 6px; }
+.ach-desc { font-size: 14px; color: var(--muted); line-height: 1.6; }
+
+.cert-row { display: flex; gap: 20px; margin-top: 16px; flex-wrap: wrap; }
+.cert-card {
+  flex: 1; min-width: 280px; border: 1px solid var(--border); padding: 24px;
+  display: flex; justify-content: space-between; align-items: center;
+  transition: all 0.3s var(--ease); background: var(--bg);
+}
+.cert-card:hover { border-color: var(--accent); }
+.cert-name { font-family: var(--font-display); font-weight: 600; font-size: 15px; text-transform: uppercase; }
+.cert-org { font-size: 12px; color: var(--muted); margin-top: 2px; }
+.cert-score { font-family: var(--font-display); font-weight: 700; font-size: 24px; color: var(--warm); }
+
+@media (max-width: 900px) {
+  .ach-row { grid-template-columns: 1fr; }
+  .cert-row { flex-direction: column; }
+}

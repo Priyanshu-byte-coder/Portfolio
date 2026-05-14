@@ -1,127 +1,115 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './Projects.css';
-import { SectionHeader } from '../components/SectionHeader';
-import { Card } from '../components/Card';
-import { Button } from '../components/Button';
-import { useInView } from '../hooks/useInView';
+import { useScrollReveal } from '../hooks/useScrollReveal';
+import { FEATURED_PROJECTS, SECONDARY_PROJECTS } from '../data';
+import type { FeaturedProject, SecondaryProject } from '../data';
+import { PROJECT_LINKS } from '../project-links';
 
-const projects = [
-    {
-        title: "Spectra Scan",
-        subtitle: "Automated Paint Defect Detection System",
-        description: "Contributed to development of a 2m × 2m × 2m gantry-based automated system for automobile paint defect inspection. Developed a centralized control application for operating and monitoring the complete inspection system. Implemented machine vision analytics for defect detection, along with a RAG-based troubleshooting assistant and WebAR visualization for industrial system monitoring and diagnostics.",
-        tech: ["Computer Vision", "WebAR", "RAG", "Python", "Machine Vision"],
-        demoLink: "https://drive.google.com/file/d/1LEJZ_Jpn7Zt_7WVXZNjV-yKCUqPXIFZM/view?usp=sharing",
-        githubLink: "https://github.com/Mitanshp5/MECup",
-        demoText: "Documentation",
-        image: "/spectra_scan.png",
-        icon: "fas fa-car"
-    },
-    {
-        title: "MZHub",
-        subtitle: "Full Stack Web Platform — TypeScript, Next.js",
-        description: "Built and deployed a full-stack web platform for MZHub as a Full Stack Developer Intern. Developed responsive UI components, integrated backend APIs, and optimized performance. Deployed at mzhub.in serving real users.",
-        tech: ["Azure Deployment","TypeScript", "Next.js", "React", "Tailwind CSS"],
-        demoLink: "https://www.mzhub.in/",
-        // githubLink: "https://github.com/Priyanshu-byte-coder/mzhub",
-        demoText: "Live Site",
-        image: "/mzhub.png",
-        icon: "fas fa-globe"
-    },
-    {
-        title: "Movie Recommender System",
-        subtitle: "Python, Streamlit",
-        description: "Built content-based recommendation engine using cosine similarity algorithm for personalized movie suggestions. Integrated TMDb API for real-time movie posters and metadata; deployed on Streamlit with interactive user interface.",
-        tech: ["Machine Learning", "Python", "Streamlit", "TMDb API"],
-        demoLink: "https://movierecommender-l27gqgyeweduhskslis84n.streamlit.app/",
-        githubLink: "https://github.com/Priyanshu-byte-coder/movie-recommender",
-        demoText: "Live Demo",
-        image: "/mv_rec.png",
-        icon: "fas fa-film"
-    }
-];
+function FeaturedProjectCard({ project, index }: { project: FeaturedProject; index: number }) {
+  const [ref, visible] = useScrollReveal(0.08);
+  const [hovered, setHovered] = useState(false);
+  const num = String(index + 1).padStart(2, '0');
+  // Merge links: project-links.ts overrides data.ts (empty string = hide button)
+  const links = { ...project.links, ...PROJECT_LINKS[project.id] };
+
+  return (
+    <div
+      ref={ref as React.RefObject<HTMLDivElement>}
+      className={`fp-card reveal ${visible ? 'visible' : ''} ${hovered ? 'hovered' : ''}`}
+      onMouseEnter={() => setHovered(true)}
+      onMouseLeave={() => setHovered(false)}
+    >
+      <div className="fp-number">{num}</div>
+      <div className="fp-left">
+        <div className="fp-badge">{project.badge}</div>
+        <h3 className="fp-title">{project.title}</h3>
+        <p className="fp-subtitle">{project.subtitle}</p>
+        <p className="fp-desc">{project.description}</p>
+      </div>
+      <div className="fp-right">
+        <div className="fp-tech-row">
+          {project.tech.map((t, ti) => (
+            <span
+              key={t}
+              className="fp-tech-tag"
+              style={{ transitionDelay: hovered ? `${ti * 0.03}s` : '0s' }}
+            >{t}</span>
+          ))}
+        </div>
+        <div className="fp-metrics-row">
+          {project.metrics.map((m) => (
+            <div key={m.label} className="fp-metric">
+              <div className="fp-metric-val">{m.value}</div>
+              <div className="fp-metric-label">{m.label}</div>
+            </div>
+          ))}
+        </div>
+        <div className="fp-links-row">
+          {links.github && (
+            <a href={links.github} target="_blank" rel="noopener noreferrer" className="fp-link-btn">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+              Code
+            </a>
+          )}
+          {links.docs && (
+            <a href={links.docs} target="_blank" rel="noopener noreferrer" className="fp-link-btn">Docs</a>
+          )}
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function SecondaryProjectCell({ project, index }: { project: SecondaryProject; index: number }) {
+  const [ref, visible] = useScrollReveal(0.06);
+  return (
+    <div
+      ref={ref as React.RefObject<HTMLDivElement>}
+      className={`sp-cell reveal ${visible ? 'visible' : ''}`}
+      style={{ transitionDelay: `${index * 0.07}s` }}
+    >
+      <div className="sp-tag">{project.tag}</div>
+      <h4 className="sp-title">{project.title}</h4>
+      <p className="sp-desc">{project.desc}</p>
+      <div className="sp-tech-mini">
+        {project.tech.map((t) => <span key={t}>{t}</span>)}
+      </div>
+    </div>
+  );
+}
 
 export const Projects: React.FC = () => {
-    const { ref, isInView } = useInView({ threshold: 0.1 });
+  const [ref, visible] = useScrollReveal(0.04);
 
-    return (
-        <section id="projects" className="projects" ref={ref}>
-            <div className="container">
-                <div className={`reveal ${isInView ? 'active' : ''}`}>
-                    <SectionHeader title="Featured Projects" subtitle="A showcase of my recent ML models and web applications." />
-                </div>
+  return (
+    <section className="section" id="projects">
+      <div className="section-inner" ref={ref as React.RefObject<HTMLDivElement>}>
+        <span className={`section-number reveal ${visible ? 'visible' : ''}`}>02 — Work</span>
+        <h2 className={`section-heading reveal ${visible ? 'visible' : ''}`} style={{ transitionDelay: '0.1s' }}>
+          Featured<br /><span className="thin">Projects</span>
+        </h2>
 
-                <div className={`projects-grid stagger-children ${isInView ? 'active' : ''}`}>
-                    {projects.map((project, index) => (
-                        <Card key={index} className="project-card">
-                            <div className="project-image-container">
-                                {project.image ? (
-                                    <img src={project.image} alt={project.title} className="project-image" />
-                                ) : (
-                                    <div className="project-placeholder">
-                                        <i className={`${project.icon} text-gradient`}></i>
-                                    </div>
-                                )}
-                                <div className="project-overlay"></div>
-                            </div>
+        <div className="fp-list">
+          {FEATURED_PROJECTS.map((p, i) => (
+            <FeaturedProjectCard key={p.id} project={p} index={i} />
+          ))}
+        </div>
 
-                            <div className="project-content">
-                                <h3 className="project-title">{project.title}</h3>
-                                {project.subtitle && (
-                                    <span className="project-subtitle">{project.subtitle}</span>
-                                )}
-                                <p className="project-description">{project.description}</p>
-
-                                <div className="project-tech">
-                                    {project.tech.map((tech, i) => (
-                                        <span key={i} className="tech-tag">{tech}</span>
-                                    ))}
-                                </div>
-
-                                <div className="project-links">
-                                    {project.demoLink && (
-                                        <Button
-                                            href={project.demoLink}
-                                            variant="primary"
-                                            className="project-btn"
-                                            icon="fas fa-external-link-alt"
-                                            target="_blank"
-                                            rel="noopener noreferrer"
-                                        >
-                                            {project.demoText}
-                                        </Button>
-                                    )}
-                                    {project.githubLink && (
-                                        <Button
-                                            href={project.githubLink}
-                                            variant="outline"
-                                            className="project-btn"
-                                            icon="fab fa-github"
-                                            target="_blank"
-                                            rel="noopener noreferrer"
-                                        >
-                                            Source Code
-                                        </Button>
-                                    )}
-                                </div>
-                            </div>
-                        </Card>
-                    ))}
-                </div>
-
-                <div className="projects-more-wrap">
-                    <Button
-                        href="https://github.com/Priyanshu-byte-coder?tab=repositories"
-                        variant="outline"
-                        className="projects-more-btn"
-                        icon="fab fa-github"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                    >
-                        View all repositories on GitHub
-                    </Button>
-                </div>
-            </div>
-        </section>
-    );
+        <div style={{ marginTop: 80 }}>
+          <span className={`section-number reveal ${visible ? 'visible' : ''}`}>02.B</span>
+          <h2
+            className={`section-heading reveal ${visible ? 'visible' : ''}`}
+            style={{ fontSize: 'clamp(28px,4vw,40px)', marginBottom: 0 }}
+          >
+            More <span className="thin">Work</span>
+          </h2>
+          <div className="sp-grid">
+            {SECONDARY_PROJECTS.map((p, i) => (
+              <SecondaryProjectCell key={p.title} project={p} index={i} />
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+  );
 };

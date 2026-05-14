@@ -1,0 +1,42 @@
+/* ── Achievements ── */
+.gh-ach-grid {
+  display: flex; flex-wrap: wrap; gap: 16px;
+}
+.gh-ach-card {
+  display: flex; flex-direction: column; align-items: center; gap: 10px;
+  padding: 20px 16px; border: 1px solid var(--border); background: var(--bg);
+  width: 120px; transition: all 0.3s var(--ease); cursor: pointer;
+}
+.gh-ach-card:hover {
+  border-color: var(--accent); background: var(--bg-elevated);
+  transform: translateY(-4px);
+}
+.gh-ach-img-wrap {
+  width: 64px; height: 64px; border-radius: 50%; overflow: hidden;
+  background: var(--surface);
+  display: flex; align-items: center; justify-content: center;
+}
+.gh-ach-img-wrap img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.gh-ach-name {
+  font-family: var(--font-mono); font-size: 9px; color: var(--cream-dim);
+  letter-spacing: 1px; text-transform: uppercase; text-align: center; line-height: 1.4;
+}
+
+/* ── Charts ── */
+.gh-cards { display: flex; flex-direction: column; gap: 20px; }
+.gh-card {
+  border: 1px solid var(--border); border-radius: 4px; padding: 24px;
+  background: var(--bg); overflow: hidden;
+}
+.gh-card img { width: 100%; border-radius: 2px; display: block; }
+.gh-card-label {
+  font-family: var(--font-mono); font-size: 10px; color: var(--muted);
+  letter-spacing: 2px; text-transform: uppercase; margin-bottom: 16px;
+}
+.gh-row { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+
+@media (max-width: 900px) {
+  .gh-row { grid-template-columns: 1fr; }
+.gh-ach-card { width: 100px; padding: 16px 12px; }
+  .gh-ach-img-wrap { width: 52px; height: 52px; }
+}

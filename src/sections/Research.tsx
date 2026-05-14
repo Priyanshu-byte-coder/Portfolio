@@ -1,80 +1,62 @@
 import React from 'react';
 import './Research.css';
-import { SectionHeader } from '../components/SectionHeader';
-import { Card } from '../components/Card';
-import { Button } from '../components/Button';
-import { useInView } from '../hooks/useInView';
+import { useScrollReveal } from '../hooks/useScrollReveal';
 
 export const Research: React.FC = () => {
-    const { ref, isInView } = useInView({ threshold: 0.1 });
+  const [ref, visible] = useScrollReveal(0.08);
 
-    return (
-        <section id="research" className="research" ref={ref}>
-            <div className="container">
-                <div className={`reveal ${isInView ? 'active' : ''}`}>
-                    <SectionHeader title="Research & Publications" subtitle="My academic contributions to the field of AI and industrial application." />
-                </div>
+  return (
+    <section className="section" id="research" style={{ background: 'var(--bg-warm)' }}>
+      <div className="section-inner" ref={ref as React.RefObject<HTMLDivElement>}>
+        <span className={`section-number reveal ${visible ? 'visible' : ''}`}>04 — Research</span>
+        <h2 className={`section-heading reveal ${visible ? 'visible' : ''}`} style={{ transitionDelay: '0.1s' }}>
+          Publi<span className="thin">cations</span>
+        </h2>
 
-                <div className={`reveal-scale ${isInView ? 'active' : ''}`} style={{ transitionDelay: '0.2s' }}>
-                <Card className="research-card">
-                    <div className="research-content-grid">
-                        <div className="research-info">
-                            <span className="publication-badge">IEEE Sensors Letters (2026)</span>
-                            <h3 className="research-title">
-                                Robotic Arm Fault Detection using CatBoost Classifier
-                            </h3>
-
-                            <div className="research-metrics">
-                                <div className="metric">
-                                    <i className="fas fa-bullseye icon text-gradient"></i>
-                                    <div className="metric-text">
-                                        <strong>97.20%</strong>
-                                        <span>Accuracy</span>
-                                    </div>
-                                </div>
-                                <div className="metric">
-                                    <i className="fas fa-chart-line icon text-gradient"></i>
-                                    <div className="metric-text">
-                                        <strong>0.9718</strong>
-                                        <span>F1 Score</span>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <p className="research-abstract">
-                                Proposed a CatBoost-based anomaly detection system for predictive industrial fault detection. Evaluated using the CASPER robotic arm dataset, this model successfully outperformed traditional baseline algorithms including SVM, Logistic Regression, Naive Bayes, and Quadratic Discriminant Analysis.
-                            </p>
-
-                            <div className="research-actions">
-                                <Button
-                                    href="https://ieeexplore.ieee.org/document/11359621"
-                                    variant="primary"
-                                    icon="fas fa-book-open"
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                >
-                                    Read IEEE Paper
-                                </Button>
-                            </div>
-                        </div>
-
-                        <div className="research-visual">
-                            <div className="research-graphic">
-                                <div className="graphic-circle outer"></div>
-                                <div className="graphic-circle middle"></div>
-                                <div className="graphic-circle inner">
-                                    <img src="/logo_apscon.png" alt="APSCON Logo" className="research-logo" />
-                                </div>
-
-                                <div className="data-node n1">CatBoost</div>
-                                <div className="data-node n2">Sensors</div>
-                                <div className="data-node n3">Industrial AI</div>
-                            </div>
-                        </div>
-                    </div>
-                </Card>
-                </div>
+        <div className={`research-card reveal ${visible ? 'visible' : ''}`} style={{ transitionDelay: '0.2s' }}>
+          <div className="research-card-top">
+            <div className="research-venue">IEEE Sensors Letters · 2026</div>
+            <a
+              href="https://ieeexplore.ieee.org/document/11359621"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="research-link"
+            >
+              View Paper
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                <path d="M7 17L17 7M17 7H7M17 7v10" />
+              </svg>
+            </a>
+          </div>
+          <h3 className="research-title">Robotic Arm Fault Detection using CatBoost Classifier</h3>
+          <p className="research-abstract">
+            Predictive industrial fault detection using the CASPER robotic arm dataset. CatBoost-based ensemble approach
+            outperforming SVM, Logistic Regression, Naive Bayes, and Quadratic Discriminant Analysis baselines across
+            all evaluation metrics.
+          </p>
+          <div className="research-metrics-row">
+            <div className="research-metric">
+              <div className="research-metric-val">97.20%</div>
+              <div className="research-metric-label">Accuracy</div>
             </div>
-        </section>
-    );
+            <div className="research-metric">
+              <div className="research-metric-val">0.9718</div>
+              <div className="research-metric-label">F1 Score</div>
+            </div>
+            <div className="research-metric">
+              <div className="research-metric-val">4</div>
+              <div className="research-metric-label">Baselines Beat</div>
+            </div>
+          </div>
+          <div className="research-tags">
+            <span>CatBoost</span>
+            <span>Fault Detection</span>
+            <span>Robotics</span>
+            <span>IEEE</span>
+            <span>Sensors</span>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
 };

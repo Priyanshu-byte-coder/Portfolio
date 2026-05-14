@@ -1,0 +1,11 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(unzip -o portfolio-handoff.zip -d /tmp/portfolio-handoff)",
+      "Bash(npm run:*)",
+      "Bash(npx tsc:*)",
+      "Bash(npx vite:*)",
+      "Bash(powershell:*)"
+    ]
+  }
+}
