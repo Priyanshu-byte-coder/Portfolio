@@ -4,7 +4,7 @@
    Font: system monospace (no web fonts)
    ──────────────────────────────────────────────────── */
 
-:root {
+.chat-page {
   --bg:      #111111;
   --surface: #1c1c1c;
   --text:    #d8d2c2;
@@ -228,19 +228,6 @@
   margin-top: 4px;
   letter-spacing: 0.04em;
 }
-
-/* ── Shutdown screen ──────────────────────────────── */
-.shutdown-screen { display: flex; flex-direction: column; }
-
-.sd-line {
-  font-size: var(--sz);
-  color: var(--dim);
-  line-height: 1.7;
-  white-space: pre;
-}
-
-/* ── Local command output ─────────────────────────── */
-.msg-cmd { color: var(--dim) !important; }
 
 /* ── Animations ───────────────────────────────────── */
 @keyframes blink {
