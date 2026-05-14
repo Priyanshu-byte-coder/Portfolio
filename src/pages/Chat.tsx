@@ -235,26 +235,26 @@ export const Chat: React.FC = () => {
     let acc = '';
 
     try {
-      // ── Try Gemini first ──
-      if (gKey) {
+      // ── Try Groq first ──
+      if (qKey) {
         try {
-          setProvider('gemini');
-          acc = await streamGemini(systemPrompt, history, gKey, signal, onChunk);
+          setProvider('groq');
+          acc = await streamGroq(systemPrompt, history, qKey, signal, onChunk);
         } catch (err) {
           if (err instanceof Error && err.name === 'AbortError') throw err;
-          // Gemini failed — fall back to Groq
-          if (qKey) {
+          // Groq failed — fall back to Gemini
+          if (gKey) {
             setProvider('fallback');
             setStreaming('');
-            acc = await streamGroq(systemPrompt, history, qKey, signal, onChunk);
+            acc = await streamGemini(systemPrompt, history, gKey, signal, onChunk);
           } else {
             throw err; // no fallback available
           }
         }
-      } else if (qKey) {
-        // ── Groq only ──
-        setProvider('groq');
-        acc = await streamGroq(systemPrompt, history, qKey, signal, onChunk);
+      } else if (gKey) {
+        // ── Gemini only ──
+        setProvider('gemini');
+        acc = await streamGemini(systemPrompt, history, gKey, signal, onChunk);
       }
 
       setMessages(prev => [...prev, { id: uid(), role: 'assistant', content: acc }]);
@@ -268,7 +268,7 @@ export const Chat: React.FC = () => {
       setStreaming('');
     } finally {
       setLoading(false);
-      setProvider(prev => prev === 'fallback' ? 'groq' : prev);
+      setProvider(prev => prev === 'fallback' ? 'gemini' : prev);
       setTimeout(() => inputRef.current?.focus(), 40);
     }
   }, [loading, systemPrompt, messages]);
@@ -291,10 +291,10 @@ export const Chat: React.FC = () => {
   const isReady = !!systemPrompt && !apiErr && hasKey;
 
   const providerLabel =
-    activeProvider === 'gemini'   ? 'gemini-2.5-flash' :
     activeProvider === 'groq'     ? 'groq/llama-3.3-70b' :
+    activeProvider === 'gemini'   ? 'gemini-2.5-flash' :
     activeProvider === 'fallback' ? 'switching...' :
-    import.meta.env.VITE_GEMINI_API_KEY ? 'gemini-2.5-flash' : 'groq/llama-3.3-70b';
+    import.meta.env.VITE_GROQ_API_KEY ? 'groq/llama-3.3-70b' : 'gemini-2.5-flash';
 
   return (
     <div className="chat-page">
@@ -355,7 +355,7 @@ export const Chat: React.FC = () => {
               {loading && !streaming && (
                 <div className="msg-block">
                   <pre className="msg-bot processing">
-                    {activeProvider === 'fallback' ? 'gemini failed. switching to groq...' : 'processing...'}
+                    {activeProvider === 'fallback' ? 'groq failed. switching to gemini...' : 'processing...'}
                   </pre>
                 </div>
               )}
