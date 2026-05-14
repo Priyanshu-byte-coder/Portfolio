@@ -5,7 +5,16 @@
       "Bash(npm run:*)",
       "Bash(npx tsc:*)",
       "Bash(npx vite:*)",
-      "Bash(powershell:*)"
+      "Bash(powershell:*)",
+      "Bash(git -C /c/Users/Priyanshu/OneDrive/Desktop/PORTFOLIO/original ls-files --error-unmatch dist)",
+      "Bash(git -C /c/Users/Priyanshu/OneDrive/Desktop/PORTFOLIO/original ls-files dist)",
+      "Bash(git -C /c/Users/Priyanshu/OneDrive/Desktop/PORTFOLIO/original ls-files)",
+      "Bash(git rm:*)",
+      "Bash(rm -rf dist/)",
+      "Bash(git:*)",
+      "Bash(npm install:*)",
+      "Bash(python3 -c \"import sys,json; d=json.load\\(sys.stdin\\); print\\(d.get\\('candidates',[{}]\\)[0].get\\('content',{}\\).get\\('parts',[{}]\\)[0].get\\('text','ERR: '+str\\(d.get\\('error',{}\\).get\\('message','?'\\)\\)[:120]\\)\\)\")",
+      "Bash(python3 -c \" import sys, json d = json.load\\(sys.stdin\\) models = d.get\\('models', []\\) for m in models: name = m.get\\('name',''\\) methods = m.get\\('supportedGenerationMethods', []\\) if 'generateContent' in methods: print\\(name\\) \")"
     ]
   }
 }
