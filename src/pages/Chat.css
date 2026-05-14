@@ -229,6 +229,19 @@
   letter-spacing: 0.04em;
 }
 
+/* ── Shutdown screen ──────────────────────────────── */
+.shutdown-screen { display: flex; flex-direction: column; }
+
+.sd-line {
+  font-size: var(--sz);
+  color: var(--dim);
+  line-height: 1.7;
+  white-space: pre;
+}
+
+/* ── Local command output ─────────────────────────── */
+.msg-cmd { color: var(--dim) !important; }
+
 /* ── Animations ───────────────────────────────────── */
 @keyframes blink {
   0%, 100% { opacity: 1; }
