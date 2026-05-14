@@ -23,3 +23,8 @@
   .stat-val { font-size: 28px; }
   .stats-divider { display: none; }
 }
+@media (max-width: 480px) {
+  .stats-strip { padding: 24px 16px; }
+  .stats-strip-inner { gap: 16px; justify-content: space-around; }
+  .stat-val { font-size: 24px; }
+}

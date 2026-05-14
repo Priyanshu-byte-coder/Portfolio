@@ -7,7 +7,10 @@
   align-items: start; transition: all 0.5s var(--ease); position: relative;
 }
 .fp-card:last-child { border-bottom: 1px solid var(--border); }
-.fp-card:hover { background: var(--bg-elevated); margin: 0 -48px; padding: 64px 48px; }
+.fp-card:hover { background: var(--bg-elevated); }
+@media (hover: hover) {
+  .fp-card:hover { margin: 0 -48px; padding: 64px 48px; }
+}
 
 .fp-number {
   font-family: var(--font-display); font-size: 80px; font-weight: 800;
@@ -73,8 +76,18 @@
 
 @media (max-width: 900px) {
   .fp-card { grid-template-columns: 1fr; gap: 28px; }
-  .fp-card:hover { margin: 0 -24px; padding: 40px 24px; }
   .fp-number { display: none; }
   .sp-grid { grid-template-columns: 1fr; }
   .fp-title { font-size: 28px; }
+}
+@media (max-width: 900px) and (hover: hover) {
+  .fp-card:hover { margin: 0 -24px; padding: 40px 24px; }
+}
+@media (max-width: 480px) {
+  .fp-card { padding: 40px 0; gap: 20px; }
+  .fp-title { font-size: 22px; }
+  .fp-desc { font-size: 14px; }
+  .fp-links-row { flex-wrap: wrap; }
+  .sp-cell { padding: 24px 20px; min-height: 180px; }
+  .sp-title { font-size: 17px; }
 }

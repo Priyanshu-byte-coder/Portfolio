@@ -17,3 +17,12 @@
 }
 .marquee-item::after { content: '◆'; font-size: 6px; color: var(--accent); }
 @keyframes marqueeScroll { to { transform: translateX(-50%); } }
+
+@media (max-width: 900px) {
+  .marquee-track { gap: 40px; }
+  .marquee-item { font-size: 12px; gap: 40px; }
+}
+@media (max-width: 480px) {
+  .marquee-track { gap: 24px; animation-duration: 20s; }
+  .marquee-item { font-size: 11px; letter-spacing: 2px; gap: 24px; }
+}

@@ -140,3 +140,11 @@
   .hero-tagline { max-width: 100%; font-size: 15px; }
   .hero-spacer { min-height: 32px; }
 }
+@media (max-width: 480px) {
+  .hero { padding: 0 16px 48px; }
+  .hero-top { padding-top: 80px; gap: 12px; }
+  .hero-name { letter-spacing: -2px; }
+  .hero-role { font-size: 14px; }
+  .hero-tagline { font-size: 14px; }
+  .hero-scroll-cta { display: none; }
+}

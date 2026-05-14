@@ -42,3 +42,9 @@
   .research-title { font-size: 20px; }
   .research-card-top { flex-direction: column; align-items: flex-start; gap: 12px; }
 }
+@media (max-width: 480px) {
+  .research-card { padding: 20px 16px; }
+  .research-title { font-size: 17px; }
+  .research-abstract { font-size: 14px; }
+  .research-metric-val { font-size: 22px; }
+}

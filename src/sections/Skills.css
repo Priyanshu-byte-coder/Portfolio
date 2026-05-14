@@ -18,3 +18,7 @@
 @media (max-width: 900px) {
   .skill-row { grid-template-columns: 1fr; gap: 12px; }
 }
+@media (max-width: 480px) {
+  .skill-tag { font-size: 13px; padding: 6px 14px; }
+  .skill-row { padding: 20px 0; }
+}

@@ -37,6 +37,13 @@
 
 @media (max-width: 900px) {
   .gh-row { grid-template-columns: 1fr; }
-.gh-ach-card { width: 100px; padding: 16px 12px; }
+  .gh-ach-card { width: 100px; padding: 16px 12px; }
   .gh-ach-img-wrap { width: 52px; height: 52px; }
+}
+@media (max-width: 480px) {
+  .gh-ach-grid { justify-content: center; }
+  .gh-ach-card { width: 86px; padding: 12px 8px; }
+  .gh-ach-img-wrap { width: 44px; height: 44px; }
+  .gh-ach-name { font-size: 8px; }
+  .gh-card { padding: 16px; }
 }
