@@ -1,4 +1,5 @@
 import { useState, useCallback } from 'react';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import './App.css';
 import { Navbar } from './components/Navbar';
 import { LoadingScreen } from './components/LoadingScreen';
@@ -12,8 +13,9 @@ import { Research } from './sections/Research';
 import { GitHub } from './sections/GitHub';
 import { Achievements } from './sections/Achievements';
 import { Contact } from './sections/Contact';
+import { Chat } from './pages/Chat';
 
-function App() {
+function Portfolio() {
   const [loading, setLoading] = useState(true);
   const [revealed, setRevealed] = useState(false);
 
@@ -48,6 +50,17 @@ function App() {
         <p>{new Date().getFullYear()}</p>
       </footer>
     </div>
+  );
+}
+
+function App() {
+  return (
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Portfolio />} />
+        <Route path="/chat" element={<Chat />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 

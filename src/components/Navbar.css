@@ -20,6 +20,13 @@
   transition: color 0.4s var(--ease);
 }
 .nav-links a:hover { color: var(--cream); }
+.nav-chat-link {
+  border: 1px solid var(--muted);
+  padding: 4px 12px;
+  border-radius: 3px;
+  transition: border-color 0.3s, color 0.3s !important;
+}
+.nav-chat-link:hover { border-color: var(--cream) !important; color: var(--cream) !important; }
 
 .nav-mobile-btn {
   display: none; background: none; border: none; color: var(--cream);
