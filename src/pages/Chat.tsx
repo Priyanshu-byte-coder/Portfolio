@@ -30,7 +30,7 @@ const BOOT_LINES: BootLine[] = [
   { kind: 'step', label: 'portfolio services',               ms: 65  },
   { kind: 'step', label: 'knowledge base  [6.5k tokens]',    ms: 160 },
   { kind: 'step', label: 'github context fetch',             ms: 210 },
-  { kind: 'step', label: 'api keys  [gemini + groq]',        ms: 90  },
+  { kind: 'step', label: 'api keys  [gemini-2.5 + groq]',    ms: 90  },
   { kind: 'blank' },
   { kind: 'text', text: '-'.repeat(44) },
   { kind: 'blank' },
@@ -54,7 +54,7 @@ async function streamGemini(
   }));
 
   const url =
-    `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:streamGenerateContent?alt=sse&key=${apiKey}`;
+    `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:streamGenerateContent?alt=sse&key=${apiKey}`;
 
   const res = await fetch(url, {
     method: 'POST',
@@ -291,10 +291,10 @@ export const Chat: React.FC = () => {
   const isReady = !!systemPrompt && !apiErr && hasKey;
 
   const providerLabel =
-    activeProvider === 'gemini'   ? 'gemini-2.0-flash' :
+    activeProvider === 'gemini'   ? 'gemini-2.5-flash' :
     activeProvider === 'groq'     ? 'groq/llama-3.3-70b' :
     activeProvider === 'fallback' ? 'switching...' :
-    import.meta.env.VITE_GEMINI_API_KEY ? 'gemini-2.0-flash' : 'groq/llama-3.3-70b';
+    import.meta.env.VITE_GEMINI_API_KEY ? 'gemini-2.5-flash' : 'groq/llama-3.3-70b';
 
   return (
     <div className="chat-page">
