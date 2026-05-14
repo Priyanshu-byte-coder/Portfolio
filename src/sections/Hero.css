@@ -132,18 +132,19 @@
 
 /* ── Responsive ── */
 @media (max-width: 900px) {
-  .hero { padding: 0 24px 60px; }
+  .hero { padding: 0 24px 60px; justify-content: space-between; }
   .hero-top { padding-top: 90px; flex-direction: column; gap: 16px; }
   .hero-name { font-size: clamp(48px, 12vw, 72px); letter-spacing: -1px; }
   .hero-role { flex-direction: column; align-items: flex-start; gap: 4px; font-size: 16px; }
   .hero-bottom { flex-direction: column; align-items: flex-start; gap: 20px; }
   .hero-tagline { max-width: 100%; font-size: 15px; }
-  .hero-spacer { min-height: 32px; }
+  .hero-spacer { display: none; }
 }
 @media (max-width: 480px) {
-  .hero { padding: 0 16px 48px; }
-  .hero-top { padding-top: 80px; gap: 12px; }
-  .hero-name { letter-spacing: -2px; }
+  .hero { padding: 0 16px 48px; min-height: 100vh; min-height: 100svh; justify-content: space-between; }
+  .hero-top { padding-top: 72px; gap: 10px; }
+  .hero-name { font-size: clamp(32px, 8.5vw, 44px); letter-spacing: -0.5px; }
+  .hero-spacer { display: none; }
   .hero-role { font-size: 14px; }
   .hero-tagline { font-size: 14px; }
   .hero-scroll-cta { display: none; }
