@@ -34,7 +34,7 @@ const BOOT_LINES: BootLine[] = [
   { kind: 'blank' },
   { kind: 'text', text: '-'.repeat(44) },
   { kind: 'blank' },
-  { kind: 'text', text: '  pd.bot v1.0  operational.' },
+  { kind: 'text', text: '  JARVIS v1.0  operational.' },
   { kind: 'blank' },
 ];
 
@@ -94,7 +94,7 @@ export const Chat: React.FC = () => {
       setSystemPrompt(SYSTEM_PROMPT.replace('{GITHUB_CONTEXT}', ctx));
       setMessages([{
         id: uid(), role: 'assistant',
-        content: 'pd.bot online. Systems nominal.\nQuery Priyanshu Doshi\'s portfolio. All data loaded.',
+        content: 'JARVIS online. All systems nominal.\nPortfolio data loaded. GitHub context synced.\nState your query.',
       }]);
     });
   }, []);
@@ -201,9 +201,13 @@ export const Chat: React.FC = () => {
         {/* ── Header ────────────────────────────────────────── */}
         <div className="term-header">
           <Link to="/" className="term-exit">[exit]</Link>
-          <span className="term-id">pd@workstation :: pd.bot v1.0</span>
+          <span className="term-id">
+            JARVIS
+            <span className="term-sep"> // </span>
+            Priyanshu Doshi — Portfolio Intelligence
+          </span>
           <span className={`term-status ${isReady ? 'st-ok' : apiErr ? 'st-err' : 'st-wait'}`}>
-            [{isReady ? 'connected' : apiErr ? 'no key' : 'init...'}]
+            [{isReady ? 'online' : apiErr ? 'no key' : 'init'}]
           </span>
         </div>
 
