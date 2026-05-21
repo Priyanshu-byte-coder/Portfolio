@@ -34,6 +34,7 @@ export const Contact: React.FC = () => {
               Whether you have a question or just want to say hello — reach out.
             </p>
             <a href={`mailto:${PERSONAL.email}`} className="contact-email-link">{PERSONAL.email}</a>
+            <a href={`tel:${PERSONAL.phone.replace(/\s/g, '')}`} className="contact-phone-link">{PERSONAL.phone}</a>
             <p className="contact-loc">{PERSONAL.location}</p>
             <div className="social-row">
               <a href={PERSONAL.github} target="_blank" rel="noopener noreferrer" className="social-btn" title="GitHub"><GHIcon /></a>

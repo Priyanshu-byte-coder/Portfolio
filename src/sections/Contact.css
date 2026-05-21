@@ -16,7 +16,12 @@
   border-bottom: 2px solid transparent;
 }
 .contact-email-link:hover { border-bottom-color: var(--accent); }
-.contact-loc { font-size: 14px; color: var(--muted); margin-top: 12px; }
+.contact-phone-link {
+  display: block; font-size: 15px; color: var(--muted); margin-top: 8px;
+  text-decoration: none; transition: color 0.2s;
+}
+.contact-phone-link:hover { color: var(--accent); }
+.contact-loc { font-size: 14px; color: var(--muted); margin-top: 8px; }
 
 .social-row { display: flex; gap: 12px; margin-top: 32px; }
 .social-btn {
