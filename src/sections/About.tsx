@@ -10,7 +10,8 @@ const ExpItem: React.FC<{ exp: typeof EXPERIENCES[number]; delay: string; visibl
     <div
       className={`exp-item reveal ${visible ? 'visible' : ''} ${open ? 'exp-open' : ''}`}
       style={{ transitionDelay: delay }}
-      onClick={() => setOpen(!open)}
+      onMouseEnter={() => setOpen(true)}
+      onMouseLeave={() => setOpen(false)}
     >
       <div className="exp-when">{exp.duration}</div>
       <div className="exp-content">
@@ -64,6 +65,7 @@ export const About: React.FC = () => {
           </div>
 
           <div className="exp-list">
+            <h3 className={`exp-heading reveal ${visible ? 'visible' : ''}`} style={{ transitionDelay: '0.15s' }}>Experience</h3>
             {EXPERIENCES.map((exp, i) => (
               <ExpItem
                 key={i}
