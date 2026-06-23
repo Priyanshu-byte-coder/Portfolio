@@ -140,6 +140,7 @@ export interface Experience {
 }
 
 export const EXPERIENCES: Experience[] = [
+  { role: 'AI/ML Engineer Intern', company: 'Velino AI', duration: 'Jun 2026 — Present', type: 'Remote', desc: 'Built two production AI SaaS products from scratch — Salesnix AI: B2B voice ordering agent (Gemini Live, Pipecat-AI WebRTC, Silero VAD, WhatsApp Cloud API, live tool calls, Razorpay); Sociafy: multi-model content pipeline (GPT-5, Claude agentic loops, Modal GPU TTS/video, OAuth 2.0, Stripe/Razorpay billing).' },
   { role: 'AI Engineer', company: 'Team CON-SOL-E', duration: 'Jan — Mar 2026', type: 'Full-time', desc: 'Built RAG-based intelligent agents for industrial automation. Contributed to web, WebAR, and app platforms. National Rank 4 at Mitsubishi Electric Cup.' },
   { role: 'Full Stack Developer', company: 'MZHUB Faithtech', duration: 'Dec 2025', type: 'Remote', desc: 'Developed production-ready marketing site with Next.js. Automated contact forms with email notifications. Deployed on Azure App Service.' },
   { role: 'AI/ML Intern', company: 'Elevate Labs', duration: 'May — Jun 2025', type: 'Remote', desc: 'Top-performing intern. Built end-to-end NLP and Computer Vision pipelines with PyTorch, TensorFlow, and Scikit-learn.' },
