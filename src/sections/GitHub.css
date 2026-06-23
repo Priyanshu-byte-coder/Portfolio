@@ -22,6 +22,65 @@
   letter-spacing: 1px; text-transform: uppercase; text-align: center; line-height: 1.4;
 }
 
+/* ── Live Stats ── */
+.gh-stats-grid {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 16px;
+  margin-bottom: 20px;
+}
+.gh-stat-item {
+  display: flex; flex-direction: column; align-items: center; gap: 4px;
+  padding: 16px 8px; border: 1px solid var(--border); border-radius: 4px;
+  background: var(--surface); transition: border-color 0.3s var(--ease);
+}
+.gh-stat-item:hover { border-color: var(--accent); }
+.gh-stat-icon { font-size: 18px; }
+.gh-stat-value {
+  font-family: var(--font-mono); font-size: 24px; font-weight: 700;
+  color: var(--cream); letter-spacing: -0.5px;
+}
+.gh-stat-label {
+  font-family: var(--font-mono); font-size: 9px; color: var(--muted);
+  letter-spacing: 1.5px; text-transform: uppercase;
+}
+.gh-stats-loading {
+  font-family: var(--font-mono); font-size: 12px; color: var(--muted);
+  padding: 32px 0; text-align: center;
+}
+
+/* ── Language Bar ── */
+.gh-langs { margin-top: 4px; }
+.gh-langs-label {
+  font-family: var(--font-mono); font-size: 9px; color: var(--muted);
+  letter-spacing: 1.5px; text-transform: uppercase; margin-bottom: 8px;
+}
+.gh-langs-bar {
+  display: flex; height: 8px; border-radius: 4px; overflow: hidden;
+  background: var(--surface); gap: 2px;
+}
+.gh-lang-segment {
+  min-width: 8px; border-radius: 2px;
+}
+.gh-lang-segment:nth-child(1) { background: #c45d3e; }
+.gh-lang-segment:nth-child(2) { background: #b8976a; }
+.gh-lang-segment:nth-child(3) { background: #6b6560; }
+.gh-lang-segment:nth-child(4) { background: #e8e4dc; }
+.gh-lang-segment:nth-child(5) { background: #3a3632; }
+.gh-langs-legend {
+  display: flex; flex-wrap: wrap; gap: 12px; margin-top: 10px;
+}
+.gh-lang-item {
+  display: flex; align-items: center; gap: 5px;
+  font-family: var(--font-mono); font-size: 10px; color: var(--cream-dim);
+}
+.gh-lang-dot {
+  width: 8px; height: 8px; border-radius: 50%;
+}
+.gh-lang-item:nth-child(1) .gh-lang-dot { background: #c45d3e; }
+.gh-lang-item:nth-child(2) .gh-lang-dot { background: #b8976a; }
+.gh-lang-item:nth-child(3) .gh-lang-dot { background: #6b6560; }
+.gh-lang-item:nth-child(4) .gh-lang-dot { background: #e8e4dc; }
+.gh-lang-item:nth-child(5) .gh-lang-dot { background: #3a3632; }
+
 /* ── Charts ── */
 .gh-cards { display: flex; flex-direction: column; gap: 20px; }
 .gh-card {

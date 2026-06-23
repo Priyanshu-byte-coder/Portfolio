@@ -1,14 +1,9 @@
 import React from 'react';
 import './GitHub.css';
 import { useScrollReveal } from '../hooks/useScrollReveal';
+import { useGitHubStats } from '../hooks/useGitHubStats';
 
 const GH_USER = 'Priyanshu-byte-coder';
-
-const STATS_URL =
-  `https://github-readme-stats.vercel.app/api?username=${GH_USER}` +
-  `&show_icons=true&hide_border=true` +
-  `&bg_color=0c0b09&title_color=c45d3e&icon_color=b8976a&text_color=6b6560` +
-  `&ring_color=c45d3e&include_all_commits=true&cache_seconds=1800`;
 
 const STREAK_URL =
   `https://streak-stats.demolab.com/?user=${GH_USER}` +
@@ -24,10 +19,9 @@ interface Achievement {
   slug: string;
   name: string;
   desc: string;
-  tier?: 'x2' | 'x3' | 'x4'; // bronze / silver / gold tier suffix
+  tier?: 'x2' | 'x3' | 'x4';
 }
 
-// ── Edit this list to match your actual earned achievements ──
 const ACHIEVEMENTS: Achievement[] = [
   { slug: 'starstruck',           name: 'Starstruck',            desc: 'Created a repository that has 16+ stars' },
   { slug: 'pair-extraordinaire',  name: 'Pair Extraordinaire',   desc: 'Co-authored commits in merged pull requests' },
@@ -36,8 +30,16 @@ const ACHIEVEMENTS: Achievement[] = [
   { slug: 'pull-shark',           name: 'Pull Shark',            desc: 'Opened pull requests that have been merged', tier: 'x2' },
 ];
 
+const STAT_ICONS: Record<string, string> = {
+  stars: '★',
+  repos: '📦',
+  followers: '👥',
+  forks: '🔱',
+};
+
 export const GitHub: React.FC = () => {
   const [ref, visible] = useScrollReveal(0.06);
+  const { stats, loading } = useGitHubStats();
 
   return (
     <section className="section" id="github">
@@ -48,7 +50,7 @@ export const GitHub: React.FC = () => {
         </h2>
 
         <div className="gh-cards">
-          {/* Contribution map — full width */}
+          {/* Contribution map */}
           <div className={`gh-card reveal ${visible ? 'visible' : ''}`} style={{ transitionDelay: '0.2s' }}>
             <div className="gh-card-label">Contribution Map</div>
             <img src={`https://ghchart.rshah.org/c45d3e/${GH_USER}`} alt="Contributions" loading="lazy" />
@@ -58,7 +60,67 @@ export const GitHub: React.FC = () => {
           <div className="gh-row">
             <div className={`gh-card reveal ${visible ? 'visible' : ''}`} style={{ transitionDelay: '0.3s' }}>
               <div className="gh-card-label">Profile Stats</div>
-              <img src={STATS_URL} alt="GitHub Stats" loading="lazy" />
+              {loading ? (
+                <div className="gh-stats-loading">Loading stats…</div>
+              ) : stats ? (
+                <>
+                  <div className="gh-stats-grid">
+                    <div className="gh-stat-item">
+                      <span className="gh-stat-icon">{STAT_ICONS.stars}</span>
+                      <span className="gh-stat-value">{stats.totalStars}</span>
+                      <span className="gh-stat-label">Total Stars</span>
+                    </div>
+                    <div className="gh-stat-item">
+                      <span className="gh-stat-icon">{STAT_ICONS.repos}</span>
+                      <span className="gh-stat-value">{stats.publicRepos}</span>
+                      <span className="gh-stat-label">Repositories</span>
+                    </div>
+                    <div className="gh-stat-item">
+                      <span className="gh-stat-icon">{STAT_ICONS.followers}</span>
+                      <span className="gh-stat-value">{stats.followers}</span>
+                      <span className="gh-stat-label">Followers</span>
+                    </div>
+                    <div className="gh-stat-item">
+                      <span className="gh-stat-icon">{STAT_ICONS.forks}</span>
+                      <span className="gh-stat-value">{stats.totalForks}</span>
+                      <span className="gh-stat-label">Total Forks</span>
+                    </div>
+                  </div>
+                  {stats.topLanguages.length > 0 && (
+                    <div className="gh-langs">
+                      <div className="gh-langs-label">Top Languages</div>
+                      <div className="gh-langs-bar">
+                        {stats.topLanguages.map((lang) => {
+                          const total = stats.topLanguages.reduce((s, l) => s + l.count, 0);
+                          const pct = Math.round((lang.count / total) * 100);
+                          return (
+                            <div
+                              key={lang.name}
+                              className="gh-lang-segment"
+                              style={{ width: `${pct}%` }}
+                              title={`${lang.name}: ${pct}%`}
+                            />
+                          );
+                        })}
+                      </div>
+                      <div className="gh-langs-legend">
+                        {stats.topLanguages.map((lang) => {
+                          const total = stats.topLanguages.reduce((s, l) => s + l.count, 0);
+                          const pct = Math.round((lang.count / total) * 100);
+                          return (
+                            <span key={lang.name} className="gh-lang-item">
+                              <span className="gh-lang-dot" />
+                              {lang.name} {pct}%
+                            </span>
+                          );
+                        })}
+                      </div>
+                    </div>
+                  )}
+                </>
+              ) : (
+                <div className="gh-stats-loading">Could not load stats</div>
+              )}
             </div>
             <div className={`gh-card reveal ${visible ? 'visible' : ''}`} style={{ transitionDelay: '0.4s' }}>
               <div className="gh-card-label">Streak</div>
@@ -66,7 +128,7 @@ export const GitHub: React.FC = () => {
             </div>
           </div>
 
-          {/* Achievements — below stats/streak */}
+          {/* Achievements */}
           <div className={`gh-card reveal ${visible ? 'visible' : ''}`} style={{ transitionDelay: '0.5s' }}>
             <div className="gh-card-label">Profile Achievements</div>
             <div className="gh-ach-grid">
