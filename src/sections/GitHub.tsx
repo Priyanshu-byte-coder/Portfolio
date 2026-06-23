@@ -5,10 +5,10 @@ import { useScrollReveal } from '../hooks/useScrollReveal';
 const GH_USER = 'Priyanshu-byte-coder';
 
 const STATS_URL =
-  `https://github-readme-stats-fast.vercel.app/api?username=${GH_USER}` +
+  `https://github-readme-stats.vercel.app/api?username=${GH_USER}` +
   `&show_icons=true&hide_border=true` +
   `&bg_color=0c0b09&title_color=c45d3e&icon_color=b8976a&text_color=6b6560` +
-  `&ring_color=c45d3e&count_private=true&include_all_commits=true`;
+  `&ring_color=c45d3e&include_all_commits=true&cache_seconds=1800`;
 
 const STREAK_URL =
   `https://streak-stats.demolab.com/?user=${GH_USER}` +

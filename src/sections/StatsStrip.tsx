@@ -25,11 +25,11 @@ export const StatsStrip: React.FC = () => {
   return (
     <div className="stats-strip" ref={ref as React.RefObject<HTMLDivElement>}>
       <div className={`stats-strip-inner reveal ${visible ? 'visible' : ''}`}>
-        <StatCounter value={20} suffix="+" label="Projects" />
+        <StatCounter value={2} suffix="+" label="Years Experience" />
         <div className="stats-divider" />
         <StatCounter value={1} label="IEEE Paper" />
         <div className="stats-divider" />
-        <StatCounter value={8.85} label="CGPA" decimals={2} />
+        <StatCounter value={8.65} label="CGPA" decimals={2} />
         <div className="stats-divider" />
         <StatCounter value={200} suffix="+" label="LC Problems" />
       </div>
