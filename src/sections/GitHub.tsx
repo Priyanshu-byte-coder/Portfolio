@@ -95,7 +95,7 @@ export const GitHub: React.FC = () => {
               <div className="gh-featured-left">
                 <div className="gh-featured-badges">
                   <div className="gh-featured-badge gh-badge-founder">Founder</div>
-                  <div className="gh-featured-badge gh-badge-maintainer">Lead Maintainer</div>
+                  <div className="gh-featured-badge gh-badge-maintainer">Maintainer</div>
                 </div>
                 <h3 className="gh-featured-title">
                   <a href="https://github.com/Umbrella-io/devtrack" target="_blank" rel="noopener noreferrer">
