@@ -42,8 +42,55 @@ export const GitHub: React.FC = () => {
         </h2>
 
         <div className="gh-cards">
+          {/* ── Contribution Map ── */}
+          <div className={`gh-card reveal ${visible ? 'visible' : ''}`} style={{ transitionDelay: '0.2s' }}>
+            <div className="gh-card-label">Contribution Map</div>
+            <img src={`https://ghchart.rshah.org/c45d3e/${GH_USER}`} alt="Contributions" loading="lazy" />
+          </div>
+
+          {/* ── Streak + Achievements ── */}
+          <div className="gh-row">
+            <div className={`gh-card reveal ${visible ? 'visible' : ''}`} style={{ transitionDelay: '0.3s' }}>
+              <div className="gh-card-label">Streak</div>
+              <img src={STREAK_URL} alt="GitHub Streak" loading="lazy" />
+            </div>
+            <div className={`gh-card reveal ${visible ? 'visible' : ''}`} style={{ transitionDelay: '0.4s' }}>
+              <div className="gh-card-label">Profile Achievements</div>
+              <div className="gh-ach-grid">
+                {ACHIEVEMENTS.map((a) => {
+                  const imgSlug = a.tier ? `${a.slug}${a.tier}` : a.slug;
+                  return (
+                    <a
+                      key={a.slug}
+                      href={`https://github.com/${GH_USER}?tab=achievements`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="gh-ach-card"
+                      title={a.desc}
+                    >
+                      <div className="gh-ach-img-wrap">
+                        <img
+                          src={`${CDN}/${imgSlug}-default.png`}
+                          alt={a.name}
+                          loading="lazy"
+                          onError={(e) => {
+                            const t = e.currentTarget;
+                            if (a.tier && t.src.includes(imgSlug)) {
+                              t.src = `${CDN}/${a.slug}-default.png`;
+                            }
+                          }}
+                        />
+                      </div>
+                      <span className="gh-ach-name">{a.name}</span>
+                    </a>
+                  );
+                })}
+              </div>
+            </div>
+          </div>
+
           {/* ── Featured Project: DevTrack ── */}
-          <div className={`gh-card gh-featured reveal ${visible ? 'visible' : ''}`} style={{ transitionDelay: '0.2s' }}>
+          <div className={`gh-card gh-featured reveal ${visible ? 'visible' : ''}`} style={{ transitionDelay: '0.5s' }}>
             <div className="gh-featured-header">
               <div className="gh-featured-left">
                 <div className="gh-featured-badge">Founded & Maintained</div>
@@ -112,53 +159,6 @@ export const GitHub: React.FC = () => {
             >
               View on GitHub →
             </a>
-          </div>
-
-          {/* ── Contribution Map ── */}
-          <div className={`gh-card reveal ${visible ? 'visible' : ''}`} style={{ transitionDelay: '0.3s' }}>
-            <div className="gh-card-label">Contribution Map</div>
-            <img src={`https://ghchart.rshah.org/c45d3e/${GH_USER}`} alt="Contributions" loading="lazy" />
-          </div>
-
-          {/* ── Streak + Achievements ── */}
-          <div className="gh-row">
-            <div className={`gh-card reveal ${visible ? 'visible' : ''}`} style={{ transitionDelay: '0.4s' }}>
-              <div className="gh-card-label">Streak</div>
-              <img src={STREAK_URL} alt="GitHub Streak" loading="lazy" />
-            </div>
-            <div className={`gh-card reveal ${visible ? 'visible' : ''}`} style={{ transitionDelay: '0.5s' }}>
-              <div className="gh-card-label">Profile Achievements</div>
-              <div className="gh-ach-grid">
-                {ACHIEVEMENTS.map((a) => {
-                  const imgSlug = a.tier ? `${a.slug}${a.tier}` : a.slug;
-                  return (
-                    <a
-                      key={a.slug}
-                      href={`https://github.com/${GH_USER}?tab=achievements`}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="gh-ach-card"
-                      title={a.desc}
-                    >
-                      <div className="gh-ach-img-wrap">
-                        <img
-                          src={`${CDN}/${imgSlug}-default.png`}
-                          alt={a.name}
-                          loading="lazy"
-                          onError={(e) => {
-                            const t = e.currentTarget;
-                            if (a.tier && t.src.includes(imgSlug)) {
-                              t.src = `${CDN}/${a.slug}-default.png`;
-                            }
-                          }}
-                        />
-                      </div>
-                      <span className="gh-ach-name">{a.name}</span>
-                    </a>
-                  );
-                })}
-              </div>
-            </div>
           </div>
         </div>
       </div>
