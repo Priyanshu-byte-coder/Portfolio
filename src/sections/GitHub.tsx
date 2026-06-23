@@ -93,15 +93,18 @@ export const GitHub: React.FC = () => {
           <div className={`gh-card gh-featured reveal ${visible ? 'visible' : ''}`} style={{ transitionDelay: '0.5s' }}>
             <div className="gh-featured-header">
               <div className="gh-featured-left">
-                <div className="gh-featured-badge">Founded & Maintained</div>
+                <div className="gh-featured-badges">
+                  <div className="gh-featured-badge gh-badge-founder">Founder</div>
+                  <div className="gh-featured-badge gh-badge-maintainer">Lead Maintainer</div>
+                </div>
                 <h3 className="gh-featured-title">
                   <a href="https://github.com/Umbrella-io/devtrack" target="_blank" rel="noopener noreferrer">
                     DevTrack
                   </a>
                 </h3>
                 <p className="gh-featured-desc">
-                  Open-source developer productivity dashboard — built from scratch.
-                  GitHub stats, PR metrics, streaks & goals.
+                  Built from scratch — an open-source developer productivity dashboard
+                  powering GitHub stats, PR metrics, streaks & goals for a growing community.
                 </p>
                 <div className="gh-featured-meta">
                   <span className="gh-featured-lang">
