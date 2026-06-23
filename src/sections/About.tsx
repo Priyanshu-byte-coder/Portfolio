@@ -1,7 +1,33 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './About.css';
 import { useScrollReveal } from '../hooks/useScrollReveal';
 import { EXPERIENCES } from '../data';
+
+const ExpItem: React.FC<{ exp: typeof EXPERIENCES[number]; delay: string; visible: boolean }> = ({ exp, delay, visible }) => {
+  const [open, setOpen] = useState(false);
+
+  return (
+    <div
+      className={`exp-item reveal ${visible ? 'visible' : ''} ${open ? 'exp-open' : ''}`}
+      style={{ transitionDelay: delay }}
+      onClick={() => setOpen(!open)}
+    >
+      <div className="exp-when">{exp.duration}</div>
+      <div className="exp-content">
+        <div className="exp-header">
+          <div>
+            <div className="exp-role">{exp.role}</div>
+            <div className="exp-company">{exp.company} <span className="exp-type">· {exp.type}</span></div>
+          </div>
+          <span className={`exp-chevron ${open ? 'exp-chevron-open' : ''}`}>▾</span>
+        </div>
+        <div className={`exp-details ${open ? 'exp-details-open' : ''}`}>
+          <p className="exp-desc">{exp.desc}</p>
+        </div>
+      </div>
+    </div>
+  );
+};
 
 export const About: React.FC = () => {
   const [ref, visible] = useScrollReveal(0.06);
@@ -30,7 +56,7 @@ export const About: React.FC = () => {
               <div className="about-edu-title">Nirma University — Institute of Technology</div>
               <div className="about-edu-detail">B.Tech Artificial Intelligence &amp; Machine Learning · 2024 — 2028</div>
               <div className="about-edu-detail" style={{ marginTop: 8 }}>
-                CGPA: <span className="about-edu-stat">8.85</span>&nbsp;·&nbsp;
+                CGPA: <span className="about-edu-stat">8.65</span>&nbsp;·&nbsp;
                 Class XII: <span className="about-edu-stat">96.7%</span>&nbsp;·&nbsp;
                 Percentile: <span className="about-edu-stat">99.1</span>
               </div>
@@ -39,18 +65,12 @@ export const About: React.FC = () => {
 
           <div className="exp-list">
             {EXPERIENCES.map((exp, i) => (
-              <div
+              <ExpItem
                 key={i}
-                className={`exp-item reveal ${visible ? 'visible' : ''}`}
-                style={{ transitionDelay: `${0.2 + i * 0.1}s` }}
-              >
-                <div className="exp-when">{exp.duration}</div>
-                <div>
-                  <div className="exp-role">{exp.role}</div>
-                  <div className="exp-company">{exp.company}</div>
-                  <p className="exp-desc">{exp.desc}</p>
-                </div>
-              </div>
+                exp={exp}
+                delay={`${0.2 + i * 0.1}s`}
+                visible={visible}
+              />
             ))}
           </div>
         </div>

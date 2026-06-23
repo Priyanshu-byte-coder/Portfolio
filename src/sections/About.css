@@ -13,20 +13,52 @@
 
 .exp-list { display: flex; flex-direction: column; }
 .exp-item {
-  padding: 28px 0; border-bottom: 1px solid var(--border);
-  display: grid; grid-template-columns: 160px 1fr; gap: 24px; align-items: start;
+  padding: 20px 0; border-bottom: 1px solid var(--border);
+  display: grid; grid-template-columns: 140px 1fr; gap: 20px; align-items: start;
+  cursor: pointer; transition: background 0.2s;
 }
-.exp-when { font-family: var(--font-mono); font-size: 11px; color: var(--muted); letter-spacing: 1px; padding-top: 4px; line-height: 1.8; }
-.exp-role { font-family: var(--font-display); font-weight: 600; font-size: 16px; text-transform: uppercase; letter-spacing: 0.5px; }
-.exp-company { color: var(--accent); font-size: 14px; font-weight: 500; margin-top: 2px; }
-.exp-desc { font-size: 14px; color: var(--muted); margin-top: 6px; line-height: 1.7; }
+.exp-item:hover { background: rgba(255,255,255,0.02); }
+.exp-when {
+  font-family: var(--font-mono); font-size: 10px; color: var(--muted);
+  letter-spacing: 1px; padding-top: 4px; line-height: 1.8;
+}
+.exp-content { min-width: 0; }
+.exp-header {
+  display: flex; justify-content: space-between; align-items: flex-start; gap: 12px;
+}
+.exp-role {
+  font-family: var(--font-display); font-weight: 600; font-size: 15px;
+  text-transform: uppercase; letter-spacing: 0.5px;
+}
+.exp-company { color: var(--accent); font-size: 13px; font-weight: 500; margin-top: 2px; }
+.exp-type { color: var(--muted); font-weight: 400; }
+.exp-chevron {
+  font-size: 14px; color: var(--muted); transition: transform 0.3s var(--ease);
+  flex-shrink: 0; padding-top: 2px;
+}
+.exp-chevron-open { transform: rotate(180deg); color: var(--accent); }
+
+/* Collapsible details */
+.exp-details {
+  max-height: 0; overflow: hidden; opacity: 0;
+  transition: max-height 0.4s var(--ease), opacity 0.3s var(--ease), margin-top 0.3s var(--ease);
+  margin-top: 0;
+}
+.exp-details-open {
+  max-height: 200px; opacity: 1; margin-top: 10px;
+}
+.exp-desc { font-size: 13px; color: var(--muted); line-height: 1.7; margin: 0; }
+
+/* Active/open state accent */
+.exp-open { border-left: 2px solid var(--accent); padding-left: 16px; margin-left: -18px; }
 
 @media (max-width: 900px) {
   .about-split { grid-template-columns: 1fr; gap: 40px; }
   .exp-item { grid-template-columns: 1fr; gap: 6px; }
+  .exp-open { margin-left: 0; padding-left: 12px; }
 }
 @media (max-width: 480px) {
   .about-text { font-size: 15px; }
   .about-edu { padding: 20px; }
-  .exp-item { padding: 20px 0; }
+  .exp-item { padding: 16px 0; }
 }
