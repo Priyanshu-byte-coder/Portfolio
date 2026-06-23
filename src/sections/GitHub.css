@@ -1,3 +1,102 @@
+/* ── Featured Project ── */
+.gh-featured {
+  border-color: var(--accent) !important;
+  position: relative;
+  overflow: visible;
+}
+.gh-featured::before {
+  content: '';
+  position: absolute; top: 0; left: 0; right: 0;
+  height: 2px; background: linear-gradient(90deg, var(--accent), var(--gold), var(--accent));
+}
+.gh-featured-header { margin-bottom: 20px; }
+.gh-featured-badge {
+  display: inline-block;
+  font-family: var(--font-mono); font-size: 9px; letter-spacing: 2px;
+  text-transform: uppercase; color: var(--accent);
+  border: 1px solid var(--accent); padding: 4px 10px; border-radius: 2px;
+  margin-bottom: 14px;
+}
+.gh-featured-title {
+  font-family: var(--font-heading, var(--font-mono)); font-size: 28px;
+  font-weight: 700; color: var(--cream); margin: 0 0 10px;
+}
+.gh-featured-title a {
+  color: inherit; text-decoration: none;
+  transition: color 0.2s;
+}
+.gh-featured-title a:hover { color: var(--accent); }
+.gh-featured-desc {
+  font-size: 14px; color: var(--cream-dim); line-height: 1.6;
+  max-width: 560px; margin: 0;
+}
+.gh-featured-meta {
+  display: flex; align-items: center; gap: 16px; margin-top: 12px;
+}
+.gh-featured-lang {
+  display: flex; align-items: center; gap: 6px;
+  font-family: var(--font-mono); font-size: 11px; color: var(--cream-dim);
+}
+.gh-lang-dot {
+  width: 8px; height: 8px; border-radius: 50%; display: inline-block;
+}
+.gh-lang-ts { background: #3178c6; }
+.gh-featured-license {
+  font-family: var(--font-mono); font-size: 11px; color: var(--muted);
+  border: 1px solid var(--border); padding: 2px 8px; border-radius: 2px;
+}
+
+/* ── Metrics Row ── */
+.gh-featured-metrics {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 20px 0; border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 16px; flex-wrap: wrap; gap: 12px;
+}
+.gh-metric {
+  display: flex; flex-direction: column; align-items: center; gap: 4px;
+  flex: 1; min-width: 80px;
+}
+.gh-metric-value {
+  font-family: var(--font-mono); font-size: 22px; font-weight: 700;
+  color: var(--cream); letter-spacing: -0.5px;
+}
+.gh-metric-label {
+  font-family: var(--font-mono); font-size: 9px; color: var(--muted);
+  letter-spacing: 1.5px; text-transform: uppercase;
+}
+.gh-metric-divider {
+  width: 1px; height: 36px; background: var(--border);
+  flex-shrink: 0;
+}
+
+/* ── Topics ── */
+.gh-featured-topics {
+  display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 16px;
+}
+.gh-topic {
+  font-family: var(--font-mono); font-size: 10px;
+  color: var(--accent); background: rgba(196, 93, 62, 0.1);
+  border: 1px solid rgba(196, 93, 62, 0.25);
+  padding: 3px 10px; border-radius: 12px;
+  letter-spacing: 0.5px;
+}
+
+/* ── CTA ── */
+.gh-featured-cta {
+  display: inline-block;
+  font-family: var(--font-mono); font-size: 12px; letter-spacing: 1px;
+  color: var(--accent); text-decoration: none;
+  padding: 8px 0; transition: color 0.2s;
+}
+.gh-featured-cta:hover { color: var(--cream); }
+
+/* ── Loading ── */
+.gh-stats-loading {
+  font-family: var(--font-mono); font-size: 12px; color: var(--muted);
+  padding: 32px 0; text-align: center;
+}
+
 /* ── Achievements ── */
 .gh-ach-grid {
   display: flex; flex-wrap: wrap; gap: 16px;
@@ -22,65 +121,6 @@
   letter-spacing: 1px; text-transform: uppercase; text-align: center; line-height: 1.4;
 }
 
-/* ── Live Stats ── */
-.gh-stats-grid {
-  display: grid; grid-template-columns: 1fr 1fr; gap: 16px;
-  margin-bottom: 20px;
-}
-.gh-stat-item {
-  display: flex; flex-direction: column; align-items: center; gap: 4px;
-  padding: 16px 8px; border: 1px solid var(--border); border-radius: 4px;
-  background: var(--surface); transition: border-color 0.3s var(--ease);
-}
-.gh-stat-item:hover { border-color: var(--accent); }
-.gh-stat-icon { font-size: 18px; }
-.gh-stat-value {
-  font-family: var(--font-mono); font-size: 24px; font-weight: 700;
-  color: var(--cream); letter-spacing: -0.5px;
-}
-.gh-stat-label {
-  font-family: var(--font-mono); font-size: 9px; color: var(--muted);
-  letter-spacing: 1.5px; text-transform: uppercase;
-}
-.gh-stats-loading {
-  font-family: var(--font-mono); font-size: 12px; color: var(--muted);
-  padding: 32px 0; text-align: center;
-}
-
-/* ── Language Bar ── */
-.gh-langs { margin-top: 4px; }
-.gh-langs-label {
-  font-family: var(--font-mono); font-size: 9px; color: var(--muted);
-  letter-spacing: 1.5px; text-transform: uppercase; margin-bottom: 8px;
-}
-.gh-langs-bar {
-  display: flex; height: 8px; border-radius: 4px; overflow: hidden;
-  background: var(--surface); gap: 2px;
-}
-.gh-lang-segment {
-  min-width: 8px; border-radius: 2px;
-}
-.gh-lang-segment:nth-child(1) { background: #c45d3e; }
-.gh-lang-segment:nth-child(2) { background: #b8976a; }
-.gh-lang-segment:nth-child(3) { background: #6b6560; }
-.gh-lang-segment:nth-child(4) { background: #e8e4dc; }
-.gh-lang-segment:nth-child(5) { background: #3a3632; }
-.gh-langs-legend {
-  display: flex; flex-wrap: wrap; gap: 12px; margin-top: 10px;
-}
-.gh-lang-item {
-  display: flex; align-items: center; gap: 5px;
-  font-family: var(--font-mono); font-size: 10px; color: var(--cream-dim);
-}
-.gh-lang-dot {
-  width: 8px; height: 8px; border-radius: 50%;
-}
-.gh-lang-item:nth-child(1) .gh-lang-dot { background: #c45d3e; }
-.gh-lang-item:nth-child(2) .gh-lang-dot { background: #b8976a; }
-.gh-lang-item:nth-child(3) .gh-lang-dot { background: #6b6560; }
-.gh-lang-item:nth-child(4) .gh-lang-dot { background: #e8e4dc; }
-.gh-lang-item:nth-child(5) .gh-lang-dot { background: #3a3632; }
-
 /* ── Charts ── */
 .gh-cards { display: flex; flex-direction: column; gap: 20px; }
 .gh-card {
@@ -98,6 +138,8 @@
   .gh-row { grid-template-columns: 1fr; }
   .gh-ach-card { width: 100px; padding: 16px 12px; }
   .gh-ach-img-wrap { width: 52px; height: 52px; }
+  .gh-metric-divider { display: none; }
+  .gh-featured-metrics { justify-content: center; }
 }
 @media (max-width: 480px) {
   .gh-ach-grid { justify-content: center; }
@@ -105,4 +147,6 @@
   .gh-ach-img-wrap { width: 44px; height: 44px; }
   .gh-ach-name { font-size: 8px; }
   .gh-card { padding: 16px; }
+  .gh-featured-title { font-size: 22px; }
+  .gh-metric-value { font-size: 18px; }
 }
