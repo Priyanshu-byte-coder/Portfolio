@@ -19,9 +19,14 @@
   <!-- Scroll Progress Bar -->
   <div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
 
-  <!-- Custom Cursor -->
-  <div class="cursor-dot" id="cursorDot" aria-hidden="true"></div>
-  <div class="cursor-ring" id="cursorRing" aria-hidden="true"></div>
+  <!-- Custom Cursor — crosshair + coordinates -->
+  <div class="ch-line ch-line-h" id="chLineH" aria-hidden="true"></div>
+  <div class="ch-line ch-line-v" id="chLineV" aria-hidden="true"></div>
+  <div class="ch-box" id="chBox" aria-hidden="true">
+    <span class="ch-dot"></span>
+    <span class="ch-label">OPEN&nbsp;→</span>
+    <span class="ch-coords" id="chCoords">0000 × 0000</span>
+  </div>
 
   <div id="root"></div>
 
@@ -34,32 +39,37 @@
       if (el) el.style.width = w + '%';
     }, { passive: true });
 
-    // Custom cursor (desktop only)
+    // Custom cursor — crosshair + live coordinates (desktop only)
     if (window.matchMedia('(pointer: fine)').matches) {
-      const dot = document.getElementById('cursorDot');
-      const ring = document.getElementById('cursorRing');
-      let mx = -100, my = -100, rx = -100, ry = -100;
+      document.body.classList.add('has-crosshair');
+      const lineH = document.getElementById('chLineH');
+      const lineV = document.getElementById('chLineV');
+      const box = document.getElementById('chBox');
+      const coords = document.getElementById('chCoords');
+      let mx = -100, my = -100, bx = -100, by = -100;
       document.addEventListener('mousemove', (e) => { mx = e.clientX; my = e.clientY; });
       function animCursor() {
-        rx += (mx - rx) * 0.15;
-        ry += (my - ry) * 0.15;
-        if (dot) { dot.style.left = mx + 'px'; dot.style.top = my + 'px'; }
-        if (ring) { ring.style.left = rx + 'px'; ring.style.top = ry + 'px'; }
+        bx += (mx - bx) * 0.25;
+        by += (my - by) * 0.25;
+        if (lineH) lineH.style.transform = 'translateY(' + my + 'px)';
+        if (lineV) lineV.style.transform = 'translateX(' + mx + 'px)';
+        if (box) box.style.transform = 'translate(' + bx + 'px, ' + by + 'px)';
+        if (coords) coords.textContent =
+          String(Math.max(0, Math.round(mx))).padStart(4, '0') + ' × ' +
+          String(Math.max(0, Math.round(my))).padStart(4, '0');
         requestAnimationFrame(animCursor);
       }
       animCursor();
+
+      const HOT = 'a, button, [role="button"], .fp-card, .sp-cell, .skill-tag, .social-btn, .cert-card, .pi-row, .pp-next, .gh-ach-card';
+      const TEXT = 'input, textarea, select, [contenteditable]';
       document.addEventListener('mouseover', (e) => {
-        if (e.target.closest && e.target.closest('a, button, .fp-card, .sp-cell, .skill-tag, .social-btn, .cert-card')) {
-          if (ring) { ring.style.width = '64px'; ring.style.height = '64px'; ring.style.borderColor = 'rgba(196,93,62,0.5)'; }
-          if (dot) dot.style.opacity = '0.5';
-        }
+        if (!e.target.closest) return;
+        document.body.classList.toggle('cursor-hot', !!e.target.closest(HOT));
+        document.body.classList.toggle('cursor-text', !!e.target.closest(TEXT));
       });
-      document.addEventListener('mouseout', (e) => {
-        if (e.target.closest && e.target.closest('a, button, .fp-card, .sp-cell, .skill-tag, .social-btn, .cert-card')) {
-          if (ring) { ring.style.width = '40px'; ring.style.height = '40px'; ring.style.borderColor = 'rgba(196,93,62,0.3)'; }
-          if (dot) dot.style.opacity = '1';
-        }
-      });
+      document.addEventListener('mouseleave', () => document.body.classList.add('cursor-gone'));
+      document.addEventListener('mouseenter', () => document.body.classList.remove('cursor-gone'));
     }
   </script>
 

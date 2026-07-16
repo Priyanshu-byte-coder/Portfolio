@@ -14,6 +14,8 @@ import { GitHub } from './sections/GitHub';
 import { Achievements } from './sections/Achievements';
 import { Contact } from './sections/Contact';
 import { Chat } from './pages/Chat';
+import { ProjectPage } from './pages/ProjectPage';
+import { ProjectsIndex } from './pages/ProjectsIndex';
 
 function Portfolio() {
   const [loading, setLoading] = useState(true);
@@ -59,6 +61,8 @@ function App() {
       <Routes>
         <Route path="/" element={<Portfolio />} />
         <Route path="/chat" element={<Chat />} />
+        <Route path="/projects" element={<ProjectsIndex />} />
+        <Route path="/projects/:id" element={<ProjectPage />} />
       </Routes>
     </BrowserRouter>
   );

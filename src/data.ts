@@ -99,36 +99,38 @@ export const FEATURED_PROJECTS: FeaturedProject[] = [
     links: { github: '#' },
   },
   {
-    id: 'bloom',
-    title: 'bloom',
-    subtitle: 'AI Mental Health Companion',
-    badge: '4-Layer Crisis Detection System',
+    id: 'contextrot',
+    title: 'contextrot',
+    subtitle: 'Context-Rot Analytics for Coding Agents',
+    badge: '10K+ Downloads on PyPI',
     description:
-      'Full-stack mental health web app with Groq LLaMA 3.3 70B streaming chat, pgvector RAG memory, 4-layer crisis detection (keyword + LLM + prompt injection + DB logging), guided exercises with distress scoring, and admin analytics dashboard.',
-    tech: ['Groq LLM', 'pgvector', 'Supabase', 'Next.js 16', 'Transformers.js', 'Upstash Redis'],
+      'Open-source CLI that proves where your coding agent starts degrading — on your own sessions. Parses local JSONL transcripts, extracts 5 independent failure signals (edit failures, retry loops, re-reads, self-corrections, drift), correlates them with context fill, and prescribes exactly what to change. 100% local, zero-config: uvx contextrot.',
+    tech: ['Python', 'CLI', 'Statistics', 'Claude Code', 'Context Engineering', 'PyPI'],
     metrics: [
-      { label: 'Crisis Layers', value: '4' },
-      { label: 'Embed Dim', value: '384' },
-      { label: 'Rate Limit', value: '20/min' },
+      { label: 'Downloads', value: '10K+' },
+      { label: 'Failure Signals', value: '5' },
+      { label: 'Local / Offline', value: '100%' },
     ],
-    links: { github: '#' },
+    links: { github: 'https://github.com/Priyanshu-byte-coder/contextrot' },
   },
 ];
 
 export interface SecondaryProject {
+  id: string;
   title: string;
   desc: string;
   tech: string[];
   tag: string;
+  stat?: string;
 }
 
 export const SECONDARY_PROJECTS: SecondaryProject[] = [
-  { title: 'devtrack', desc: 'Self-hostable GitHub productivity dashboard — contribution heatmap, PR analytics, weekly goals.', tech: ['Next.js', 'TypeScript', 'Supabase', 'Recharts'], tag: 'GSSoC Open Source' },
-  { title: 'MZHub', desc: 'Enterprise marketing website for an AI spiritual tech platform. Three.js 3D backgrounds, MDX blog, GSAP scroll animations.', tech: ['Next.js', 'Three.js', 'GSAP', 'Framer Motion'], tag: 'Freelance' },
-  { title: 'TokenScope', desc: 'Cross-platform Electron app for API key auto-discovery and unified token usage monitoring across 12+ AI platforms.', tech: ['Electron', 'React', 'Zustand', 'keytar'], tag: 'Desktop App' },
-  { title: 'PropSpace', desc: 'Premium residential real estate advisory platform with interactive maps, property carousels, and CMS.', tech: ['React', 'Zustand', 'React Query', 'Leaflet'], tag: 'Freelance' },
-  { title: 'IMC Prosperity', desc: 'Algorithmic trading strategies — dynamic market making and mean reversion with orderbook imbalance scoring.', tech: ['Python', 'Algorithmic Trading', 'Backtesting'], tag: 'Competition' },
-  { title: 'Foodie Fountain', desc: 'Food-themed web application with Playwright E2E test suite. Built with Bun package manager.', tech: ['React', 'TypeScript', 'Playwright', 'Bun'], tag: 'Freelance' },
+  { id: 'devtrack', title: 'devtrack', desc: 'Self-hostable GitHub productivity dashboard — contribution heatmap, PR analytics, weekly goals.', tech: ['Next.js', 'TypeScript', 'Supabase', 'Recharts'], tag: 'GSSoC Open Source', stat: '190+ ★ · 1000+ merged PRs' },
+  { id: 'keeptrack', title: 'KeepTrack', desc: 'Chrome extension that captures "keep vs temporary" download intent at download time. Zero telemetry, fully local, MV3.', tech: ['JavaScript', 'Chrome MV3', 'IndexedDB'], tag: 'Chrome Extension', stat: 'Live on GitHub Pages' },
+  { id: 'lunar-ice', title: 'Lunar Ice Detection', desc: 'Water-ice detection on the lunar surface for ISRO Bharatiya Antariksh Hackathon 2026 (PS-8) — remote sensing + ML pipeline over Chandrayaan data.', tech: ['Python', 'Remote Sensing', 'ML', 'Geospatial'], tag: 'ISRO BAH 2026', stat: 'Chandrayaan data' },
+  { id: 'mzhub', title: 'MZHub', desc: 'Enterprise marketing website for an AI spiritual tech platform. Three.js 3D backgrounds, MDX blog, GSAP scroll animations.', tech: ['Next.js', 'Three.js', 'GSAP', 'Framer Motion'], tag: 'Freelance', stat: 'Shipped to production' },
+  { id: 'tokenscope', title: 'TokenScope', desc: 'Cross-platform Electron app for API key auto-discovery and unified token usage monitoring across AI platforms.', tech: ['Electron', 'React', 'Zustand', 'keytar'], tag: 'Desktop App', stat: '6 providers' },
+  { id: 'imc-prosperity', title: 'IMC Prosperity', desc: 'Algorithmic trading strategies — dynamic market making and mean reversion with orderbook imbalance scoring.', tech: ['Python', 'Algorithmic Trading', 'Backtesting'], tag: 'Competition', stat: 'Custom backtester' },
 ];
 
 export interface Experience {
@@ -162,10 +164,11 @@ export const ACHIEVEMENTS: Achievement[] = [
 ];
 
 export const SKILL_CATEGORIES: Record<string, string[]> = {
-  'Languages': ['Python', 'C++', 'C', 'TypeScript', 'JavaScript', 'HTML', 'CSS'],
-  'AI & ML': ['PyTorch', 'TensorFlow', 'Keras', 'Scikit-learn', 'CatBoost', 'XGBoost', 'SHAP', 'OpenCV', 'Optuna', 'LLMs', 'NLP', 'Computer Vision', 'RAG', 'LangChain', 'FAISS'],
-  'Web & Backend': ['React', 'Next.js', 'Tailwind CSS', 'Node.js', 'FastAPI', 'Express.js', 'REST APIs', 'Streamlit'],
-  'Infrastructure': ['MySQL', 'AWS RDS', 'GCP', 'Azure', 'Git', 'Docker', 'Supabase', 'Vercel', 'WebAR'],
+  'Languages': ['Python', 'C++', 'C', 'TypeScript', 'JavaScript', 'SQL', 'HTML', 'CSS'],
+  'ML & Vision': ['PyTorch', 'TensorFlow', 'Keras', 'Scikit-learn', 'CatBoost', 'XGBoost', 'Optuna', 'SHAP', 'OpenCV', 'DINOv2', 'ONNX', 'OpenVINO', 'Faster-Whisper', 'Computer Vision', 'NLP'],
+  'GenAI & LLMs': ['LangChain', 'LangGraph', 'RAG', 'FAISS', 'ChromaDB', 'pgvector', 'Ollama', 'Groq', 'Gemini Live', 'SentenceTransformers', 'Transformers.js', 'LangSmith', 'Guardrails', 'Prompt Engineering', 'Agentic Workflows'],
+  'Web & Realtime': ['React', 'Next.js', 'Node.js', 'Express.js', 'FastAPI', 'Flask', 'Electron', 'Prisma', 'WebSockets', 'WebRTC · Pipecat', 'Twilio', 'Chrome Extensions', 'Tailwind CSS', 'GSAP', 'Three.js'],
+  'Infra & Data': ['Supabase', 'PostgreSQL', 'MySQL', 'Upstash Redis', 'AWS RDS', 'Azure', 'GCP', 'Docker', 'Modal', 'Vercel', 'Git', 'CI/CD'],
 };
 
 export interface Certification {

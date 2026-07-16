@@ -5,6 +5,14 @@ import { useDevTrackStats } from '../hooks/useDevTrackStats';
 
 const GH_USER = 'Priyanshu-byte-coder';
 
+// github-readme-stats card, themed to the site palette (transparent bg,
+// accent titles/icons, muted text). count_private included.
+const STATS_URL =
+  `https://github-readme-stats-fast.vercel.app/api?username=${GH_USER}` +
+  `&show_icons=true&hide_border=true&count_private=true` +
+  `&bg_color=00000000&title_color=c45d3e&icon_color=c45d3e` +
+  `&text_color=c4bfb5&ring_color=b8976a`;
+
 const STREAK_URL =
   `https://streak-stats.demolab.com/?user=${GH_USER}` +
   `&theme=transparent&hide_border=true` +
@@ -48,44 +56,50 @@ export const GitHub: React.FC = () => {
             <img src={`https://ghchart.rshah.org/c45d3e/${GH_USER}`} alt="Contributions" loading="lazy" />
           </div>
 
-          {/* ── Streak + Achievements ── */}
+          {/* ── Stats + Streak ── */}
           <div className="gh-row">
+            <div className={`gh-card reveal ${visible ? 'visible' : ''}`} style={{ transitionDelay: '0.25s' }}>
+              <div className="gh-card-label">GitHub Stats</div>
+              <img className="gh-stats-img" src={STATS_URL} alt="GitHub Stats" loading="lazy" />
+            </div>
             <div className={`gh-card reveal ${visible ? 'visible' : ''}`} style={{ transitionDelay: '0.3s' }}>
               <div className="gh-card-label">Streak</div>
               <img src={STREAK_URL} alt="GitHub Streak" loading="lazy" />
             </div>
-            <div className={`gh-card reveal ${visible ? 'visible' : ''}`} style={{ transitionDelay: '0.4s' }}>
-              <div className="gh-card-label">Profile Achievements</div>
-              <div className="gh-ach-grid">
-                {ACHIEVEMENTS.map((a) => {
-                  const imgSlug = a.tier ? `${a.slug}${a.tier}` : a.slug;
-                  return (
-                    <a
-                      key={a.slug}
-                      href={`https://github.com/${GH_USER}?tab=achievements`}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="gh-ach-card"
-                      title={a.desc}
-                    >
-                      <div className="gh-ach-img-wrap">
-                        <img
-                          src={`${CDN}/${imgSlug}-default.png`}
-                          alt={a.name}
-                          loading="lazy"
-                          onError={(e) => {
-                            const t = e.currentTarget;
-                            if (a.tier && t.src.includes(imgSlug)) {
-                              t.src = `${CDN}/${a.slug}-default.png`;
-                            }
-                          }}
-                        />
-                      </div>
-                      <span className="gh-ach-name">{a.name}</span>
-                    </a>
-                  );
-                })}
-              </div>
+          </div>
+
+          {/* ── Achievements — full row ── */}
+          <div className={`gh-card reveal ${visible ? 'visible' : ''}`} style={{ transitionDelay: '0.4s' }}>
+            <div className="gh-card-label">Profile Achievements</div>
+            <div className="gh-ach-grid">
+              {ACHIEVEMENTS.map((a) => {
+                const imgSlug = a.tier ? `${a.slug}${a.tier}` : a.slug;
+                return (
+                  <a
+                    key={a.slug}
+                    href={`https://github.com/${GH_USER}?tab=achievements`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="gh-ach-card"
+                    title={a.desc}
+                  >
+                    <div className="gh-ach-img-wrap">
+                      <img
+                        src={`${CDN}/${imgSlug}-default.png`}
+                        alt={a.name}
+                        loading="lazy"
+                        onError={(e) => {
+                          const t = e.currentTarget;
+                          if (a.tier && t.src.includes(imgSlug)) {
+                            t.src = `${CDN}/${a.slug}-default.png`;
+                          }
+                        }}
+                      />
+                    </div>
+                    <span className="gh-ach-name">{a.name}</span>
+                  </a>
+                );
+              })}
             </div>
           </div>
 
@@ -98,7 +112,7 @@ export const GitHub: React.FC = () => {
                   <div className="gh-featured-badge gh-badge-maintainer">Maintainer</div>
                 </div>
                 <h3 className="gh-featured-title">
-                  <a href="https://github.com/Umbrella-io/devtrack" target="_blank" rel="noopener noreferrer">
+                  <a href="https://github.com/Priyanshu-byte-coder/devtrack" target="_blank" rel="noopener noreferrer">
                     DevTrack
                   </a>
                 </h3>
@@ -155,13 +169,30 @@ export const GitHub: React.FC = () => {
             )}
 
             <a
-              href="https://github.com/Umbrella-io/devtrack"
+              href="https://github.com/Priyanshu-byte-coder/devtrack"
               target="_blank"
               rel="noopener noreferrer"
               className="gh-featured-cta"
             >
               View on GitHub →
             </a>
+          </div>
+
+          {/* ── Upstream contributions — major orgs ── */}
+          <div className={`gh-card gh-upstream reveal ${visible ? 'visible' : ''}`} style={{ transitionDelay: '0.6s' }}>
+            <div className="gh-card-label">Open Source — Major Orgs</div>
+            <div className="gh-upstream-org">
+              <div className="gh-upstream-head">
+                {/* PyTorch flame */}
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="#ee4c2c" aria-hidden="true"><path d="M12.005 0L4.952 7.053a9.865 9.865 0 000 13.947 9.866 9.866 0 0013.947 0 9.866 9.866 0 000-13.947l-1.394 1.394a7.888 7.888 0 010 11.16 7.888 7.888 0 01-11.16 0 7.888 7.888 0 010-11.16l4.62-4.62.013 5.499h1.97L12.945.94 12.005 0zm3.568 3.899a1.327 1.327 0 00-1.327 1.327 1.327 1.327 0 001.327 1.328A1.327 1.327 0 0016.9 5.226a1.327 1.327 0 00-1.327-1.327z"/></svg>
+                <a href="https://github.com/pytorch/pytorch" target="_blank" rel="noopener noreferrer" className="gh-upstream-repo">PyTorch</a>
+                <span className="gh-upstream-count">Contributor</span>
+              </div>
+              <p className="gh-upstream-note">
+                My pull requests have been merged into PyTorch — code contributed
+                upstream now lives in <code>pytorch/pytorch</code> core.
+              </p>
+            </div>
           </div>
         </div>
       </div>

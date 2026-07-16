@@ -17,7 +17,8 @@ export const PROJECT_LINKS: Record<string, { github?: string; docs?: string }> =
   'sentinel': {
     github: 'https://github.com/Priyanshu-byte-coder/SENTINEL', // add link when public
   },
-  'bloom': {
-    github: 'https://github.com/Priyanshu-byte-coder/bloom', // add link when public
+  'contextrot': {
+    github: 'https://github.com/Priyanshu-byte-coder/contextrot',
+    docs:   'https://pypi.org/project/contextrot/',
   },
 };

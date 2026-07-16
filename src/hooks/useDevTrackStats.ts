@@ -1,6 +1,9 @@
 import { useEffect, useState } from 'react';
 
-const REPO = 'Umbrella-io/devtrack';
+// NOTE: the repo moved from Umbrella-io/devtrack to this owner. The repos API
+// follows the redirect but the search API does not — using the old name made
+// the merged-PR count silently return 0.
+const REPO = 'Priyanshu-byte-coder/devtrack';
 
 export interface DevTrackStats {
   stars: number;

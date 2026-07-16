@@ -47,6 +47,10 @@ export const Research: React.FC = () => {
               <div className="research-metric-val">4</div>
               <div className="research-metric-label">Baselines Beat</div>
             </div>
+            <div className="research-metric">
+              <div className="research-metric-val">100+</div>
+              <div className="research-metric-label">Full-Text Views · IEEE Xplore</div>
+            </div>
           </div>
           <div className="research-tags">
             <span>CatBoost</span>

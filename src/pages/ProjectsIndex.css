@@ -1,0 +1,42 @@
+/* ── All Projects index ── */
+.pi-root { min-height: 100vh; background: var(--bg); color: var(--cream); }
+
+.pi-hero { max-width: var(--max-w); margin: 0 auto; padding: 100px 48px 56px; }
+.pi-eyebrow {
+  font-family: var(--font-mono); font-size: 11px; letter-spacing: 3px;
+  text-transform: uppercase; color: var(--accent); display: block; margin-bottom: 24px;
+}
+.pi-hero h1 {
+  font-family: var(--font-display); font-weight: 800;
+  font-size: clamp(56px, 10vw, 120px); line-height: 0.92;
+  letter-spacing: -2px; text-transform: uppercase;
+}
+.pi-hero h1 em { font-style: normal; font-weight: 400; color: var(--cream-dim); }
+.pi-hero p { margin-top: 24px; color: var(--muted); max-width: 520px; font-size: 15px; line-height: 1.8; }
+
+.pi-list { max-width: var(--max-w); margin: 0 auto; padding: 0 48px 40px; }
+.pi-row {
+  display: grid; grid-template-columns: 56px 1fr 1fr 80px 40px;
+  align-items: baseline; gap: 24px; padding: 26px 0;
+  border-top: 1px solid var(--border); transition: all 0.4s var(--ease);
+}
+.pi-row:last-child { border-bottom: 1px solid var(--border); }
+.pi-row:hover { background: var(--bg-elevated); margin: 0 -24px; padding-left: 24px; padding-right: 24px; }
+.pi-num { font-family: var(--font-mono); font-size: 11px; color: var(--faint); }
+.pi-title {
+  font-family: var(--font-display); font-weight: 700; font-size: clamp(20px, 3vw, 30px);
+  text-transform: uppercase; letter-spacing: -0.5px; transition: color 0.3s;
+}
+.pi-row:hover .pi-title { color: var(--p-accent, var(--accent)); }
+.pi-cat { font-family: var(--font-mono); font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: var(--muted); }
+.pi-year { font-family: var(--font-mono); font-size: 11px; color: var(--muted); }
+.pi-arrow { color: var(--faint); transition: all 0.3s; }
+.pi-row:hover .pi-arrow { color: var(--p-accent, var(--accent)); transform: translateX(6px); }
+
+@media (max-width: 900px) {
+  .pi-hero { padding: 64px 24px 40px; }
+  .pi-list { padding: 0 24px 32px; }
+  .pi-row { grid-template-columns: 40px 1fr 40px; }
+  .pi-cat, .pi-year { display: none; }
+  .pi-row:hover { margin: 0; padding-left: 0; padding-right: 0; }
+}

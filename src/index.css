@@ -64,21 +64,61 @@ img { display: block; max-width: 100%; }
   background: var(--accent); transition: width 0.1s linear; width: 0;
 }
 
-/* ── Custom Cursor ── */
-.cursor-dot {
-  position: fixed; width: 8px; height: 8px; border-radius: 50%;
-  background: var(--accent); pointer-events: none; z-index: 9999;
-  transform: translate(-50%, -50%);
-  transition: width 0.2s, height 0.2s, opacity 0.2s;
-  mix-blend-mode: difference;
+/* ── Custom Cursor — crosshair + coordinates ── */
+body.has-crosshair { cursor: none; }
+body.has-crosshair a,
+body.has-crosshair button,
+body.has-crosshair [role="button"],
+body.has-crosshair label,
+body.has-crosshair summary { cursor: none; }
+body.has-crosshair input,
+body.has-crosshair textarea,
+body.has-crosshair select { cursor: text; }
+
+.ch-line {
+  position: fixed; top: 0; left: 0; pointer-events: none; z-index: 9999;
+  background: rgba(232, 228, 220, 0.14);
+  transition: opacity 0.25s;
 }
-.cursor-ring {
-  position: fixed; width: 40px; height: 40px; border-radius: 50%;
-  border: 1px solid rgba(196,93,62,0.3); pointer-events: none; z-index: 9998;
-  transform: translate(-50%, -50%);
-  transition: width 0.3s cubic-bezier(0.22,0.61,0.36,1), height 0.3s cubic-bezier(0.22,0.61,0.36,1), border-color 0.3s;
+.ch-line-h { width: 100vw; height: 1px; }
+.ch-line-v { width: 1px; height: 100vh; }
+
+.ch-box {
+  position: fixed; top: 0; left: 0; pointer-events: none; z-index: 9999;
+  width: 0; height: 0;
 }
-@media (pointer: coarse) { .cursor-dot, .cursor-ring { display: none; } }
+.ch-dot {
+  position: absolute; top: 0; left: 0; width: 5px; height: 5px;
+  background: var(--accent); transform: translate(-50%, -50%) rotate(45deg);
+  transition: transform 0.3s var(--ease), background 0.3s;
+}
+.ch-label {
+  position: absolute; top: 0; left: 0; transform: translate(-50%, -50%) scale(0.6);
+  font-family: var(--font-mono); font-size: 10px; letter-spacing: 3px;
+  color: var(--bg); background: var(--accent); padding: 6px 12px;
+  white-space: nowrap; opacity: 0;
+  transition: opacity 0.25s var(--ease), transform 0.25s var(--ease);
+}
+.ch-coords {
+  position: absolute; top: 14px; left: 16px;
+  font-family: var(--font-mono); font-size: 9px; letter-spacing: 2px;
+  color: var(--muted); white-space: nowrap;
+  transition: opacity 0.25s;
+}
+
+/* hover over interactive element: lines + coords retreat, label stamps in */
+body.cursor-hot .ch-line { opacity: 0; }
+body.cursor-hot .ch-coords { opacity: 0; }
+body.cursor-hot .ch-dot { transform: translate(-50%, -50%) rotate(45deg) scale(0); }
+body.cursor-hot .ch-label { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+
+/* over text fields: get out of the way */
+body.cursor-text .ch-line, body.cursor-text .ch-dot,
+body.cursor-text .ch-label, body.cursor-text .ch-coords { opacity: 0; }
+
+body.cursor-gone .ch-line, body.cursor-gone .ch-box { opacity: 0; }
+
+@media (pointer: coarse) { .ch-line, .ch-box { display: none; } }
 
 /* ── Reveal System ── */
 .reveal {

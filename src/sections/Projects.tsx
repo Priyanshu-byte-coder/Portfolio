@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import './Projects.css';
 import { useScrollReveal } from '../hooks/useScrollReveal';
 import { FEATURED_PROJECTS, SECONDARY_PROJECTS } from '../data';
@@ -54,6 +55,9 @@ function FeaturedProjectCard({ project, index }: { project: FeaturedProject; ind
           {links.docs && (
             <a href={links.docs} target="_blank" rel="noopener noreferrer" className="fp-link-btn">Docs</a>
           )}
+          <Link to={`/projects/${project.id}`} className="fp-link-btn fp-link-more">
+            View Project →
+          </Link>
         </div>
       </div>
     </div>
@@ -63,18 +67,21 @@ function FeaturedProjectCard({ project, index }: { project: FeaturedProject; ind
 function SecondaryProjectCell({ project, index }: { project: SecondaryProject; index: number }) {
   const [ref, visible] = useScrollReveal(0.06);
   return (
-    <div
-      ref={ref as React.RefObject<HTMLDivElement>}
+    <Link
+      to={`/projects/${project.id}`}
+      ref={ref as React.RefObject<HTMLAnchorElement>}
       className={`sp-cell reveal ${visible ? 'visible' : ''}`}
       style={{ transitionDelay: `${index * 0.07}s` }}
     >
       <div className="sp-tag">{project.tag}</div>
       <h4 className="sp-title">{project.title}</h4>
       <p className="sp-desc">{project.desc}</p>
+      {project.stat && <div className="sp-stat">{project.stat}</div>}
       <div className="sp-tech-mini">
         {project.tech.map((t) => <span key={t}>{t}</span>)}
       </div>
-    </div>
+      <div className="sp-more">View project →</div>
+    </Link>
   );
 }
 
@@ -108,6 +115,9 @@ export const Projects: React.FC = () => {
               <SecondaryProjectCell key={p.title} project={p} index={i} />
             ))}
           </div>
+          <Link to="/projects" className="sp-all-link">
+            All projects — the full record →
+          </Link>
         </div>
       </div>
     </section>

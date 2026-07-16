@@ -71,10 +71,28 @@ RESEARCH
 Published: IEEE Sensors Letters (2026) | Link: https://ieeexplore.ieee.org/document/11359621
 Metrics: 97.20% accuracy, 0.9718 F1 | Dataset: CASPER robotic arm
 Outperformed SVM, Logistic Regression, Naive Bayes, QDA baselines.
+100+ full-text views on IEEE Xplore.
+
+---
+
+OPEN SOURCE
+- contextrot — creator. Python CLI that measures where a coding agent starts degrading, from the user's own local session transcripts. 5 failure signals (edit failures, retry loops, re-reads, self-corrections, drift) correlated with context fill. 100% local, zero-config: uvx contextrot. 10,000+ downloads on PyPI. https://github.com/Priyanshu-byte-coder/contextrot
+- devtrack — founder & maintainer. Open-source developer productivity dashboard (GSSoC 2025). 190+ stars, 430+ forks, 1,000+ merged PRs from community contributors. https://github.com/Priyanshu-byte-coder/devtrack
+- KeepTrack — creator. Chrome MV3 extension that captures "keep vs temporary" download intent at download time. Zero telemetry, fully local. https://github.com/Priyanshu-byte-coder/keeptrack
+- PyTorch — 3 PRs landed in pytorch/pytorch main (via pytorchmergebot): #183274 [amp] Add __all__ to torch.amp, #183279 [Docathon] rST→MyST conversion, #183273 [BE] B018 fixes. More PRs open in review.
 
 ---
 
 PROJECTS
+
+contextrot — Context-Rot Analytics for Coding Agents (2026)
+See OPEN SOURCE above. Verdict-first reports: rot detected / edge rot / no rot / not enough data, with confidence intervals and concrete prescriptions (compact points, MCP trimming, cost).
+
+KeepTrack — Smart Download Classifier for Chrome (2026)
+Classifies every download as Keep / Temporary / Ambiguous from file type, filename keywords, source domain. Only interrupts on ambiguous. Weekly 30-second expiring-files review. Website: https://priyanshu-byte-coder.github.io/keeptrack/
+
+Lunar Ice Detection — ISRO Bharatiya Antariksh Hackathon 2026, PS-8
+Water-ice probability mapping over lunar permanently shadowed regions from Chandrayaan orbital data. Geospatial feature engineering + ML classification.
 
 LUMIN.AI (HackaMINed 2026 — Winner, Aubergine Track)
 Solar plant inverter risk monitoring — 4 independently deployable microservices.
@@ -117,6 +135,7 @@ Stack: Next.js 16 · Supabase + pgvector · Groq API · Transformers.js · Upsta
 
 devtrack — Developer Productivity Dashboard (GSSoC 2025 Open Source)
 Self-hostable GitHub activity dashboard. GitHub OAuth (NextAuth.js). Contribution heatmap, PR analytics, weekly coding goals. No separate backend — Next.js Route Handlers + Supabase.
+Founded and maintained: 190+ stars, 430+ forks, 1,000+ merged PRs, 100+ contributors.
 Stack: Next.js 14 · NextAuth.js · Supabase · Recharts · GitHub REST API
 
 MZHub Marketing Website (Freelance)
@@ -152,10 +171,11 @@ ACHIEVEMENTS
 ---
 
 SKILLS
-Languages: Python, C++, C, TypeScript, JavaScript, HTML, CSS
-ML/AI: PyTorch, TensorFlow, Keras, Scikit-learn, CatBoost, XGBoost, SHAP, OpenCV, NumPy, Pandas, Optuna, LangChain, FAISS, SentenceTransformers, LangSmith, RAG, Prompt Engineering, NLP, Computer Vision
-Web/Backend: React, Next.js, TailwindCSS, Node.js, FastAPI, Express.js, REST APIs, Streamlit, Vercel
-Cloud/DB/Tools: MySQL, AWS RDS, GCP, Azure, Docker, Git, GitHub, Jupyter, WebAR
+Languages: Python, C++, C, TypeScript, JavaScript, SQL, HTML, CSS
+ML & Vision: PyTorch, TensorFlow, Keras, Scikit-learn, CatBoost, XGBoost, Optuna, SHAP, OpenCV, DINOv2, ONNX, OpenVINO, Faster-Whisper, NumPy, Pandas, Computer Vision, NLP
+GenAI & LLMs: LangChain, LangGraph, RAG, FAISS, ChromaDB, pgvector, Ollama, Groq, Gemini Live, SentenceTransformers, Transformers.js, LangSmith, Hallucination Guardrails, Prompt Engineering, Agentic Workflows
+Web & Realtime: React, Next.js, Node.js, Express.js, FastAPI, Flask, Electron, Prisma, WebSockets, WebRTC (Pipecat), Twilio, Chrome Extensions (MV3), TailwindCSS, GSAP, Three.js, Streamlit
+Infra & Data: Supabase, PostgreSQL, MySQL, Upstash Redis, AWS RDS, Azure, GCP, Docker, Modal, Vercel, Git, GitHub, CI/CD, Jupyter
 
 Certifications:
 - Supervised ML — DeepLearning.AI/Coursera (99.83%)

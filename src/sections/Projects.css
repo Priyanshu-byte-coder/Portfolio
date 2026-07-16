@@ -52,6 +52,8 @@
   transition: all 0.3s var(--ease); display: inline-flex; align-items: center; gap: 8px;
 }
 .fp-link-btn:hover { border-color: var(--accent); color: var(--accent); }
+.fp-link-more { border-color: var(--accent-soft); color: var(--accent); }
+.fp-link-more:hover { background: var(--accent-soft); }
 
 /* ── Secondary Projects ── */
 .sp-grid {
@@ -73,6 +75,23 @@
 .sp-tech-mini span { font-family: var(--font-mono); font-size: 9px; color: var(--faint); letter-spacing: 1px; text-transform: uppercase; }
 .sp-tech-mini span::after { content: ' /'; }
 .sp-tech-mini span:last-child::after { content: ''; }
+.sp-stat {
+  font-family: var(--font-mono); font-size: 10px; letter-spacing: 1px;
+  text-transform: uppercase; color: var(--warm); margin-top: 14px;
+}
+.sp-more {
+  font-family: var(--font-mono); font-size: 10px; letter-spacing: 2px;
+  text-transform: uppercase; color: var(--muted); margin-top: 14px;
+  transition: color 0.3s, transform 0.3s;
+}
+.sp-cell:hover .sp-more { color: var(--accent); transform: translateX(4px); }
+.sp-all-link {
+  display: inline-block; margin-top: 40px; font-family: var(--font-mono);
+  font-size: 12px; letter-spacing: 2px; text-transform: uppercase;
+  color: var(--cream-dim); padding: 14px 28px; border: 1px solid var(--border);
+  transition: all 0.3s var(--ease);
+}
+.sp-all-link:hover { border-color: var(--accent); color: var(--accent); transform: translateX(4px); }
 
 @media (max-width: 900px) {
   .fp-card { grid-template-columns: 1fr; gap: 28px; }
