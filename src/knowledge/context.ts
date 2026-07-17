@@ -40,7 +40,7 @@ Personal line: "I teach machines how to think while I'm still figuring out how t
 
 EDUCATION
 Institute of Technology, Nirma University — B.Tech in AI & ML (Jul 2024 – Jul 2028)
-CGPA: 8.85/10 | Class XII (Science): 96.7% | 99.1 percentile | Gujarat Rank 160
+CGPA: 8.65/10 | Class XII (Science): 96.7% | 99.1 percentile | Gujarat Rank 160
 Coursework: ML, Deep Learning, Neural Networks, Computer Vision, NLP, DSA, DBMS, OS, Networks, Linear Algebra, Probability & Statistics
 
 ---

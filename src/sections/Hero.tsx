@@ -57,7 +57,7 @@ export const Hero: React.FC<HeroProps> = ({ revealed = false }) => {
         <div className="hero-meta">
           Based in Ahmedabad, India<br />
           B.Tech AI/ML · Nirma University<br />
-          CGPA 8.85 / 10.0
+          CGPA 8.65 / 10.0
         </div>
         <div className="hero-status">
           <span className="status-dot" />
