@@ -77,7 +77,8 @@ Outperformed SVM, Logistic Regression, Naive Bayes, QDA baselines.
 
 OPEN SOURCE
 - contextrot — creator. Python CLI that measures where a coding agent starts degrading, from the user's own local session transcripts. 5 failure signals (edit failures, retry loops, re-reads, self-corrections, drift) correlated with context fill. 100% local, zero-config: uvx contextrot. 10,000+ downloads on PyPI. https://github.com/Priyanshu-byte-coder/contextrot
-- devtrack — founder & maintainer. Open-source developer productivity dashboard (GSSoC 2025). 190+ stars, 430+ forks, 1,000+ merged PRs from community contributors. https://github.com/Priyanshu-byte-coder/devtrack
+- devtrack — founder & maintainer. Open-source developer productivity dashboard grown into a community project. 190+ stars, 430+ forks, 1,000+ merged PRs from community contributors. https://github.com/Priyanshu-byte-coder/devtrack
+- TensorFlow — 1 PR merged into tensorflow/tensorflow: #118322 tf.signal idct docstring + validation fixes (merged Jul 2026).
 - KeepTrack — creator. Chrome MV3 extension that captures "keep vs temporary" download intent at download time. Zero telemetry, fully local. https://github.com/Priyanshu-byte-coder/keeptrack
 - PyTorch — 3 PRs landed in pytorch/pytorch main (via pytorchmergebot): #183274 [amp] Add __all__ to torch.amp, #183279 [Docathon] rST→MyST conversion, #183273 [BE] B018 fixes. More PRs open in review.
 
@@ -133,7 +134,7 @@ DB: Supabase PostgreSQL + pgvector. 7 tables. RLS on all tables. HNSW index. Aut
 Rate limiting: Upstash Redis — chat 20 req/min, journal 10 req/min, global 100 req/hr.
 Stack: Next.js 16 · Supabase + pgvector · Groq API · Transformers.js · Upstash Redis · Framer Motion 12
 
-devtrack — Developer Productivity Dashboard (GSSoC 2025 Open Source)
+devtrack — Developer Productivity Dashboard (Community Open Source)
 Self-hostable GitHub activity dashboard. GitHub OAuth (NextAuth.js). Contribution heatmap, PR analytics, weekly coding goals. No separate backend — Next.js Route Handlers + Supabase.
 Founded and maintained: 190+ stars, 430+ forks, 1,000+ merged PRs, 100+ contributors.
 Stack: Next.js 14 · NextAuth.js · Supabase · Recharts · GitHub REST API

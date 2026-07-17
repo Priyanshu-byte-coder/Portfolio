@@ -3,13 +3,13 @@
  * Keys match the project `id` in data.ts.
  * Leave a field out or set to '' to hide that button.
  */
-export const PROJECT_LINKS: Record<string, { github?: string; docs?: string }> = {
+export const PROJECT_LINKS: Record<string, { github?: string; docs?: string; video?: string }> = {
   'spectra-scan': {
     github: 'https://github.com/Mitanshp5/MECup',
-    docs:   'https://drive.google.com/file/d/105vKKTdIXmdwhbCi4LrzuxfzHse3rR7I/view?usp=sharing',
+    video:  'https://youtu.be/Gq1PI3dG4mY',
   },
   'lumin-ai': {
-    github: 'https://github.com/Neal006/Fantastic4', // add link when public
+    github: 'https://github.com/Neal006/LuMinAI', // repo renamed from Fantastic4
   },
   'solv-ai': {
     github: 'https://github.com/Neal006/lakshya-ldce', // add link when public

@@ -59,6 +59,14 @@
   display: flex; justify-content: center; color: var(--p-accent);
 }
 
+/* cover image */
+.pp-cover {
+  max-width: var(--max-w); margin: 40px auto 0; padding: 0 48px;
+}
+.pp-cover img, .pp-cover video {
+  width: 100%; display: block; border: 1px solid var(--border-hover);
+}
+
 /* numbers band */
 .pp-numbers {
   max-width: var(--max-w); margin: 64px auto 0; padding: 40px 48px;

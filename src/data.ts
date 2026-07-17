@@ -50,7 +50,6 @@ export const FEATURED_PROJECTS: FeaturedProject[] = [
     ],
     links: {
       github: 'https://github.com/Mitanshp5/MECup',
-      docs: 'https://drive.google.com/file/d/1LEJZ_Jpn7Zt_7WVXZNjV-yKCUqPXIFZM/view',
     },
   },
   {
@@ -125,7 +124,7 @@ export interface SecondaryProject {
 }
 
 export const SECONDARY_PROJECTS: SecondaryProject[] = [
-  { id: 'devtrack', title: 'devtrack', desc: 'Self-hostable GitHub productivity dashboard — contribution heatmap, PR analytics, weekly goals.', tech: ['Next.js', 'TypeScript', 'Supabase', 'Recharts'], tag: 'GSSoC Open Source', stat: '190+ ★ · 1000+ merged PRs' },
+  { id: 'devtrack', title: 'devtrack', desc: 'Self-hostable GitHub productivity dashboard — contribution heatmap, PR analytics, weekly goals.', tech: ['Next.js', 'TypeScript', 'Supabase', 'Recharts'], tag: 'Open Source · Maintainer', stat: '190+ ★ · 1000+ merged PRs' },
   { id: 'keeptrack', title: 'KeepTrack', desc: 'Chrome extension that captures "keep vs temporary" download intent at download time. Zero telemetry, fully local, MV3.', tech: ['JavaScript', 'Chrome MV3', 'IndexedDB'], tag: 'Chrome Extension', stat: 'Live on GitHub Pages' },
   { id: 'lunar-ice', title: 'Lunar Ice Detection', desc: 'Water-ice detection on the lunar surface for ISRO Bharatiya Antariksh Hackathon 2026 (PS-8) — remote sensing + ML pipeline over Chandrayaan data.', tech: ['Python', 'Remote Sensing', 'ML', 'Geospatial'], tag: 'ISRO BAH 2026', stat: 'Chandrayaan data' },
   { id: 'mzhub', title: 'MZHub', desc: 'Enterprise marketing website for an AI spiritual tech platform. Three.js 3D backgrounds, MDX blog, GSAP scroll animations.', tech: ['Next.js', 'Three.js', 'GSAP', 'Framer Motion'], tag: 'Freelance', stat: 'Shipped to production' },
@@ -165,10 +164,10 @@ export const ACHIEVEMENTS: Achievement[] = [
 
 export const SKILL_CATEGORIES: Record<string, string[]> = {
   'Languages': ['Python', 'C++', 'C', 'TypeScript', 'JavaScript', 'SQL', 'HTML', 'CSS'],
-  'ML & Vision': ['PyTorch', 'TensorFlow', 'Keras', 'Scikit-learn', 'CatBoost', 'XGBoost', 'Optuna', 'SHAP', 'OpenCV', 'DINOv2', 'ONNX', 'OpenVINO', 'Faster-Whisper', 'Computer Vision', 'NLP'],
-  'GenAI & LLMs': ['LangChain', 'LangGraph', 'RAG', 'FAISS', 'ChromaDB', 'pgvector', 'Ollama', 'Groq', 'Gemini Live', 'SentenceTransformers', 'Transformers.js', 'LangSmith', 'Guardrails', 'Prompt Engineering', 'Agentic Workflows'],
-  'Web & Realtime': ['React', 'Next.js', 'Node.js', 'Express.js', 'FastAPI', 'Flask', 'Electron', 'Prisma', 'WebSockets', 'WebRTC · Pipecat', 'Twilio', 'Chrome Extensions', 'Tailwind CSS', 'GSAP', 'Three.js'],
-  'Infra & Data': ['Supabase', 'PostgreSQL', 'MySQL', 'Upstash Redis', 'AWS RDS', 'Azure', 'GCP', 'Docker', 'Modal', 'Vercel', 'Git', 'CI/CD'],
+  'ML & Vision': ['PyTorch', 'TensorFlow', 'Scikit-learn', 'CatBoost', 'Optuna', 'SHAP', 'OpenCV', 'ONNX', 'Faster-Whisper', 'Computer Vision', 'NLP'],
+  'GenAI & LLMs': ['LangChain', 'LangGraph', 'RAG', 'FAISS', 'ChromaDB', 'Ollama', 'Groq', 'Gemini Live', 'SentenceTransformers', 'LangSmith', 'Guardrails', 'Prompt Engineering', 'Agentic Workflows'],
+  'Web & Realtime': ['React', 'Next.js', 'Node.js', 'Express.js', 'FastAPI', 'Flask', 'Electron', 'WebSockets', 'WebRTC · Pipecat', 'Twilio', 'Chrome Extensions', 'Tailwind CSS'],
+  'Infra & Data': ['Supabase', 'PostgreSQL', 'MySQL', 'Upstash Redis', 'AWS RDS', 'Azure', 'GCP', 'Docker', 'Vercel', 'Git', 'CI/CD'],
 };
 
 export interface Certification {

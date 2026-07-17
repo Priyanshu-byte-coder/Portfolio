@@ -28,6 +28,9 @@ export interface ProjectDetail {
   title: string;
   subtitle: string;
   category: string;
+  /** sortable start date (YYYY-MM-DD, from repo creation / competition start) */
+  date: string;
+  /** human-readable date label shown on the page */
   year: string;
   role: string;
   badge?: string;
@@ -49,7 +52,8 @@ export const PROJECT_DETAILS: ProjectDetail[] = [
     title: 'contextrot',
     subtitle: 'Find out where your coding agent starts degrading',
     category: 'Open Source · Developer Tool',
-    year: '2026',
+    date: '2026-07-02',
+    year: 'Jul 2026',
     role: 'Creator & Maintainer',
     badge: '10K+ Downloads on PyPI',
     accent: '#6fae5c',
@@ -104,7 +108,8 @@ export const PROJECT_DETAILS: ProjectDetail[] = [
     title: 'Spectra Scan',
     subtitle: 'Automated paint defect detection on a CNC gantry',
     category: 'Industrial AI · Computer Vision',
-    year: '2026',
+    date: '2026-01-09',
+    year: 'Jan — Mar 2026',
     role: 'AI Engineer — Team CON-SOL-E',
     badge: 'National Rank #4 — Mitsubishi Electric Cup',
     accent: '#c45d3e',
@@ -120,7 +125,7 @@ export const PROJECT_DETAILS: ProjectDetail[] = [
     tech: ['DINOv2 ViT-B/14', 'OpenVINO', 'FastAPI', 'Electron 39', 'React Three Fiber', 'LangChain', 'LangGraph', 'ChromaDB', 'MC Protocol', 'HIKROBOT MVS SDK'],
     links: [
       { label: 'GitHub', url: 'https://github.com/Mitanshp5/MECup' },
-      { label: 'Docs', url: 'https://drive.google.com/file/d/105vKKTdIXmdwhbCi4LrzuxfzHse3rR7I/view?usp=sharing' },
+      { label: 'Video', url: 'https://youtu.be/Gq1PI3dG4mY' },
     ],
     story: [
       {
@@ -149,7 +154,8 @@ export const PROJECT_DETAILS: ProjectDetail[] = [
     title: 'LUMIN.AI',
     subtitle: 'AI-powered solar plant risk monitoring',
     category: 'ML Platform · GenAI',
-    year: '2026',
+    date: '2026-03-05',
+    year: 'Mar 2026',
     role: 'ML & GenAI Lead — Winner, Aubergine Track',
     badge: 'Winner — HackAMined (400+ teams)',
     accent: '#d9a441',
@@ -163,7 +169,7 @@ export const PROJECT_DETAILS: ProjectDetail[] = [
       { value: '1.0s', label: 'Avg LLM Latency' },
     ],
     tech: ['XGBoost', 'Optuna', 'SHAP', 'FAISS', 'Groq Llama 3.3 70B', 'LangSmith', 'FastAPI', 'Next.js 15', 'Express', 'MySQL · AWS RDS'],
-    links: [{ label: 'GitHub', url: 'https://github.com/Neal006/Fantastic4' }],
+    links: [{ label: 'GitHub', url: 'https://github.com/Neal006/LuMinAI' }],
     story: [
       {
         heading: 'ML pipeline',
@@ -191,7 +197,8 @@ export const PROJECT_DETAILS: ProjectDetail[] = [
     title: 'SOLV.ai',
     subtitle: 'Multi-channel voice complaint management',
     category: 'Voice AI · NLP',
-    year: '2026',
+    date: '2026-04-18',
+    year: 'Apr 2026',
     role: 'Team Leader — Tark Shaastra, LDCE',
     badge: '5 Microservices · Voice Agent FSM',
     accent: '#5c9fae',
@@ -233,7 +240,8 @@ export const PROJECT_DETAILS: ProjectDetail[] = [
     title: 'SENTINEL',
     subtitle: 'Privacy-preserving edge AI wellbeing companion',
     category: 'Edge AI · Mental Wellbeing',
-    year: '2025',
+    date: '2026-02-28',
+    year: 'Feb 2026',
     role: 'Creator',
     badge: 'Fully Offline — Raspberry Pi 5',
     accent: '#7d8fc9',
@@ -275,13 +283,14 @@ export const PROJECT_DETAILS: ProjectDetail[] = [
     title: 'devtrack',
     subtitle: 'Open-source developer productivity dashboard',
     category: 'Open Source · Founder & Maintainer',
-    year: '2025 — Present',
+    date: '2026-05-10',
+    year: 'May 2026 — Now',
     role: 'Founder & Maintainer',
-    badge: 'GSSoC 2025 Project',
+    badge: 'Community Open Source',
     accent: '#b8976a',
     motif: 'heatmap',
     summary:
-      'A self-hostable GitHub productivity dashboard — contribution heatmaps, PR analytics, streaks, and weekly goals — built from scratch and grown into a real open-source community through GSSoC 2025. Now at 190+ stars, 430+ forks, and over 1,000 merged pull requests from contributors, maintained with CI, Sentry, e2e tests, and a public roadmap.',
+      'A self-hostable GitHub productivity dashboard — contribution heatmaps, PR analytics, streaks, and weekly goals — built from scratch and grown into a real open-source community. Now at 190+ stars, 430+ forks, and over 1,000 merged pull requests from contributors, maintained with CI, Sentry, e2e tests, and a public roadmap.',
     numbers: [
       { value: '190+', label: 'GitHub Stars' },
       { value: '1000+', label: 'Merged PRs' },
@@ -293,7 +302,7 @@ export const PROJECT_DETAILS: ProjectDetail[] = [
     story: [
       {
         heading: 'From side project to community',
-        body: 'devtrack started as a personal dashboard and became a GSSoC 2025 open-source project. Running it meant reviewing and merging 1,000+ pull requests, writing contributor docs (CONTRIBUTING, ARCHITECTURE, SECURITY, CODE_OF_CONDUCT), triaging hundreds of issues, and keeping CI green while dozens of first-time contributors shipped in parallel.',
+        body: 'devtrack started as a personal dashboard and grew into a community open-source project. Running it meant reviewing and merging 1,000+ pull requests, writing contributor docs (CONTRIBUTING, ARCHITECTURE, SECURITY, CODE_OF_CONDUCT), triaging hundreds of issues, and keeping CI green while dozens of first-time contributors shipped in parallel.',
       },
       {
         heading: 'Architecture',
@@ -312,7 +321,8 @@ export const PROJECT_DETAILS: ProjectDetail[] = [
     title: 'KeepTrack',
     subtitle: 'Smart download classifier for Chrome',
     category: 'Open Source · Browser Extension',
-    year: '2026',
+    date: '2026-06-27',
+    year: 'Jun 2026',
     role: 'Creator',
     badge: 'Zero Telemetry · MV3',
     accent: '#5aa05e',
@@ -352,7 +362,8 @@ export const PROJECT_DETAILS: ProjectDetail[] = [
     title: 'Lunar Ice Detection',
     subtitle: 'Mapping water-ice on the Moon from orbital data',
     category: 'Space Tech · Remote Sensing',
-    year: '2026',
+    date: '2026-06-15',
+    year: 'Jun 2026',
     role: 'ML Engineer — ISRO BAH (PS-8)',
     badge: 'ISRO Bharatiya Antariksh Hackathon',
     accent: '#9aa7c7',
@@ -387,7 +398,8 @@ export const PROJECT_DETAILS: ProjectDetail[] = [
     title: 'MZHub',
     subtitle: 'Enterprise marketing site for an AI spiritual-tech platform',
     category: 'Freelance · Production Web',
-    year: '2025',
+    date: '2025-12-03',
+    year: 'Dec 2025',
     role: 'Full-Stack Developer (Freelance)',
     badge: 'Shipped to Production — Azure',
     accent: '#a67ab8',
@@ -418,7 +430,8 @@ export const PROJECT_DETAILS: ProjectDetail[] = [
     title: 'TokenScope',
     subtitle: 'Unified AI token-usage monitoring on the desktop',
     category: 'Desktop App · Developer Tool',
-    year: '2025',
+    date: '2026-05-06',
+    year: 'May 2026',
     role: 'Creator',
     badge: 'Cross-Platform Electron',
     accent: '#b8976a',
@@ -456,7 +469,8 @@ export const PROJECT_DETAILS: ProjectDetail[] = [
     title: 'IMC Prosperity',
     subtitle: 'Algorithmic trading strategies & custom backtester',
     category: 'Quant · Competition',
-    year: '2025',
+    date: '2026-04-15',
+    year: '2026',
     role: 'Quant Developer — Team Prosperity-Fantastics',
     badge: 'IMC Prosperity 5',
     accent: '#ae5c6c',
@@ -491,7 +505,8 @@ export const PROJECT_DETAILS: ProjectDetail[] = [
     title: 'bloom',
     subtitle: 'AI mental-health companion with crisis detection',
     category: 'GenAI · Full-Stack',
-    year: '2025',
+    date: '2026-05-07',
+    year: 'May 2026',
     role: 'Creator',
     badge: '4-Layer Crisis Detection',
     accent: '#c47ba0',
@@ -528,7 +543,12 @@ export const PROJECT_BY_ID: Record<string, ProjectDetail> = Object.fromEntries(
   PROJECT_DETAILS.map((p) => [p.id, p]),
 );
 
+/** Newest first — drives the All Projects index and the next-project chain. */
+export const PROJECTS_CHRONO: ProjectDetail[] = [...PROJECT_DETAILS].sort(
+  (a, b) => b.date.localeCompare(a.date),
+);
+
 export function nextProject(id: string): ProjectDetail {
-  const i = PROJECT_DETAILS.findIndex((p) => p.id === id);
-  return PROJECT_DETAILS[(i + 1) % PROJECT_DETAILS.length];
+  const i = PROJECTS_CHRONO.findIndex((p) => p.id === id);
+  return PROJECTS_CHRONO[(i + 1) % PROJECTS_CHRONO.length];
 }

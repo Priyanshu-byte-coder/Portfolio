@@ -2,10 +2,10 @@ import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import './ProjectPage.css'; // shared header/footer styles
 import './ProjectsIndex.css';
-import { PROJECT_DETAILS } from '../projects-data';
+import { PROJECTS_CHRONO } from '../projects-data';
 import { useScrollReveal } from '../hooks/useScrollReveal';
 
-function IndexRow({ p, i }: { p: (typeof PROJECT_DETAILS)[number]; i: number }) {
+function IndexRow({ p, i }: { p: (typeof PROJECTS_CHRONO)[number]; i: number }) {
   const [ref, visible] = useScrollReveal(0.05);
   return (
     <Link
@@ -41,11 +41,11 @@ export const ProjectsIndex: React.FC = () => {
       <div className="pi-hero">
         <span className="pi-eyebrow">The full record</span>
         <h1>All<br /><em>Projects</em></h1>
-        <p>{PROJECT_DETAILS.length} projects — industrial vision, edge AI, open source, voice agents, quant. Every one has a dedicated page.</p>
+        <p>{PROJECTS_CHRONO.length} projects, newest first — industrial vision, edge AI, open source, voice agents, quant. Every one has a dedicated page.</p>
       </div>
 
       <div className="pi-list">
-        {PROJECT_DETAILS.map((p, i) => <IndexRow key={p.id} p={p} i={i} />)}
+        {PROJECTS_CHRONO.map((p, i) => <IndexRow key={p.id} p={p} i={i} />)}
       </div>
 
       <footer className="pp-footer">

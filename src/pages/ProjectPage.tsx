@@ -66,6 +66,10 @@ export const ProjectPage: React.FC = () => {
   }
 
   const media = mediaFor(project.id);
+  // Any file whose name starts with "cover" becomes the full-width hero image;
+  // the rest go to the gallery.
+  const cover = media.find((m) => m.name.toLowerCase().startsWith('cover'));
+  const gallery = media.filter((m) => m !== cover);
   const next = nextProject(project.id);
 
   return (
@@ -101,6 +105,15 @@ export const ProjectPage: React.FC = () => {
       <Reveal className="pp-motif">
         <ProjectMotif kind={project.motif} terminal={project.terminal} />
       </Reveal>
+
+      {/* ── Cover image (drop cover.* into the project's media folder) ── */}
+      {cover && (
+        <Reveal className="pp-cover">
+          {cover.isVideo
+            ? <video src={cover.url} autoPlay loop muted playsInline />
+            : <img src={cover.url} alt={`${project.title} cover`} />}
+        </Reveal>
+      )}
 
       {/* ── Numbers band ── */}
       <Reveal className="pp-numbers">
@@ -139,12 +152,12 @@ export const ProjectPage: React.FC = () => {
       </section>
 
       {/* ── Media (auto-discovered; hidden when empty) ── */}
-      {media.length > 0 && (
+      {gallery.length > 0 && (
         <section className="pp-section">
           <Reveal>
             <div className="pp-label">Gallery</div>
             <div className="pp-gallery">
-              {media.map((m) => (
+              {gallery.map((m) => (
                 <figure key={m.url} className="pp-media">
                   {m.isVideo
                     ? <video src={m.url} controls muted playsInline />

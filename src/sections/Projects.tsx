@@ -55,6 +55,9 @@ function FeaturedProjectCard({ project, index }: { project: FeaturedProject; ind
           {links.docs && (
             <a href={links.docs} target="_blank" rel="noopener noreferrer" className="fp-link-btn">Docs</a>
           )}
+          {links.video && (
+            <a href={links.video} target="_blank" rel="noopener noreferrer" className="fp-link-btn">Video</a>
+          )}
           <Link to={`/projects/${project.id}`} className="fp-link-btn fp-link-more">
             View Project →
           </Link>

@@ -99,11 +99,37 @@
 }
 .gh-featured-cta:hover { color: var(--cream); }
 
-/* ── GitHub Stats card ── */
+/* ── GitHub Stats card (github-readme-stats replica, live data) ── */
 .gh-stats-img { max-width: 560px; margin: 0 auto; }
+.gh-stats-card {
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 24px; padding: 6px 4px;
+}
+.gh-stats-left { display: flex; flex-direction: column; gap: 12px; min-width: 0; }
+.gh-stats-title {
+  font-size: 16px; font-weight: 600; color: var(--accent); margin-bottom: 6px;
+}
+.gh-stat-row { display: flex; align-items: center; gap: 10px; }
+.gh-stat-row svg { color: var(--accent); flex-shrink: 0; }
+.gh-stat-label { font-size: 14px; color: var(--cream-dim); font-weight: 600; }
+.gh-stat-value {
+  font-family: var(--font-mono); font-size: 14px;
+  font-weight: 700; color: var(--cream); margin-left: 6px;
+}
+.gh-rank-ring { color: var(--warm); flex-shrink: 0; }
+.gh-rank-progress { transition: stroke-dashoffset 1.2s var(--ease-out); }
+.gh-rank-letter {
+  fill: var(--cream); font-family: var(--font-display);
+  font-size: 26px; font-weight: 700;
+}
+@media (max-width: 480px) {
+  .gh-stats-card { flex-direction: column; align-items: flex-start; }
+  .gh-rank-ring { align-self: center; }
+}
 
 /* ── Upstream PRs ── */
 .gh-upstream-org { display: flex; flex-direction: column; gap: 12px; }
+.gh-upstream-divided { margin-top: 20px; padding-top: 20px; border-top: 1px solid var(--border); }
 .gh-upstream-head { display: flex; align-items: center; gap: 10px; color: var(--cream-dim); }
 .gh-upstream-repo {
   font-family: var(--font-mono); font-size: 14px; font-weight: 700;
