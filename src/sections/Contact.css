@@ -23,6 +23,15 @@
 .contact-phone-link:hover { color: var(--accent); }
 .contact-loc { font-size: 14px; color: var(--muted); margin-top: 8px; }
 
+.contact-resume-btn {
+  display: inline-flex; align-items: center; gap: 10px; margin-top: 20px;
+  font-family: var(--font-mono); font-size: 11px; letter-spacing: 2px;
+  text-transform: uppercase; color: var(--accent); padding: 12px 22px;
+  border: 1px solid var(--accent); border-radius: 2px;
+  transition: all 0.3s var(--ease);
+}
+.contact-resume-btn:hover { background: var(--accent-soft); transform: translateY(-2px); }
+
 .social-row { display: flex; gap: 12px; margin-top: 32px; }
 .social-btn {
   width: 44px; height: 44px; display: flex; align-items: center; justify-content: center;

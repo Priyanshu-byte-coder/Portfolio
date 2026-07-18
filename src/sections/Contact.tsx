@@ -36,6 +36,12 @@ export const Contact: React.FC = () => {
             <a href={`mailto:${PERSONAL.email}`} className="contact-email-link">{PERSONAL.email}</a>
             <a href={`tel:${PERSONAL.phone.replace(/\s/g, '')}`} className="contact-phone-link">{PERSONAL.phone}</a>
             <p className="contact-loc">{PERSONAL.location}</p>
+            <a href="/resume.pdf" download="Priyanshu_Doshi_Resume.pdf" className="contact-resume-btn">
+              Download Resume
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                <path d="M12 3v12m0 0l-4-4m4 4l4-4M4 21h16" />
+              </svg>
+            </a>
             <div className="social-row">
               <a href={PERSONAL.github} target="_blank" rel="noopener noreferrer" className="social-btn" title="GitHub"><GHIcon /></a>
               <a href={PERSONAL.linkedin} target="_blank" rel="noopener noreferrer" className="social-btn" title="LinkedIn"><LIIcon /></a>

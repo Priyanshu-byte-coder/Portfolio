@@ -66,9 +66,9 @@ export const ProjectPage: React.FC = () => {
   }
 
   const media = mediaFor(project.id);
-  // Any file whose name starts with "cover" becomes the full-width hero image;
-  // the rest go to the gallery.
-  const cover = media.find((m) => m.name.toLowerCase().startsWith('cover'));
+  // Only a file named exactly cover.* becomes the full-width hero image;
+  // everything else goes to the gallery at the end of the page.
+  const cover = media.find((m) => m.name.toLowerCase() === 'cover');
   const gallery = media.filter((m) => m !== cover);
   const next = nextProject(project.id);
 
@@ -151,6 +151,16 @@ export const ProjectPage: React.FC = () => {
         </Reveal>
       </section>
 
+      {/* ── Tech ── */}
+      <section className="pp-section">
+        <Reveal>
+          <div className="pp-label">Stack</div>
+          <div className="pp-tech">
+            {project.tech.map((t) => <span key={t}>{t}</span>)}
+          </div>
+        </Reveal>
+      </section>
+
       {/* ── Media (auto-discovered; hidden when empty) ── */}
       {gallery.length > 0 && (
         <section className="pp-section">
@@ -169,16 +179,6 @@ export const ProjectPage: React.FC = () => {
           </Reveal>
         </section>
       )}
-
-      {/* ── Tech ── */}
-      <section className="pp-section">
-        <Reveal>
-          <div className="pp-label">Stack</div>
-          <div className="pp-tech">
-            {project.tech.map((t) => <span key={t}>{t}</span>)}
-          </div>
-        </Reveal>
-      </section>
 
       {/* ── Next project ── */}
       <Link to={`/projects/${next.id}`} className="pp-next">

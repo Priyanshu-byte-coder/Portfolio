@@ -2,11 +2,12 @@ Media folders — one per project (folder name = URL slug).
 
 Drop images/videos in and they appear automatically on that project's page:
 
-  cover.png (or cover.jpg / cover.mp4 ...)  -> full-width hero image
+  cover.png (EXACTLY "cover" + extension)   -> full-width hero image
                                                right under the animated motif
-  anything-else.png                         -> Gallery section
-                                               (filename becomes the caption;
-                                               dashes/underscores -> spaces)
+  anything-else.png (incl. cover_image.png) -> Gallery section at the end,
+                                               below Stack (filename becomes
+                                               the caption; dashes/underscores
+                                               -> spaces)
 
 Supported: png jpg jpeg webp gif svg mp4 webm
 Sorted alphabetically. Empty folder = no gallery, nothing breaks.

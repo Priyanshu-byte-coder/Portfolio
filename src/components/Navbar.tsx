@@ -37,6 +37,7 @@ export const Navbar: React.FC = () => {
           {NAV_LINKS.map(([label, href]) => (
             <li key={href}><a href={href}>{label}</a></li>
           ))}
+          <li><a href="/resume.pdf" download="Priyanshu_Doshi_Resume.pdf">Resume</a></li>
           <li><Link to="/chat" className="nav-chat-link">Chat</Link></li>
         </ul>
         <button
@@ -74,6 +75,7 @@ export const Navbar: React.FC = () => {
             Chat
           </Link>
           <div className="mobile-drawer-footer">
+            <a href="/resume.pdf" download="Priyanshu_Doshi_Resume.pdf">Resume</a>
             <a href={PERSONAL.github} target="_blank" rel="noopener noreferrer">GitHub</a>
             <a href={PERSONAL.linkedin} target="_blank" rel="noopener noreferrer">LinkedIn</a>
             <a href={PERSONAL.twitter} target="_blank" rel="noopener noreferrer">X</a>
