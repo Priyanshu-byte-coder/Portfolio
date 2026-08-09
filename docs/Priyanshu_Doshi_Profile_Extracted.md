@@ -1,13 +1,13 @@
-# Priyanshu Doshi - Extracted Profile
+# Priyanshu Doshi - Profile
 
-Compiled from the portfolio source in this repository and `public/resume.pdf`.
+Current-state summary of who I am, what I'm doing, and what I've shipped. Last updated: 17 July 2026.
 
 ## Basic Identity
 
 - Name: Priyanshu Doshi
-- Current title/tagline: AI & Machine Learning Engineer
-- Short intro: Passionate about building intelligent solutions, from exploring the frontiers of machine learning to crafting performant web experiences.
-- Personal line from portfolio: "I teach machines how to think while I'm still figuring out how to get 8 hours of sleep."
+- Title: AI & Machine Learning Engineer
+- Tagline: Building intelligent systems end-to-end — from industrial computer vision and edge AI to full-stack platforms with GenAI.
+- Personal line: "I teach machines how to think while I'm still figuring out how to get 8 hours of sleep."
 
 ## Contact
 
@@ -16,232 +16,148 @@ Compiled from the portfolio source in this repository and `public/resume.pdf`.
 - Location: Ahmedabad, Gujarat, India
 - LinkedIn: https://www.linkedin.com/in/priyanshu-doshi-21a54230a/
 - GitHub: https://github.com/Priyanshu-byte-coder
+- Portfolio: https://portfolio-eta-gilt-84.vercel.app/
 - X: https://x.com/Priyanshu_26_11
 - Instagram: https://www.instagram.com/priyyannshoo/
-- LeetCode: https://leetcode.com/u/Priyanshu_doshi/
+- LeetCode: https://leetcode.com/u/Priyanshu_doshi/ (200+ problems solved)
+
+## Current State (July 2026)
+
+- AI/ML Engineering Intern at **Velino AI** (remote, since May 2026) — building voice AI agents (Pipecat + Gemini Live) and web products.
+- Creator & maintainer of **contextrot** — open-source CLI measuring coding-agent degradation; **10,000+ downloads on PyPI**.
+- Founder & maintainer of **devtrack** — open-source developer productivity dashboard; 190+ stars, 430+ forks, 1,000+ merged community PRs.
+- **PyTorch contributor** — pull requests merged into pytorch/pytorch core; more in review.
+- **IEEE-published** — Robotic Arm Fault Detection paper in IEEE Sensors Letters, 100+ full-text views on IEEE Xplore.
+- Vice Chair, ACM Student Chapter at Nirma University.
+- B.Tech AI/ML student, 3rd year from July 2026.
 
 ## Summary
 
-Priyanshu Doshi is a B.Tech student specializing in Artificial Intelligence and Machine Learning at the Institute of Technology, Nirma University. His portfolio presents him as someone working at the intersection of AI, software engineering, and product development, with interests spanning startup innovation, scalable digital solutions, anomaly detection, industrial robotics, healthcare regulation, and supply-chain accountability.
-
-He highlights end-to-end ownership across the product cycle: designing, building, deploying, and continuously improving products. The tone across the site and resume emphasizes fast learning, bold building, and turning ambitious ideas into real systems.
+I work at the intersection of AI, software engineering, and product: industrial computer vision on real factory hardware, privacy-first edge AI on Raspberry Pi, voice agents over live phone calls, GenAI platforms with hardened guardrails, and open-source developer tools with real adoption. I own products end-to-end — design, build, deploy, maintain — and I validate choices empirically (model ablations, walk-forward CV, on-device benchmarks) rather than by default.
 
 ## Education
 
 - Institute of Technology, Nirma University
-- Degree: B.Tech in Artificial Intelligence and Machine Learning
+- B.Tech in Artificial Intelligence and Machine Learning
 - Duration: Jul 2024 - Jul 2028
-- CGPA / GPA: 8.85 / 10.0
-- Class XII (Science): 96.7%
-- 99.1 percentile
-- Rank 160 (Gujarat)
+- CGPA: 8.65 / 10.0
+- Class XII (Science): 96.7% | 99.1 percentile | Gujarat Rank 160
 
 ## Experience
+
+### AI/ML Engineering Intern - Velino AI
+
+- Duration: May 2026 - Present
+- Type: Remote
+- Built five projects across voice AI and web:
+  - **OmniVoice Voice Bot** — self-hosted voice pipeline (browser mic → WebSocket → Silero VAD → faster-whisper STT → Groq LLM → OmniVoice TTS), FastAPI TTS server with streaming endpoints, GPU concurrency benchmarking, voice cloning from reference audio. No per-minute API cost for STT/TTS.
+  - **Salesnix** — marketing site + dashboard frontend (Next.js/TypeScript): v2 landing page, mobile-responsive layout, dashboard + call-logs pages wired to backend API, Cloudflare Pages/Netlify deploys.
+  - **Reputation Shield (Sociafy feature)** — brand monitoring added to existing product: source fetchers (Google News RSS, Hacker News, Wikipedia, Reddit OAuth2, X search), keyword sentiment scorer (crisis/negative/neutral/positive + severity), OpenAI/Groq reply drafting, approve→publish flow, cron scanning. Drizzle/Postgres, Clerk auth.
+  - **Gauri** — real-estate voice agent (Gemini Flash Live + Pipecat + Silero VAD, 10 n8n webhook tool calls, qualification/booking system prompt).
+  - **Flash/"Priya"** — FMCG/retail order-taking voice agent (Gemini Live + Pipecat, catalog/order/lead tools, Supabase order storage).
 
 ### Artificial Intelligence Engineer - Team CON-SOL-E
 
 - Duration: Jan 2026 - Mar 2026
-- Type: Full-time, on-site
-- Location mentioned in portfolio: Ahmedabad, Gujarat, India
-- Worked on RAG-based intelligent agents tailored to real-world problem statements.
-- Contributed to web development, WebAR, and app experiences.
-- Collaborated on AI-driven solutions from ideation to prototype deployment.
+- Type: Full-time, on-site (Ahmedabad)
+- RAG-based intelligent agents for real-world problem statements; web, WebAR, and app experiences; ideation to prototype deployment.
+- National Rank 4 at Mitsubishi Electric Cup (Spectra Scan).
 
 ### Full Stack Developer Intern - MZHUB Faithtech
 
-- Duration: Dec 2025 - Dec 2025
-- Type: Remote
-- Organization site: https://www.mzhub.in/
-- Developed and maintained a production-ready business website using Next.js.
-- Focused on responsive and scalable frontend architecture.
-- Implemented automated contact form functionality with email notifications.
-- Deployed and managed the live application on Microsoft Azure App Service.
+- Duration: Dec 2025
+- Type: Remote | Site: https://www.mzhub.in/
+- Production-ready business website in Next.js; responsive scalable frontend; automated contact form with email notifications; deployed on Microsoft Azure App Service.
 
 ### AI/ML Intern - Elevate Labs
 
 - Duration: May 2025 - Jun 2025
-- Type: Remote
-- Top-performing AI/ML intern.
-- Built end-to-end NLP and Computer Vision pipelines.
-- Worked on data preprocessing, feature engineering, model training, and evaluation.
-- Used PyTorch, TensorFlow, and Scikit-learn in production-level projects.
+- Type: Remote | Top-performing intern
+- End-to-end NLP and Computer Vision pipelines: preprocessing, feature engineering, training, evaluation. PyTorch, TensorFlow, Scikit-learn.
 
 ### Vice Chair - ACM Student Chapter, Nirma University
 
 - Duration: Sep 2025 - Present
-- Type: Leadership
-- Led planning and execution of technical workshops, hackathons, and industry-oriented events.
-- Portfolio states impact for 500+ students.
-- Coordinated with faculty and industry professionals to organize seminars on emerging AI technologies and ethical AI practices.
+- Led technical workshops, hackathons, and industry events impacting 500+ students; organized seminars on emerging AI and ethical AI practices.
+
+## Open Source
+
+- **contextrot** (creator/maintainer) — Python CLI that measures where your coding agent starts degrading from your own local session transcripts. 5 failure signals correlated with context fill; verdict-first reports with confidence intervals and prescriptions. 100% local, zero-config (`uvx contextrot`). **10,000+ PyPI downloads.** https://github.com/Priyanshu-byte-coder/contextrot
+- **devtrack** (founder/maintainer) — self-hostable GitHub productivity dashboard grown into a community open-source project. **190+ stars, 430+ forks, 1,000+ merged PRs, 100+ contributors.** Full OSS hygiene: CI, codecov, Playwright e2e + visual tests, Sentry, security policy. https://github.com/Priyanshu-byte-coder/devtrack
+- **KeepTrack** (creator) — Chrome MV3 extension capturing "keep vs temporary" download intent at download time. Zero telemetry, fully local. https://github.com/Priyanshu-byte-coder/keeptrack
+- **PyTorch** — pull requests merged into pytorch/pytorch core (via pytorchmergebot); additional PRs in review across nn, autograd, distributions, optim, DTensor tests, and docs.
+- **TensorFlow** — pull request merged into tensorflow/tensorflow (Jul 2026): tf.signal DCT/IDCT documentation and validation fixes.
+- **Keras** — pull request merged into keras-team/keras: input validation (ValueError on out-of-bounds axis) in LayerNormalization.build().
 
 ## Research and Publication
 
 ### Robotic Arm Fault Detection using CatBoost Classifier
 
 - Publication: IEEE Sensors Letters (2026)
-- Paper link: https://ieeexplore.ieee.org/document/11359621
-- Reported metrics: 97.20% accuracy, 0.9718 F1 score
-- Focus: predictive industrial fault detection using the CASPER robotic arm dataset
-- Resume and portfolio both state that the work outperformed SVM, Logistic Regression, Naive Bayes, and QDA / Quadratic Discriminant Analysis baselines.
+- Paper: https://ieeexplore.ieee.org/document/11359621
+- Metrics: 97.20% accuracy, 0.9718 F1 score
+- **100+ full-text views on IEEE Xplore**
+- Predictive industrial fault detection on the CASPER robotic arm dataset; outperformed SVM, Logistic Regression, Naive Bayes, and QDA baselines across all evaluation metrics.
 
-## Projects
+## Flagship Projects
 
-### Spectra Scan - Automated Paint Defect Detection System
+(Full detail in projects.md.)
 
-- Tech stack: Computer Vision, WebAR, RAG, Python, Machine Vision
-- Documentation: https://drive.google.com/file/d/1LEJZ_Jpn7Zt_7WVXZNjV-yKCUqPXIFZM/view?usp=sharing
-- Source: https://github.com/Mitanshp5/MECup
-- Contributed to a 2m x 2m x 2m gantry-based automated system for automobile paint defect inspection.
-- Developed a centralized control application for operating and monitoring the inspection system.
-- Implemented machine vision analytics for defect detection.
-- Added a RAG-based troubleshooting assistant and WebAR visualization for industrial monitoring and diagnostics.
-
-### Lumin.AI - AI-Powered Solar Plant Risk Monitoring Platform
-
-- Mentioned in resume as HackAMined Aubergine track work.
-- Built a full-stack solar inverter monitoring and failure prediction platform.
-- ML model stack included XGBoost with SHAP explainability.
-- Product stack included a Next.js dashboard, Express.js APIs, and AWS RDS.
-- Built a GenAI microservice using Groq Llama 3.3 70B.
-- Implemented RAG with SentenceTransformers and FAISS.
-- Added structured operator guidance outputs.
-- Designed agentic workflows for automated maintenance ticket generation in JSON and PDF.
-- Implemented 4-layer hallucination guardrails with LangSmith tracing.
-- Conducted LLM ablation across Groq Llama 3.3 70B, Gemini 2.5 Flash, and Qwen 2.5 72B.
-
-### SENTINEL - Privacy-Preserving Edge AI Mental Wellbeing System
-
-- Mentioned in resume.
-- Architected an Edge AI wellbeing system on Raspberry Pi 5.
-- Used Phi-3 Mini, Ollama, FER, VADER, and ChromaDB.
-- Designed for fully offline multimodal inference.
-- Built a multimodal Edge ML pipeline with facial emotion recognition, sentiment fusion, and RAG-based contextual memory retrieval.
-- Developed a low-latency Flask + SSE streaming architecture for real-time on-device LLM inference and emotion-aware interaction.
-
-### MZHub - Full Stack Web Platform
-
-- Tech stack from portfolio: Azure Deployment, TypeScript, Next.js, React, Tailwind CSS
-- Live site: https://www.mzhub.in/
-- Built and deployed a full-stack web platform for MZHub during the internship.
-- Developed responsive UI components, integrated backend APIs, and optimized performance.
-- Deployed to production for real users.
-
-### Movie Recommender System
-
-- Tech stack: Machine Learning, Python, Streamlit, TMDb API
-- Live demo: https://movierecommender-l27gqgyeweduhskslis84n.streamlit.app/
-- GitHub: https://github.com/Priyanshu-byte-coder/movie-recommender
-- Built a content-based recommendation engine using cosine similarity.
-- Integrated TMDb API for real-time movie posters and metadata.
-- Deployed with an interactive Streamlit UI.
+- **contextrot** — context-rot analytics for coding agents. 10K+ PyPI downloads.
+- **Spectra Scan** — automated paint defect detection on a 2m³ CNC gantry; DINOv2 + OpenVINO sub-500ms offline inference; Mitsubishi PLC control. National Rank #4, Mitsubishi Electric Cup.
+- **LUMIN.AI** — solar plant risk monitoring: Optuna-tuned XGBoost + SHAP, Groq GenAI layer with 4-layer guardrails. Winner, Aubergine track, HackAMined 2026 (Top 5 of 400+ teams).
+- **SOLV.ai** — multi-channel voice complaint management: ONNX ensemble NLP (12ms), Faster-Whisper STT, Twilio voice agent FSM. Team leader, Tark Shaastra LDCE.
+- **SENTINEL** — fully offline mental-wellbeing companion on Raspberry Pi 5; phi3:mini chosen via 10-model on-device benchmark. 17★.
+- **bloom** — mental-health web app with 4-layer crisis detection and pgvector RAG memory.
+- **Lunar Ice Detection** — ISRO Bharatiya Antariksh Hackathon 2026 (PS-8), water-ice mapping from Chandrayaan data.
+- **KeepTrack**, **devtrack**, **TokenScope**, **MZHub**, **IMC Prosperity** — see projects.md.
 
 ## Achievements
 
-- Winner - Aubergine Track, HackAMined National Hackathon (2026)
-- Secured 1st place in the Aubergine track and ranked Top 5 overall finalist among 400+ teams and 2300+ participants.
-- Winner - CodeAdda Premier League (Codeforces), Apr 2025
-- Resume states 1st place among 200+ participants.
+- Winner - Aubergine Track, HackAMined National Hackathon 2026 (1st in track, Top 5 overall among 400+ teams / 2300+ participants)
+- National Rank 4 - Mitsubishi Electric Cup, 6th Edition (2026), Team CON-SOL-E
+- IEEE Publication - IEEE Sensors Letters 2026 (100+ full-text views)
 - Reliance Foundation Undergraduate Scholar (2025)
-- National Rank 4 - Mitsubishi Electric Cup, 6th Edition (2026)
-- Dashboard also mentions: Team CON-SOL-E AI Engineer - National Rank 4th in MECUP (2026)
+- Winner - CodeAdda Premier League (Codeforces), Apr 2025 (1st among 200+ participants)
 - LeetCode: 200+ problems solved
 
 ## Skills
 
-### Programming
+### Languages
 
-- Python
-- C++
-- C
-- TypeScript
-- JavaScript
-- HTML
-- CSS
+Python · C++ · C · TypeScript · JavaScript · SQL · HTML · CSS
 
-### Machine Learning, AI, and Data
+### ML & Vision
 
-- PyTorch
-- TensorFlow
-- Keras
-- Scikit-learn
-- CatBoost
-- XGBoost
-- SHAP
-- OpenCV
-- NumPy
-- Pandas
-- Matplotlib
-- Optuna
-- LLMs
-- NLP
-- Computer Vision
-- Prompt Engineering
-- RAG
-- LangChain
-- FAISS
-- SentenceTransformers
-- LangSmith
+PyTorch · TensorFlow · Keras · Scikit-learn · CatBoost · XGBoost · Optuna · SHAP · OpenCV · DINOv2 · ONNX · OpenVINO · Faster-Whisper · NumPy · Pandas · Computer Vision · NLP
 
-### Web, Backend, and APIs
+### GenAI & LLMs
 
-- React
-- Next.js
-- Tailwind CSS
-- Node.js
-- FastAPI
-- Express.js
-- REST APIs
-- Streamlit
-- Vercel
+LangChain · LangGraph · RAG · FAISS · ChromaDB · pgvector · Ollama · Groq · Gemini Live · SentenceTransformers · Transformers.js · LangSmith · Hallucination Guardrails · Prompt Engineering · Agentic Workflows
 
-### Databases, Cloud, and Tools
+### Web & Realtime
 
-- MySQL
-- AWS RDS
-- Google Cloud Platform (GCP)
-- Microsoft Azure App Service
-- Git
-- GitHub
-- Docker
-- Jupyter Notebook
-- VS Code
-- WebAR
+React · Next.js · Node.js · Express.js · FastAPI · Flask · Electron · Prisma · Drizzle · WebSockets · WebRTC (Pipecat) · Twilio · n8n · Chrome Extensions (MV3) · Tailwind CSS · GSAP · Three.js · Streamlit
+
+### Infra & Data
+
+Supabase · PostgreSQL · MySQL · Upstash Redis · AWS RDS · Azure · GCP · Docker · Modal · Vercel · Netlify/Cloudflare Pages · Git · GitHub · CI/CD · Jupyter
 
 ### Soft Skills
 
-- Team Collaboration
-- Leadership
-- Problem Solving
-- Communication
-- Project Management
+Team Collaboration · Leadership · Problem Solving · Communication · Project Management
 
 ## Certifications
 
-- Supervised Machine Learning - DeepLearning.AI (Stanford) / Coursera
-- Score: 99.83%
-- Verification: https://www.coursera.org/account/accomplishments/verify/XAJRZO7BC5FV
-- PyTorch for Deep Learning Bootcamp - Udemy
-- Score shown in portfolio: 95.4%
-- Verification: https://www.udemy.com/certificate/UC-b6ce5ecb-878e-47f8-b575-30da33db7cca/
+- Supervised Machine Learning - DeepLearning.AI (Stanford) / Coursera — 99.83% — https://www.coursera.org/account/accomplishments/verify/XAJRZO7BC5FV
+- PyTorch for Deep Learning Bootcamp - Udemy — 95.4% — https://www.udemy.com/certificate/UC-b6ce5ecb-878e-47f8-b575-30da33db7cca/
 
 ## Portfolio-Specific Details
 
-- Hero stats shown on site: 20+ GitHub Projects, 1 IEEE Publication, 8.85 GPA
-- Relevant coursework shown on site:
-  - Machine Learning
-  - Deep Learning
-  - Neural Networks
-  - Computer Vision
-  - NLP Fundamentals
-  - Data Structures & Algorithms
-  - Database Management
-  - Operating Systems
-  - Computer Networks
-  - Linear Algebra
-  - Probability & Statistics
-  - Python Programming
+- Site: https://portfolio-eta-gilt-84.vercel.app/ — dedicated pages per project at /projects/:id, JARVIS chatbot at /chat.
+- Stats strip: 2+ years experience, 1 IEEE paper, 8.65 CGPA, 200+ LC problems.
+- Relevant coursework: Machine Learning, Deep Learning, Neural Networks, Computer Vision, NLP, DSA, DBMS, Operating Systems, Computer Networks, Linear Algebra, Probability & Statistics, Python.
 
 ## Notes
 
-- The resume PDF text exposes social/profile labels, while the exact profile URLs were taken from the portfolio source files where available.
-- This file intentionally merges information present across both the portfolio code and `public/resume.pdf`.
+- This file is the single source of truth for profile facts; projects.md holds full per-project detail. Both feed the portfolio chatbot knowledge base (src/knowledge/context.ts).

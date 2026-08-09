@@ -1,12 +1,15 @@
 # All Projects — Priyanshu Doshi
 
-> Unified index of all projects. Priyanshu Doshi — GenAI Developer · Full-Stack Engineer · Nirma University (2028).
-> [LinkedIn](https://www.linkedin.com/in/priyanshu-doshi-21a54230a/) · [Portfolio](https://portfolio-eta-gilt-84.vercel.app/)
+> Unified index of all projects. Priyanshu Doshi — AI/ML Engineer · Open-Source Maintainer · Nirma University (2028).
+> [LinkedIn](https://www.linkedin.com/in/priyanshu-doshi-21a54230a/) · [GitHub](https://github.com/Priyanshu-byte-coder) · [Portfolio](https://portfolio-eta-gilt-84.vercel.app/)
+> Last updated: 17 July 2026.
 
 ---
 
 ## Table of Contents
 
+- [Open Source & Developer Tools](#open-source--developer-tools)
+- [Internship Work — Velino AI](#internship-work--velino-ai-2026)
 - [Hackathon Projects](#hackathon-projects)
 - [Full-Stack Applications](#full-stack-applications)
 - [AI / ML Projects](#ai--ml-projects)
@@ -17,10 +20,99 @@
 
 ---
 
+## Open Source & Developer Tools
+
+### contextrot ⭐ Flagship
+**[github.com/Priyanshu-byte-coder/contextrot](https://github.com/Priyanshu-byte-coder/contextrot)** | Creator & Maintainer | **10,000+ PyPI downloads**
+
+Find out where your coding agent starts degrading — measured on your own sessions, not a synthetic benchmark. Agent CLIs (Claude Code etc.) log every session to local JSONL transcripts carrying token accounting and behavioral evidence; contextrot reads them and answers: *at what context fill does my agent start failing, what's causing it, and what is it costing me?*
+
+**How it works:** extracts 5 independent failure signals per step — edit failures (agent tried to edit code and missed), retry loops (same tool call repeated after error), re-reads (content scrolled out of effective attention), self-corrections, and drift — and correlates each with context fill at that moment. Statistical confidence intervals on the rot curve separate real degradation from noise.
+
+**Verdict-first reports:** ✗ context rot detected / ! edge rot (flat until near window limit) / ✓ no measurable rot / ? not enough data. Ends with concrete prescriptions: compact points, MCP tool trimming, cost estimates. A tool that can say "you're fine" is a tool you can trust when it says you're not.
+
+**Distribution:** zero-config `uvx contextrot` (or pip). No API keys, no uploads, 100% local. CI via GitHub Actions.
+
+**Stack:** Python · statistics · JSONL parsing · CLI · PyPI packaging · GitHub Actions
+
+---
+
+### devtrack ⭐ Flagship
+**[github.com/Priyanshu-byte-coder/devtrack](https://github.com/Priyanshu-byte-coder/devtrack)** | Founder & Maintainer | **190+ ★ · 430+ forks · 1,000+ merged PRs · 100+ contributors**
+
+Self-hostable developer productivity dashboard. Consolidates GitHub activity into one clean interface — no enterprise pricing, no vendor lock-in.
+
+**Features:** GitHub OAuth (NextAuth.js), contribution heatmap, PR analytics (avg review time, merge rate, open/closed ratio), weekly coding goal tracker. No separate backend — Next.js Route Handlers + Supabase, Vercel-deployable for free.
+
+**Maintainership:** grew it into a community open-source project — reviewed and merged 1,000+ pull requests, wrote contributor docs (CONTRIBUTING, ARCHITECTURE, SECURITY, CODE_OF_CONDUCT), triaged hundreds of issues while keeping CI green with dozens of first-time contributors shipping in parallel. Playwright e2e + visual regression suites, Sentry (client/edge/server), codecov, Docker + Render/Vercel deploy paths.
+
+**Stack:** Next.js 14 (App Router) · TypeScript · NextAuth.js · Supabase (PostgreSQL) · Recharts · GitHub REST API · Playwright · Sentry · Docker
+
+---
+
+### KeepTrack
+**[github.com/Priyanshu-byte-coder/keeptrack](https://github.com/Priyanshu-byte-coder/keeptrack)** | Creator | [Website](https://priyanshu-byte-coder.github.io/keeptrack/)
+
+Chrome extension that captures "keep vs temporary" download intent at download time — when you actually know the answer — so your Downloads folder stays clean. Classifies every download as Keep / Temporary / Ambiguous using file type, filename keywords, and source domain. Only interrupts for ambiguous cases; high-confidence decisions happen silently. Weekly 30-second review of expiring temporary files. Zero telemetry, fully local, Manifest V3.
+
+**Stack:** JavaScript · Chrome Extensions API (chrome.downloads) · Manifest V3 · GitHub Pages
+
+---
+
+### PyTorch Contributions
+**pytorch/pytorch** | Contributor
+
+Pull requests merged into PyTorch core (landed on main via pytorchmergebot) — torch.amp API surface, docs modernization (rST→MyST), and code-quality fixes. Additional PRs open in review across `nn` validation, autograd forward-mode, distributions (Kumaraswamy mode), optim (LRScheduler closed-form), and DTensor test infrastructure (MultiThreadedTestCase migrations).
+
+### TensorFlow Contribution
+**tensorflow/tensorflow** | Contributor
+
+Pull request merged into TensorFlow (Jul 2026) — `tf.signal` DCT/IDCT fixes: corrected idct docstring (n parameter supported), fixed Raises documentation, added n-parameter truncation/padding tests, Type-I n<2 validation with error tests.
+
+### Keras Contribution
+**keras-team/keras** | Contributor
+
+Pull request merged into Keras — added input validation to `LayerNormalization.build()`: raises `ValueError` for out-of-bounds axis instead of failing later with an opaque error (PR #23329).
+
+---
+
+## Internship Work — Velino AI (2026)
+
+AI/ML Engineering Intern (remote, May 2026 – present). Five projects across voice AI agents and web products.
+
+### OmniVoice Voice Bot *(self-hosted, WIP polish)*
+Self-hosted voice conversation pipeline using open-source models — no per-minute API cost for STT and TTS.
+
+**Pipeline:** Browser mic → WebSocket → Silero VAD → faster-whisper STT → Groq LLM → OmniVoice TTS → speaker. FastAPI server around the OmniVoice TTS model (one-shot + streaming WebSocket endpoints, `/health`, `/metrics`); Pipecat pipeline bot with custom TTS service wrapper and raw PCM serializer; browser mic client; GPU concurrency benchmarking script; voice-cloning flow from reference audio.
+
+**Stack:** Python · FastAPI · Pipecat · faster-whisper · OmniVoice TTS · Groq LLM · Silero VAD · WebSockets
+
+### Salesnix — Marketing Site & Dashboard
+Frontend web layer for the Salesnix product: v2 landing page (logo marquee, integration diagram), mobile-responsive layout, dashboard + call-logs pages wired to the backend API (clients, metrics, call logs), static-export deploy configs for Cloudflare Pages and Netlify.
+
+**Stack:** Next.js · TypeScript · React · Netlify/Cloudflare Pages
+
+### Reputation Shield (feature in Sociafy)
+Brand-monitoring feature added to the existing Sociafy app: fetches brand mentions (Google News RSS, Hacker News, Wikipedia, Reddit OAuth2, X/Twitter search), scores sentiment with severity + theme (crisis/negative/neutral/positive), drafts replies via OpenAI/Groq (template fallback), approve→publish flow with DB tables, cron endpoint scanning active users, public demo endpoint.
+
+**Stack:** Next.js · TypeScript · Drizzle/Postgres · Clerk auth · OpenAI/Groq · Reddit/X OAuth · cron
+
+### Gauri — Real-Estate Voice Agent
+Speech-to-speech agent for real-estate lead qualification and booking: Gemini Flash Live + Pipecat + Silero VAD, 10 tool calls via n8n webhooks, full conversation system prompt.
+
+**Stack:** Python · Pipecat · Gemini Live API · n8n · Silero VAD
+
+### Flash / "Priya" — Sales Voice Agent
+Speech-to-speech FMCG/retail order-taking agent: Gemini Flash Live + Pipecat pipeline, catalog/order/lead tool calls, Supabase order storage, companion FastAPI server + n8n tool definitions.
+
+**Stack:** Python · Pipecat · Gemini Live · Supabase · FastAPI · n8n
+
+---
+
 ## Hackathon Projects
 
-### Hackamine — LUMIN.AI
-**`/Hackamine`** | HACKaMINeD 2026 | Team Fantastic4 (GenAI Developer role)
+### Hackamine — LUMIN.AI 🏆 Winner
+**`/Hackamine`** | HACKaMINeD 2026 | **Winner, Aubergine Track · Top 5 of 400+ teams (2300+ participants)** | GenAI Developer
 
 Full-stack, production-grade solar plant inverter risk monitoring platform across **four independently deployable microservices**.
 
@@ -37,7 +129,7 @@ Full-stack, production-grade solar plant inverter risk monitoring platform acros
 ---
 
 ### lakshya-ldce — SOLV.ai
-**`/lakshya-ldce`** | Tark Shaastra · LDCE Hackathon | Team Leader · Conversational ML Engineer
+**`/lakshya-ldce`** | Tark Shaastra · LDCE Hackathon | **Team Leader** · Conversational ML Engineer
 
 AI-powered multi-channel voice complaint management system for the Indian FMCG/wellness industry. Five independently deployable microservices.
 
@@ -55,10 +147,19 @@ AI-powered multi-channel voice complaint management system for the Indian FMCG/w
 
 ---
 
+### bah-2026-lunar-ice — Lunar Ice Detection 🛰️
+**[github.com/Priyanshu-byte-coder/bah-2026-lunar-ice](https://github.com/Priyanshu-byte-coder/bah-2026-lunar-ice)** | ISRO Bharatiya Antariksh Hackathon 2026 · Problem Statement 8
+
+Water-ice detection on the lunar surface from orbital remote-sensing data. Water-ice in the Moon's permanently shadowed regions (PSRs) is the key resource for sustained lunar presence — drinking water, oxygen, rocket fuel. Pipeline: Chandrayaan mission data products preprocessed into aligned raster stacks → spectral signatures, illumination models, and terrain derivatives as features → ML classifiers scoring ice probability per region, handling the class imbalance and label sparsity that make planetary-science ML genuinely hard.
+
+**Stack:** Python · Remote Sensing · Geospatial ML · Chandrayaan data · NumPy/Pandas · Scikit-learn
+
+---
+
 ### SIH — Drug Inventory Tracking System
 **`/SIH`** | Smart India Hackathon
 
-Concept and system design proposal for an AI-driven pharmaceutical drug inventory tracking system targeting supply chain visibility across India. Includes PowerPoint presentation, idea documentation, and system architecture notes.
+Concept and system design proposal for an AI-driven pharmaceutical drug inventory tracking system targeting supply chain visibility across India. PowerPoint presentation, idea documentation, system architecture notes.
 
 **Stage:** Concept / Documentation
 
@@ -67,7 +168,7 @@ Concept and system design proposal for an AI-driven pharmaceutical drug inventor
 ## Full-Stack Applications
 
 ### bloom
-**`/bloom`**
+**[github.com/Priyanshu-byte-coder/bloom](https://github.com/Priyanshu-byte-coder/bloom)**
 
 Full-stack AI-powered mental health companion web app. 100% server-side key management — no secrets exposed to client.
 
@@ -87,23 +188,8 @@ Full-stack AI-powered mental health companion web app. 100% server-side key mana
 
 ---
 
-### devtrack
-**`/devtrack`** | GSSoC 2025 Open Source
-
-Self-hostable developer productivity dashboard. Consolidates GitHub activity into one clean interface — no enterprise pricing, no vendor lock-in.
-
-**Features:** GitHub OAuth (NextAuth.js) — sign in once, no extra account. Contribution heatmap (daily commit activity over time). PR analytics (avg review time, merge rate, open/closed ratio via GitHub REST API). Weekly coding goal tracker (set targets, track progress). No separate backend — Next.js Route Handlers + Supabase, Vercel-deployable for free.
-
-**API Routes:** `GET /api/metrics/contributions` (commit activity), `GET /api/metrics/prs` (PR analytics), `GET/POST /api/goals` (weekly goals). `lib/github.ts` GitHub API helpers. `lib/auth.ts` NextAuth config + Supabase user upsert on login.
-
-**CI:** GitHub Actions workflow on every PR — TypeScript type-check + ESLint. Issue templates + CONTRIBUTING.md + CODE_OF_CONDUCT.md.
-
-**Stack:** Next.js 14 (App Router) · TypeScript · TailwindCSS · NextAuth.js (GitHub OAuth) · Supabase (PostgreSQL) · Recharts · GitHub REST API
-
----
-
 ### MZHUB_FULL — MZHub Marketing Website
-**`/MZHUB_FULL/freelance/mzhub`** | Freelance client project
+**`/MZHUB_FULL/freelance/mzhub`** | Freelance client project | Live: https://www.mzhub.in/
 
 Enterprise-grade marketing website for MZHub — an AI-powered spiritual technology platform for religious institutions, temples, ashrams, and faith communities.
 
@@ -115,7 +201,7 @@ Enterprise-grade marketing website for MZHub — an AI-powered spiritual technol
 
 **Content management:** MDX blog with `gray-matter` frontmatter parsing. Project MDX files in `content/projects/` with YAML frontmatter (title, tags, gallery, featured). Static data in `lib/` (blogPosts.ts, projectsData.ts, teamMembers.ts, testimonials.ts).
 
-**API routes:** `POST /api/contact` (form handler, backend integration pending), `GET /api/blog` (blog data endpoint).
+**API routes:** `POST /api/contact` (form handler), `GET /api/blog` (blog data endpoint).
 
 **Stack:** Next.js 14 · React 18 · TypeScript 5 · TailwindCSS 3.4 · Framer Motion 11 · GSAP 3.13 · Three.js 0.167 · shadcn/ui · Radix UI · next-themes · gray-matter · MDX · Lucide React · Tabler Icons
 
@@ -142,7 +228,7 @@ Interactive multi-page educational web experience about Jupiter's moon Europa. A
 ## AI / ML Projects
 
 ### IDEA_LAB_MODULINO — SENTINEL (Wellbeing AI / MAYA)
-**`/IDEA_LAB_MODULINO/wellbeing_ai`**
+**`/IDEA_LAB_MODULINO/wellbeing_ai`** | [github.com/Priyanshu-byte-coder/SENTINEL](https://github.com/Priyanshu-byte-coder/SENTINEL) | 17★
 
 Privacy-first, fully offline AI mental wellbeing companion for Raspberry Pi 5. Runs 100% locally — zero data leaves the device, no cloud APIs, no telemetry.
 
@@ -163,8 +249,8 @@ Privacy-first, fully offline AI mental wellbeing companion for Raspberry Pi 5. R
 
 ---
 
-### TEAM_CONSOLE5.0_MITSUBISHI — Spectra Scan (CON-SOL-E Vision Pro)
-**`/TEAM_CONSOLE5.0_MITSUBISHI/MECup`**
+### TEAM_CONSOLE5.0_MITSUBISHI — Spectra Scan (CON-SOL-E Vision Pro) 🏆 National Rank #4
+**`/TEAM_CONSOLE5.0_MITSUBISHI/MECup`** | Mitsubishi Electric Cup, 6th Edition (2026)
 
 **Automated Paint Defect Detection System** — Real-world industrial QC platform for automated visual inspection of painted automotive door panels on a 2m × 2m × 2m CNC gantry system. Full-stack Electron desktop application. 100% local — no internet, no cloud.
 
@@ -203,23 +289,6 @@ GDG Solution Challenge Flask + Gemini AI submission. Combines Gemini `gemini-exp
 
 ---
 
-### imc — IMC Prosperity 5 Algorithmic Trading
-**`/imc/Fantastics-of-Prosperity`** | Team Prosperity-Fantastics
-
-Algorithmic trading infrastructure and strategy repository for the IMC Prosperity 5 competition.
-
-**Strategies:**
-- **EMERALDS (Market Making):** Dynamic undercutting — scans L1 orderbook and quotes exactly 1 tick better than the closest existing liquidity (`best_bid + 1`, `best_ask − 1`). Monopolizes best placement to capture 7+ point spreads when taker bots arrive. Avoids static 2-tick-from-fair-value approach.
-- **TOMATOES (Mean Reversion):** Exploits −0.44 tick-to-tick autocorrelation. "Wall Mid" — finds deepest volume walls from designated market makers to anchor fair value (ignores easily-spoofed L1 mid). Order Book Imbalance (OBI) shifts FV ±1 point based on book lean. Aggressive position skew: as inventory rises, slash order size and shift required profit spread opposite to position ("spring" effect to prevent hitting ±80 limit).
-
-**Local backtester:** `backtest.py` — replays historic log data from `prices_round_0_day_*.csv` as offline orderbook simulation. Validates position logic and crashes without internet. Each round has its own `algorithm.py` (single-file `Trader` class) and `strategy_log.md` (PnL graph analysis + incremental improvements).
-
-**Repository structure:** `TUTORIAL_ROUND_1/`, `ROUND_1/` through `ROUND_5/` — each with algorithm, backtest, and strategy log. `neal_algo/` — team member's algorithm variant. `information.md` + algorithm documentation markdown files.
-
-**Stack:** Python · Custom orderbook simulation
-
----
-
 ### token_counter — TokenScope
 **`/token_counter`**
 
@@ -241,10 +310,19 @@ Cross-platform Electron desktop app for unified AI platform API key discovery an
 
 ---
 
+### Movie Recommender System
+**[github.com/Priyanshu-byte-coder/movie-recommender](https://github.com/Priyanshu-byte-coder/movie-recommender)** | [Live demo](https://movierecommender-l27gqgyeweduhskslis84n.streamlit.app/)
+
+Content-based recommendation engine using cosine similarity. TMDb API for real-time movie posters and metadata. Interactive Streamlit UI.
+
+**Stack:** Python · Machine Learning · Streamlit · TMDb API
+
+---
+
 ## Embedded & Hardware AI
 
-> See: **SENTINEL** (`/IDEA_LAB_MODULINO/wellbeing_ai`) and **Survival AI** (`/IDEA_LAB_MODULINO/survival_ai`) above for Raspberry Pi AI projects.
-> See: **Spectra Scan** (`/TEAM_CONSOLE5.0_MITSUBISHI/MECup`) above for industrial hardware AI + PLC integration.
+> See: **SENTINEL** (`/IDEA_LAB_MODULINO/wellbeing_ai`) for Raspberry Pi AI.
+> See: **Spectra Scan** (`/TEAM_CONSOLE5.0_MITSUBISHI/MECup`) for industrial hardware AI + PLC integration.
 
 ---
 
@@ -270,11 +348,32 @@ Food-themed web application for a client. TypeScript + React + Vite SPA. Compone
 
 **Stack:** TypeScript · React · Vite · TailwindCSS · shadcn/ui · Playwright · Bun
 
+> See also **MZHub Marketing Website** under Full-Stack Applications (freelance client project, shipped to production on Azure).
+
 ---
 
 ## Competitive Challenges
 
-> See **imc** (IMC Prosperity 5 algorithmic trading) above.
+### imc — IMC Prosperity 5 Algorithmic Trading
+**`/imc/Fantastics-of-Prosperity`** | Team Prosperity-Fantastics
+
+Algorithmic trading infrastructure and strategy repository for the IMC Prosperity 5 competition.
+
+**Strategies:**
+- **EMERALDS (Market Making):** Dynamic undercutting — scans L1 orderbook and quotes exactly 1 tick better than the closest existing liquidity (`best_bid + 1`, `best_ask − 1`). Monopolizes best placement to capture 7+ point spreads when taker bots arrive. Avoids static 2-tick-from-fair-value approach.
+- **TOMATOES (Mean Reversion):** Exploits −0.44 tick-to-tick autocorrelation. "Wall Mid" — finds deepest volume walls from designated market makers to anchor fair value (ignores easily-spoofed L1 mid). Order Book Imbalance (OBI) shifts FV ±1 point based on book lean. Aggressive position skew: as inventory rises, slash order size and shift required profit spread opposite to position ("spring" effect to prevent hitting ±80 limit).
+
+**Local backtester:** `backtest.py` — replays historic log data from `prices_round_0_day_*.csv` as offline orderbook simulation. Validates position logic and crashes without internet. Each round has its own `algorithm.py` (single-file `Trader` class) and `strategy_log.md` (PnL graph analysis + incremental improvements).
+
+**Repository structure:** `TUTORIAL_ROUND_1/`, `ROUND_1/` through `ROUND_5/` — each with algorithm, backtest, and strategy log. `neal_algo/` — team member's algorithm variant. `information.md` + algorithm documentation markdown files.
+
+**Stack:** Python · Custom orderbook simulation
+
+---
+
+## Business / Docs
+
+> **SIH** (Drug Inventory Tracking) — concept/documentation stage, see Hackathon Projects.
 
 ---
 
@@ -282,11 +381,14 @@ Food-themed web application for a client. TypeScript + React + Vite SPA. Compone
 
 | Category | Projects |
 |---|---|
-| Hackathon | LUMIN.AI (Hackamine), SOLV.ai (lakshya-ldce), SIH |
-| Full-Stack Apps | bloom, devtrack, MZHUB_FULL, au_ingenium, europa_2 |
-| AI / ML | SENTINEL, Survival AI, Spectra Scan (MECup), GDG solution, IMC Prosperity 5, TokenScope |
-| Freelance | PropSpace, Paratha singh |
+| Open Source | **contextrot (10K+ downloads)**, **devtrack (190+★, 1000+ merged PRs)**, KeepTrack, PyTorch + TensorFlow + Keras contributions |
+| Internship (Velino AI) | OmniVoice Voice Bot, Salesnix site+dashboard, Reputation Shield (Sociafy), Gauri voice agent, Flash/Priya voice agent |
+| Hackathon | LUMIN.AI (Winner, HackAMined), SOLV.ai (lakshya-ldce), Lunar Ice Detection (ISRO BAH), SIH |
+| Full-Stack Apps | bloom, MZHUB_FULL, au_ingenium, europa_2 |
+| AI / ML | SENTINEL (17★), Spectra Scan (Rank #4, MECup), GDG solution, TokenScope, Movie Recommender |
+| Freelance | MZHub, PropSpace, Foodie Fountain |
+| Competitive | IMC Prosperity 5 |
 
 ---
 
-*Priyanshu Doshi · Nirma University · Graduation 2028*
+*Priyanshu Doshi · Nirma University · Graduation 2028 · [Portfolio](https://portfolio-eta-gilt-84.vercel.app/)*

@@ -277,6 +277,18 @@ export const GitHub: React.FC = () => {
                 and validation fixes now live in <code>tensorflow/tensorflow</code>.
               </p>
             </div>
+            <div className="gh-upstream-org gh-upstream-divided">
+              <div className="gh-upstream-head">
+                {/* Keras mark */}
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="#d00000" aria-hidden="true"><path d="M24 0H0v24h24V0zM7.294 4.454v6.183l5.16-6.183h1.633l-4.792 5.72L14.4 19.546h-1.7l-4.34-8.13-1.066 1.24v6.89H5.94V4.454h1.354z"/></svg>
+                <a href="https://github.com/keras-team/keras" target="_blank" rel="noopener noreferrer" className="gh-upstream-repo">Keras</a>
+                <span className="gh-upstream-count">Contributor</span>
+              </div>
+              <p className="gh-upstream-note">
+                Merged a pull request into Keras — added input validation to
+                <code>LayerNormalization</code>, now in <code>keras-team/keras</code>.
+              </p>
+            </div>
           </div>
         </div>
       </div>

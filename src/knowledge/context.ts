@@ -79,6 +79,7 @@ OPEN SOURCE
 - contextrot — creator. Python CLI that measures where a coding agent starts degrading, from the user's own local session transcripts. 5 failure signals (edit failures, retry loops, re-reads, self-corrections, drift) correlated with context fill. 100% local, zero-config: uvx contextrot. 10,000+ downloads on PyPI. https://github.com/Priyanshu-byte-coder/contextrot
 - devtrack — founder & maintainer. Open-source developer productivity dashboard grown into a community project. 190+ stars, 430+ forks, 1,000+ merged PRs from community contributors. https://github.com/Priyanshu-byte-coder/devtrack
 - TensorFlow — 1 PR merged into tensorflow/tensorflow: #118322 tf.signal idct docstring + validation fixes (merged Jul 2026).
+- Keras — 1 PR merged into keras-team/keras: #23329 raise ValueError for out-of-bounds axis in LayerNormalization.build().
 - KeepTrack — creator. Chrome MV3 extension that captures "keep vs temporary" download intent at download time. Zero telemetry, fully local. https://github.com/Priyanshu-byte-coder/keeptrack
 - PyTorch — 3 PRs landed in pytorch/pytorch main (via pytorchmergebot): #183274 [amp] Add __all__ to torch.amp, #183279 [Docathon] rST→MyST conversion, #183273 [BE] B018 fixes. More PRs open in review.
 
