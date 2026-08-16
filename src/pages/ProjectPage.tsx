@@ -1,9 +1,10 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useMemo } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import './ProjectPage.css';
 import { PROJECT_BY_ID, nextProject } from '../projects-data';
 import { ProjectMotif } from '../components/ProjectMotif';
 import { useScrollReveal } from '../hooks/useScrollReveal';
+import { useSeo, SITE } from '../hooks/useSeo';
 
 /**
  * Media is discovered automatically: drop files into
@@ -43,11 +44,45 @@ export const ProjectPage: React.FC = () => {
   const { id } = useParams<{ id: string }>();
   const project = id ? PROJECT_BY_ID[id] : undefined;
 
-  useEffect(() => {
-    window.scrollTo(0, 0);
-    if (project) document.title = `${project.title} — Priyanshu Doshi`;
-    return () => { document.title = 'Priyanshu Doshi — AI & ML Engineer'; };
+  useEffect(() => { window.scrollTo(0, 0); }, [id]);
+
+  // Route-scoped structured data: the project as a CreativeWork/SoftwareApplication
+  // plus a breadcrumb trail (SEO + AEO).
+  const jsonLd = useMemo(() => {
+    if (!project) return undefined;
+    const isTool = /Tool|CLI|Extension|Desktop App|Developer/.test(project.category);
+    const url = `${SITE}/projects/${project.id}`;
+    return [
+      {
+        '@context': 'https://schema.org',
+        '@type': isTool ? 'SoftwareApplication' : 'CreativeWork',
+        name: project.title,
+        headline: project.subtitle,
+        description: project.summary,
+        url,
+        ...(isTool ? { applicationCategory: 'DeveloperApplication', operatingSystem: 'Cross-platform' } : {}),
+        keywords: project.tech.join(', '),
+        author: { '@type': 'Person', name: 'Priyanshu Doshi', url: SITE },
+        dateCreated: project.date,
+      },
+      {
+        '@context': 'https://schema.org',
+        '@type': 'BreadcrumbList',
+        itemListElement: [
+          { '@type': 'ListItem', position: 1, name: 'Home', item: `${SITE}/` },
+          { '@type': 'ListItem', position: 2, name: 'Projects', item: `${SITE}/projects` },
+          { '@type': 'ListItem', position: 3, name: project.title, item: url },
+        ],
+      },
+    ];
   }, [project]);
+
+  useSeo({
+    title: project ? `${project.title} — ${project.subtitle} | Priyanshu Doshi` : 'Project not found — Priyanshu Doshi',
+    description: project?.summary,
+    path: project ? `/projects/${project.id}` : '/projects',
+    jsonLd,
+  });
 
   if (!project) {
     return (

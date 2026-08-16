@@ -4,6 +4,20 @@ import './ProjectPage.css'; // shared header/footer styles
 import './ProjectsIndex.css';
 import { PROJECTS_CHRONO } from '../projects-data';
 import { useScrollReveal } from '../hooks/useScrollReveal';
+import { useSeo, SITE } from '../hooks/useSeo';
+
+const PROJECTS_LD = {
+  '@context': 'https://schema.org',
+  '@type': 'CollectionPage',
+  name: 'Projects — Priyanshu Doshi',
+  url: `${SITE}/projects`,
+  hasPart: PROJECTS_CHRONO.map((p) => ({
+    '@type': 'CreativeWork',
+    name: p.title,
+    url: `${SITE}/projects/${p.id}`,
+    dateCreated: p.date,
+  })),
+};
 
 function IndexRow({ p, i }: { p: (typeof PROJECTS_CHRONO)[number]; i: number }) {
   const [ref, visible] = useScrollReveal(0.05);
@@ -24,11 +38,13 @@ function IndexRow({ p, i }: { p: (typeof PROJECTS_CHRONO)[number]; i: number }) 
 }
 
 export const ProjectsIndex: React.FC = () => {
-  useEffect(() => {
-    window.scrollTo(0, 0);
-    document.title = 'Projects — Priyanshu Doshi';
-    return () => { document.title = 'Priyanshu Doshi — AI & ML Engineer'; };
-  }, []);
+  useEffect(() => { window.scrollTo(0, 0); }, []);
+  useSeo({
+    title: 'Projects — Priyanshu Doshi',
+    description: `All ${PROJECTS_CHRONO.length} projects by Priyanshu Doshi — industrial computer vision, edge AI, open-source developer tools, voice agents, and quant. Newest first.`,
+    path: '/projects',
+    jsonLd: PROJECTS_LD,
+  });
 
   return (
     <div className="pi-root">

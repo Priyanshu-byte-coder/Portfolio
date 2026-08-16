@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { SYSTEM_PROMPT } from '../knowledge/context';
 import { fetchGithubContext } from '../lib/github';
 import './Chat.css';
+import { useSeo } from '../hooks/useSeo';
 
 interface Message {
   id: string;
@@ -170,6 +171,12 @@ export const Chat: React.FC = () => {
   const bodyRef  = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
   const abortRef = useRef<AbortController | null>(null);
+
+  useSeo({
+    title: 'Chat with JARVIS — Priyanshu Doshi',
+    description: "Ask JARVIS, Priyanshu Doshi's portfolio assistant, about his projects, research, skills, experience, and open-source work.",
+    path: '/chat',
+  });
 
   // ── Boot animation ──────────────────────────────────────────────
   useEffect(() => {

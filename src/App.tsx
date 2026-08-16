@@ -16,10 +16,14 @@ import { Contact } from './sections/Contact';
 import { Chat } from './pages/Chat';
 import { ProjectPage } from './pages/ProjectPage';
 import { ProjectsIndex } from './pages/ProjectsIndex';
+import { useSeo } from './hooks/useSeo';
 
 function Portfolio() {
   const [loading, setLoading] = useState(true);
   const [revealed, setRevealed] = useState(false);
+
+  // Restore the home page's canonical/title/OG when navigating back from a route.
+  useSeo({ path: '/' });
 
   const handleLoadingComplete = useCallback(() => {
     setLoading(false);
