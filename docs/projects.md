@@ -1,7 +1,7 @@
 # All Projects — Priyanshu Doshi
 
 > Unified index of all projects. Priyanshu Doshi — AI/ML Engineer · Open-Source Maintainer · Nirma University (2028).
-> [LinkedIn](https://www.linkedin.com/in/priyanshu-doshi-21a54230a/) · [GitHub](https://github.com/Priyanshu-byte-coder) · [Portfolio](https://portfolio-eta-gilt-84.vercel.app/)
+> [LinkedIn](https://www.linkedin.com/in/priyanshu-doshi-21a54230a/) · [GitHub](https://github.com/Priyanshu-byte-coder) · [Portfolio](https://priyanshudoshi.netlify.app/)
 > Last updated: 17 July 2026.
 
 ---
@@ -78,7 +78,7 @@ Pull request merged into Keras — added input validation to `LayerNormalization
 
 ## Internship Work — Velino AI (2026)
 
-AI/ML Engineering Intern (remote, May 2026 – present). Five projects across voice AI agents and web products.
+AI/ML Engineering Intern (remote, Jun 2026 – Aug 2026). Five projects across voice AI agents and web products.
 
 ### OmniVoice Voice Bot *(self-hosted, WIP polish)*
 Self-hosted voice conversation pipeline using open-source models — no per-minute API cost for STT and TTS.
@@ -391,4 +391,4 @@ Algorithmic trading infrastructure and strategy repository for the IMC Prosperit
 
 ---
 
-*Priyanshu Doshi · Nirma University · Graduation 2028 · [Portfolio](https://portfolio-eta-gilt-84.vercel.app/)*
+*Priyanshu Doshi · Nirma University · Graduation 2028 · [Portfolio](https://priyanshudoshi.netlify.app/)*

@@ -5,10 +5,11 @@ import { EXPERIENCES } from '../data';
 
 const ExpItem: React.FC<{ exp: typeof EXPERIENCES[number]; delay: string; visible: boolean }> = ({ exp, delay, visible }) => {
   const [open, setOpen] = useState(false);
+  const hasDesc = exp.desc.trim().length > 0;
 
   return (
     <div
-      className={`exp-item reveal ${visible ? 'visible' : ''} ${open ? 'exp-open' : ''}`}
+      className={`exp-item reveal ${visible ? 'visible' : ''} ${open && hasDesc ? 'exp-open' : ''}`}
       style={{ transitionDelay: delay }}
       onMouseEnter={() => setOpen(true)}
       onMouseLeave={() => setOpen(false)}
@@ -20,11 +21,13 @@ const ExpItem: React.FC<{ exp: typeof EXPERIENCES[number]; delay: string; visibl
             <div className="exp-role">{exp.role}</div>
             <div className="exp-company">{exp.company} <span className="exp-type">· {exp.type}</span></div>
           </div>
-          <span className={`exp-chevron ${open ? 'exp-chevron-open' : ''}`}>▾</span>
+          {hasDesc && <span className={`exp-chevron ${open ? 'exp-chevron-open' : ''}`}>▾</span>}
         </div>
-        <div className={`exp-details ${open ? 'exp-details-open' : ''}`}>
-          <p className="exp-desc">{exp.desc}</p>
-        </div>
+        {hasDesc && (
+          <div className={`exp-details ${open ? 'exp-details-open' : ''}`}>
+            <p className="exp-desc">{exp.desc}</p>
+          </div>
+        )}
       </div>
     </div>
   );

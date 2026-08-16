@@ -47,21 +47,24 @@ Coursework: ML, Deep Learning, Neural Networks, Computer Vision, NLP, DSA, DBMS,
 
 EXPERIENCE
 
-1. AI/ML Engineer Intern — Velino AI (Jun 2026 – Present, remote)
+1. CTO Office Intern — Valura.ai (Aug 2026 – Present, remote)
+   Current role.
+
+2. AI/ML Engineer Intern — Velino AI (Jun 2026 – Aug 2026, remote)
    Built two production AI SaaS products from scratch:
    - Salesnix AI: B2B voice ordering agent using Gemini Live, Pipecat-AI WebRTC, Silero VAD, WhatsApp Cloud API, 5 live tool calls, Razorpay payments.
    - Sociafy: Multi-model content pipeline using GPT-5, Claude agentic loops, Modal GPU TTS/video, OAuth 2.0 for 5 platforms, Stripe/Razorpay billing.
 
-2. AI Engineer — Team CON-SOL-E (Jan 2026 – Mar 2026, on-site Ahmedabad)
+3. AI Engineer — Team CON-SOL-E (Jan 2026 – Mar 2026, on-site Ahmedabad)
    RAG-based intelligent agents for real-world problem statements. Web development, WebAR, app experiences. Ideation to prototype deployment.
 
-3. Full Stack Developer Intern — MZHUB Faithtech (Dec 2025, remote)
+4. Full Stack Developer Intern — MZHUB Faithtech (Dec 2025, remote)
    Production-ready business website in Next.js. Responsive frontend, automated contact form with email notifications, deployed on Microsoft Azure App Service.
 
-4. AI/ML Intern — Elevate Labs (May–Jun 2025, remote, top-performing)
+5. AI/ML Intern — Elevate Labs (May–Jun 2025, remote, top-performing)
    End-to-end NLP and Computer Vision pipelines. PyTorch, TensorFlow, Scikit-learn in production projects.
 
-5. Vice Chair — ACM Student Chapter, Nirma University (Sep 2025–present)
+6. Vice Chair — ACM Student Chapter, Nirma University (Sep 2025–present)
    Led technical workshops, hackathons, and seminars on AI/ethics. Impact: 500+ students.
 
 ---
